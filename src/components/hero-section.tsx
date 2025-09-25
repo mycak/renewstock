@@ -2,18 +2,21 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 import { ScrambleText } from '@/components/ui/scramble-text';
 import { TypewriterText } from '@/components/ui/typewriter-text';
 import { H1, H2, P } from '@/components/ui/typography';
 
 export const HeroSection: React.FC = () => {
+  const { t } = useTranslation('common');
+
   return (
     <section className='min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-white text-black'>
       {/* Animated Logo */}
       <div className='mb-16'>
         <Image
           src='/logo/animated-logo.gif'
-          alt='RenewStock Animated Logo'
+          alt={t('hero.logo_alt')}
           width={400}
           height={280}
           priority
@@ -30,7 +33,9 @@ export const HeroSection: React.FC = () => {
         >
           <div className='whitespace-nowrap'>
             <ScrambleText
-              text='THE CIRCULAR PARTNER YOU'
+              text={`${t('hero.main_header.line1')} ${t(
+                'hero.main_header.partner'
+              )} ${t('hero.main_header.line1_end')}`}
               delay={0}
               duration={2.4}
               chars='upperCase'
@@ -43,7 +48,7 @@ export const HeroSection: React.FC = () => {
 
           <div className='whitespace-nowrap'>
             <ScrambleText
-              text="DIDN'T KNOW YOU NEEDED"
+              text={t('hero.main_header.line2')}
               delay={0}
               duration={2}
               chars='upperCase'
@@ -62,15 +67,9 @@ export const HeroSection: React.FC = () => {
             style={{ fontSize: 'clamp(1.25rem, 2.5vw, 2.5rem)' }}
           >
             <TypewriterText
-              texts={[
-                'TRANSFORMING',
-                'OVERSTOCK',
-                'AND',
-                'RETURNS',
-                'INTO',
-                'PERFORMANCE',
-                'ASSETS.',
-              ]}
+              texts={
+                t('hero.subheader.words', { returnObjects: true }) as string[]
+              }
               delay={0.5}
               typingSpeed={0.1}
               showCursor={true}
@@ -83,7 +82,7 @@ export const HeroSection: React.FC = () => {
           <div className='pt-6'>
             <P className='text-sm md:text-base lg:text-lg font-medium text-gray-700'>
               <ScrambleText
-                text='*NOT A LIQUIDATION HOUSE.'
+                text={t('hero.disclaimer.line1')}
                 delay={4}
                 duration={1.5}
                 chars='upperCase'
@@ -93,7 +92,7 @@ export const HeroSection: React.FC = () => {
                 as='span'
               />
               <ScrambleText
-                text='A REVENUE ENGINE.'
+                text={t('hero.disclaimer.line2')}
                 delay={5}
                 duration={1.5}
                 chars='upperCase'

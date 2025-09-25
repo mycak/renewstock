@@ -1,4 +1,5 @@
 import '@/styles/globals.css';
+import '@/lib/i18n'; // Initialize i18n
 import type { AppProps } from 'next/app';
 import { Geist, Geist_Mono, Anton } from 'next/font/google';
 
