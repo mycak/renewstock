@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "logo_alt": "RenewStock Animated Logo",
+    "main_header": {
+      "line1": "THE CIRCULAR",
+      "partner": "PARTNER",
+      "line1_end": "YOU",
+      "line2": "DIDN'T KNOW YOU NEEDED"
+    },
+    "subheader": {
+      "words": [
+        "TRANSFORMING",
+        "OVERSTOCK",
+        "AND",
+        "RETURNS",
+        "INTO",
+        "PERFORMANCE",
+        "ASSETS."
+      ]
+    },
+    "disclaimer": {
+      "line1": "*NOT A LIQUIDATION HOUSE.",
+      "line2": "A REVENUE ENGINE."
+    }
+  }
+}

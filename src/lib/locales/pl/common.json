@@ -1,0 +1,25 @@
+{
+  "hero": {
+    "logo_alt": "RenewStock Animowane Logo",
+    "main_header": {
+      "line1": "GOSPODARKI",
+      "partner": "PARTNER",
+      "line1_end": "OBIEGU ZAMKNIĘTEGO",
+      "line2": "KTÓREGO POTRZEBOWAŁEŚ"
+    },
+    "subheader": {
+      "words": [
+        "PRZEKSZTAŁCAMY",
+        "NADWYŻKI",
+        "I ZWROTY",
+        "W AKTYWA",
+        "ZWIĘKSZAJĄCE",
+        "WYDAJNOŚĆ."
+      ]
+    },
+    "disclaimer": {
+      "line1": "*TO NIE DOM LIKWIDACYJNY.",
+      "line2": "TO SILNIK PRZYCHODÓW."
+    }
+  }
+}

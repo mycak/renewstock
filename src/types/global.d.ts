@@ -16,3 +16,9 @@ declare module '*.sass' {
 
 // Specific path alias CSS declarations
 declare module '@/styles/*';
+
+// JSON module declarations
+declare module '*.json' {
+  const content: Record<string, unknown>;
+  export default content;
+}
