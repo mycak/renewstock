@@ -28,8 +28,11 @@ export const HeroSection: React.FC = () => {
       {/* Main Header */}
       <div className='text-center max-w-6xl mx-auto space-y-8'>
         <H1
-          className='font-black leading-tight tracking-tight'
-          style={{ fontSize: 'clamp(2.5rem, 5vw, 6rem)' }}
+          className='font-black tracking-tight'
+          style={{
+            fontSize: 'clamp(2.5rem, 5vw, 6rem)',
+            lineHeight: 'clamp(2.2rem, 4.5vw, 5.4rem)',
+          }}
         >
           <div className='whitespace-nowrap'>
             <ScrambleText
@@ -41,7 +44,7 @@ export const HeroSection: React.FC = () => {
               chars='upperCase'
               speed={0.6}
               revealDelay={0}
-              className='block leading-13'
+              className='block'
               as='span'
             />
           </div>
@@ -54,7 +57,7 @@ export const HeroSection: React.FC = () => {
               chars='upperCase'
               speed={0.7}
               revealDelay={0}
-              className='block leading-13'
+              className='block'
               as='span'
             />
           </div>
@@ -88,7 +91,7 @@ export const HeroSection: React.FC = () => {
                 chars='upperCase'
                 speed={0.5}
                 revealDelay={0.3}
-                className='block mb-2'
+                className='block mb-2 text-purple-600 text-sm font-bold'
                 as='span'
               />
               <ScrambleText
