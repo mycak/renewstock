@@ -18,7 +18,9 @@
       ]
     },
     "disclaimer": {
-      "line1": "*TO NIE DOM LIKWIDACYJNY.",
+      "line1_start": "*TO NIE ",
+      "line1_highlight": "DOM LIKWIDACYJNY",
+      "line1_end": ".",
       "line2": "TO SILNIK PRZYCHODÓW."
     }
   }

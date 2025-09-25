@@ -19,7 +19,9 @@
       ]
     },
     "disclaimer": {
-      "line1": "*NOT A LIQUIDATION HOUSE.",
+      "line1_start": "*NOT A ",
+      "line1_highlight": "LIQUIDATION HOUSE",
+      "line1_end": ".",
       "line2": "A REVENUE ENGINE."
     }
   }

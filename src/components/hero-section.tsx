@@ -13,7 +13,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section className='min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-white text-black'>
       {/* Animated Logo */}
-      <div className='mb-16'>
+      <div className='mb-8 md:mb-16'>
         <Image
           src='/logo/animated-logo.gif'
           alt={t('hero.logo_alt')}
@@ -26,15 +26,9 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* Main Header */}
-      <div className='text-center max-w-6xl mx-auto space-y-8'>
-        <H1
-          className='font-black tracking-tight'
-          style={{
-            fontSize: 'clamp(2.5rem, 5vw, 6rem)',
-            lineHeight: 'clamp(2.2rem, 4.5vw, 5.4rem)',
-          }}
-        >
-          <div className='whitespace-nowrap'>
+      <div className='text-center max-w-6xl mx-auto space-y-12 md:space-y-8'>
+        <H1 className='font-black tracking-tight px-2 text-center md:text-5xl lg:text-6xl text-[clamp(1.5rem, 8vw, 2.4rem)] md:text-[clamp(2.5rem, 5vw, 6rem)] leading-[clamp(1.4rem, 7.2vw, 2.2rem)] md:leading-[clamp(2.2rem, 4.5vw, 5.4rem)]'>
+          <div className='break-words hyphens-auto max-w-full overflow-hidden md:whitespace-nowrap'>
             <ScrambleText
               text={`${t('hero.main_header.line1')} ${t(
                 'hero.main_header.partner'
@@ -44,12 +38,12 @@ export const HeroSection: React.FC = () => {
               chars='upperCase'
               speed={0.6}
               revealDelay={0}
-              className='block'
+              className='block leading-none'
               as='span'
             />
           </div>
 
-          <div className='whitespace-nowrap'>
+          <div className='break-words hyphens-auto max-w-full overflow-hidden md:whitespace-nowrap'>
             <ScrambleText
               text={t('hero.main_header.line2')}
               delay={0}
@@ -57,18 +51,15 @@ export const HeroSection: React.FC = () => {
               chars='upperCase'
               speed={0.7}
               revealDelay={0}
-              className='block'
+              className='block leading-none'
               as='span'
             />
           </div>
         </H1>
 
         {/* Subheader */}
-        <div className='space-y-6 max-w-3/5 mx-auto'>
-          <H2
-            className='font-bold leading-tight max-w'
-            style={{ fontSize: 'clamp(1.25rem, 2.5vw, 2.5rem)' }}
-          >
+        <div className='space-y-6 w-4/5 md:max-w-3/5 mx-auto'>
+          <H2 className='font-bold leading-tight max-w text-[clamp(1rem, 2.5vw, 2.5rem)] md:text-[clamp(1.25rem, 2.5vw, 2.5rem)]'>
             <TypewriterText
               texts={
                 t('hero.subheader.words', { returnObjects: true }) as string[]
@@ -83,28 +74,52 @@ export const HeroSection: React.FC = () => {
 
           {/* Disclaimer - smaller text */}
           <div className='pt-6'>
-            <P className='text-sm md:text-base lg:text-lg font-medium text-gray-700'>
-              <ScrambleText
-                text={t('hero.disclaimer.line1')}
-                delay={4}
-                duration={1.5}
-                chars='upperCase'
-                speed={0.5}
-                revealDelay={0.3}
-                className='block mb-2 text-purple-600 text-sm font-bold'
-                as='span'
-              />
-              <ScrambleText
-                text={t('hero.disclaimer.line2')}
-                delay={5}
-                duration={1.5}
-                chars='upperCase'
-                speed={0.4}
-                revealDelay={0.2}
-                className='block font-bold'
-                as='span'
-              />
-            </P>
+            <div className='text-sm md:text-base lg:text-lg font-medium text-gray-700'>
+              <P className='mb-2 text-sm font-bold'>
+                <ScrambleText
+                  text={t('hero.disclaimer.line1_start')}
+                  delay={4}
+                  duration={1}
+                  chars='upperCase'
+                  speed={0.5}
+                  revealDelay={0.3}
+                  className='inline'
+                  as='span'
+                />
+                <ScrambleText
+                  text={t('hero.disclaimer.line1_highlight')}
+                  delay={4.5}
+                  duration={1.5}
+                  chars='upperCase'
+                  speed={0.5}
+                  revealDelay={0.3}
+                  className='inline text-purple-600'
+                  as='span'
+                />
+                <ScrambleText
+                  text={t('hero.disclaimer.line1_end')}
+                  delay={5.5}
+                  duration={0.5}
+                  chars='upperCase'
+                  speed={0.5}
+                  revealDelay={0.3}
+                  className='inline'
+                  as='span'
+                />
+              </P>
+              <P className='font-bold'>
+                <ScrambleText
+                  text={t('hero.disclaimer.line2')}
+                  delay={6}
+                  duration={1.5}
+                  chars='upperCase'
+                  speed={0.4}
+                  revealDelay={0.2}
+                  className='inline'
+                  as='span'
+                />
+              </P>
+            </div>
           </div>
         </div>
       </div>
