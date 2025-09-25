@@ -10,7 +10,12 @@ interface ScrambleTextProps {
   duration?: number;
   className?: string;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div';
-  scrambleChars?: string;
+  chars?: string; // "upperCase", "lowerCase", "upperAndLowerCase", or custom string
+  speed?: number; // How frequently scrambled characters refresh
+  revealDelay?: number; // Delay before revealing starts
+  rightToLeft?: boolean; // Reveal from right to left
+  delimiter?: string; // Character delimiter for word-by-word reveal
+  tweenLength?: boolean; // Whether to gradually tween length difference
 }
 
 export const ScrambleText: React.FC<ScrambleTextProps> = ({
@@ -19,13 +24,23 @@ export const ScrambleText: React.FC<ScrambleTextProps> = ({
   duration = 2,
   className,
   as: Component = 'span',
-  scrambleChars,
+  chars,
+  speed,
+  revealDelay,
+  rightToLeft,
+  delimiter,
+  tweenLength,
 }) => {
   const elementRef = useScrambleText({
     text,
     delay,
     duration,
-    scrambleChars,
+    chars,
+    speed,
+    revealDelay,
+    rightToLeft,
+    delimiter,
+    tweenLength,
   });
 
   return React.createElement(

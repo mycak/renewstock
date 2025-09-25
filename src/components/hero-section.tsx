@@ -31,17 +31,24 @@ export const HeroSection: React.FC = () => {
           <div className='whitespace-nowrap'>
             <ScrambleText
               text='THE CIRCULAR PARTNER YOU'
-              delay={0.5}
-              duration={3}
+              delay={0}
+              duration={2.4}
+              chars='upperCase'
+              speed={0.6}
+              revealDelay={0}
               className='block leading-13'
               as='span'
             />
           </div>
+
           <div className='whitespace-nowrap'>
             <ScrambleText
               text="DIDN'T KNOW YOU NEEDED"
-              delay={2}
-              duration={3}
+              delay={0}
+              duration={2}
+              chars='upperCase'
+              speed={0.7}
+              revealDelay={0}
               className='block leading-13'
               as='span'
             />
@@ -49,9 +56,9 @@ export const HeroSection: React.FC = () => {
         </H1>
 
         {/* Subheader */}
-        <div className='space-y-6'>
+        <div className='space-y-6 max-w-3/5 mx-auto'>
           <H2
-            className='font-bold leading-tight'
+            className='font-bold leading-tight max-w'
             style={{ fontSize: 'clamp(1.25rem, 2.5vw, 2.5rem)' }}
           >
             <TypewriterText
@@ -64,7 +71,7 @@ export const HeroSection: React.FC = () => {
                 'PERFORMANCE',
                 'ASSETS.',
               ]}
-              delay={4.5}
+              delay={0.5}
               typingSpeed={0.1}
               showCursor={true}
               className=''
@@ -77,15 +84,21 @@ export const HeroSection: React.FC = () => {
             <P className='text-sm md:text-base lg:text-lg font-medium text-gray-700'>
               <ScrambleText
                 text='*NOT A LIQUIDATION HOUSE.'
-                delay={5.5}
-                duration={2}
+                delay={4}
+                duration={1.5}
+                chars='upperCase'
+                speed={0.5}
+                revealDelay={0.3}
                 className='block mb-2'
                 as='span'
               />
               <ScrambleText
                 text='A REVENUE ENGINE.'
-                delay={6}
-                duration={2}
+                delay={5}
+                duration={1.5}
+                chars='upperCase'
+                speed={0.4}
+                revealDelay={0.2}
                 className='block font-bold'
                 as='span'
               />
