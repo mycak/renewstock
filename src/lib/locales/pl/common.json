@@ -23,5 +23,15 @@
       "line1_end": ".",
       "line2": "TO SILNIK PRZYCHODÓW."
     }
+  },
+  "defines_us": {
+    "header": "CO NAS WYRÓŻNIA?",
+    "features": {
+      "real_resale_performance": "RZECZYWISTA WYDAJNOŚĆ ODSPRZEDAŻY",
+      "end_to_end_control": "PEŁNA KONTROLA PROCESU",
+      "no_market_leakage": "BRAK PRZECIEKÓW RYNKOWYCH",
+      "elevated_circularity": "PODWYŻSZONA CYRKULARNOŚĆ",
+      "we_pay_upfront": "PŁACIMY Z GÓRY"
+    }
   }
 }

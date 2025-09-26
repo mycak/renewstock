@@ -1,0 +1,143 @@
+'use client';
+
+import React, { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
+import { gsap } from 'gsap';
+import { SplitText } from 'gsap/SplitText';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { H2, H3 } from '@/components/ui/typography';
+
+// Register GSAP plugins
+gsap.registerPlugin(SplitText, ScrollTrigger);
+
+export const DefinesUsSection: React.FC = () => {
+  const { t } = useTranslation('common');
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLHeadingElement>(null);
+  const featuresRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const header = headerRef.current;
+    const features = featuresRef.current;
+
+    if (!section || !header || !features) return;
+
+    // Create GSAP timeline with ScrollTrigger
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 70%',
+        end: 'bottom 30%',
+        toggleActions: 'play none none reverse',
+      },
+    });
+
+    // Split header text - words only
+    const headerSplit = SplitText.create(header, {
+      type: 'words',
+      wordsClass: 'split-word',
+    });
+
+    // Animate header words
+    tl.from(headerSplit.words, {
+      duration: 0.8,
+      y: 100,
+      autoAlpha: 0,
+      stagger: 0.1,
+      ease: 'power2.out',
+    });
+
+    // Split feature text elements - words only
+    const featureElements = features.querySelectorAll('.feature-text');
+
+    featureElements.forEach((element) => {
+      const split = SplitText.create(element, {
+        type: 'words',
+        wordsClass: 'split-word',
+      });
+
+      // Animate each feature's words with stagger
+      tl.from(
+        split.words,
+        {
+          duration: 0.8,
+          y: 80,
+          autoAlpha: 0,
+          stagger: 0.08,
+          ease: 'power2.out',
+        },
+        `-=${0.4}`
+      ); // Overlap with previous animation
+
+      // Add highlight effect to the first word after animation
+      const highlightedWord = element.querySelector('.highlighted-word');
+      if (highlightedWord) {
+        tl.to(
+          highlightedWord,
+          {
+            duration: 0.5,
+            background:
+              'linear-gradient(120deg, transparent 0%, transparent 30%, #a855f7 10%, #fde68a 100%)',
+            backgroundSize: '200% 100%',
+            backgroundPosition: '100% 0',
+            ease: 'power2.inOut',
+          },
+          '-=0.2'
+        );
+      }
+    });
+
+    // Cleanup function
+    return () => {
+      headerSplit?.revert();
+      featureElements.forEach((element) => {
+        const split = SplitText.create(element, { type: 'words' });
+        split.revert();
+      });
+    };
+  }, []);
+
+  const features = [
+    'defines_us.features.real_resale_performance',
+    'defines_us.features.end_to_end_control',
+    'defines_us.features.no_market_leakage',
+    'defines_us.features.elevated_circularity',
+    'defines_us.features.we_pay_upfront',
+  ];
+
+  return (
+    <section ref={sectionRef} className='py-20 px-4 bg-white'>
+      <div className='max-w-6xl mx-auto text-center'>
+        {/* Header */}
+        <H2
+          ref={headerRef}
+          className='font-black text-3xl md:text-4xl lg:text-5xl mb-12 tracking-tight'
+        >
+          {t('defines_us.header')}
+        </H2>
+
+        {/* Features Grid */}
+        <div ref={featuresRef} className='space-y-4 md:space-y-6'>
+          {features.map((featureKey, index) => {
+            const featureText = t(featureKey);
+            // Split the text to highlight the first word/phrase
+            const words = featureText.split(' ');
+            const firstWord = words[0];
+            const restOfText = words.slice(1).join(' ');
+
+            return (
+              <H3
+                key={index}
+                className='feature-text font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight'
+              >
+                <span className='highlighted-word relative'>{firstWord}</span>
+                {restOfText && <span> {restOfText}</span>}
+              </H3>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};

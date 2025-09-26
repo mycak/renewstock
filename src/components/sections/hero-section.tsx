@@ -27,7 +27,7 @@ export const HeroSection: React.FC = () => {
 
       {/* Main Header */}
       <div className='text-center max-w-6xl mx-auto space-y-12 md:space-y-8'>
-        <H1 className='font-black tracking-tight px-2 text-center md:text-5xl lg:text-6xl text-[clamp(1.5rem, 8vw, 2.4rem)] md:text-[clamp(2.5rem, 5vw, 6rem)] leading-[clamp(1.4rem, 7.2vw, 2.2rem)] md:leading-[clamp(2.2rem, 4.5vw, 5.4rem)]'>
+        <H1 className='font-black tracking-tight px-2 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight md:leading-none mb-2'>
           <div className='break-words hyphens-auto max-w-full overflow-hidden md:whitespace-nowrap'>
             <ScrambleText
               text={`${t('hero.main_header.line1')} ${t(
@@ -59,14 +59,14 @@ export const HeroSection: React.FC = () => {
 
         {/* Subheader */}
         <div className='space-y-6 w-4/5 md:max-w-3/5 mx-auto'>
-          <H2 className='font-bold leading-tight max-w text-[clamp(1rem, 2.5vw, 2.5rem)] md:text-[clamp(1.25rem, 2.5vw, 2.5rem)]'>
+          <H2 className='font-bold leading-tight text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl'>
             <TypewriterText
               texts={
                 t('hero.subheader.words', { returnObjects: true }) as string[]
               }
               delay={0.5}
-              typingSpeed={0.1}
-              showCursor={true}
+              typingSpeed={0.05}
+              showCursor={false}
               className=''
               as='span'
             />
@@ -88,8 +88,8 @@ export const HeroSection: React.FC = () => {
                 />
                 <ScrambleText
                   text={t('hero.disclaimer.line1_highlight')}
-                  delay={4.5}
-                  duration={1.5}
+                  delay={0.5}
+                  duration={5.5}
                   chars='upperCase'
                   speed={0.5}
                   revealDelay={0.3}

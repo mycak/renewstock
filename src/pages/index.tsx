@@ -1,4 +1,5 @@
-import { HeroSection } from '@/components/hero-section';
+import { HeroSection } from '@/components/sections/hero-section';
+import { DefinesUsSection } from '@/components/sections/defines-us-section';
 import { LanguageSwitcher } from '@/components/language-switcher';
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main>
       <LanguageSwitcher />
       <HeroSection />
+      <DefinesUsSection />
     </main>
   );
 }

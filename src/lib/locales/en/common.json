@@ -24,5 +24,15 @@
       "line1_end": ".",
       "line2": "A REVENUE ENGINE."
     }
+  },
+  "defines_us": {
+    "header": "WHAT DEFINES US?",
+    "features": {
+      "real_resale_performance": "REAL RESALE PERFORMANCE",
+      "end_to_end_control": "END-TO-END CONTROL",
+      "no_market_leakage": "NO MARKET LEAKAGE",
+      "elevated_circularity": "ELEVATED CIRCULARITY",
+      "we_pay_upfront": "WE PAY UPFRONT"
+    }
   }
 }
