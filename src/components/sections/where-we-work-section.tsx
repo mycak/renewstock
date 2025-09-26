@@ -70,6 +70,7 @@ export const WhereWeWorkSection: React.FC = () => {
     const regionElements = regions.querySelectorAll('.region-item');
 
     regionElements.forEach((element) => {
+      // Animate region appearance
       tl.from(
         element,
         {
@@ -80,6 +81,21 @@ export const WhereWeWorkSection: React.FC = () => {
         },
         `-=${0.6}`
       ); // Overlap with previous animation
+
+      // Animate underline after region appears
+      const underline = element.querySelector('.region-underline');
+      if (underline) {
+        tl.from(
+          underline,
+          {
+            duration: 0.8,
+            scaleX: 0,
+            transformOrigin: 'left',
+            ease: 'power2.out',
+          },
+          '-=0.4'
+        ); // Start slightly before region animation ends
+      }
     });
 
     // Cleanup function
@@ -117,18 +133,25 @@ export const WhereWeWorkSection: React.FC = () => {
   ];
 
   return (
-    <section
-      ref={sectionRef}
-      className='relative py-20 px-4 bg-gray-50 overflow-hidden'
-    >
-      {/* Lottie Background */}
-      <div className='absolute inset-0 opacity-20'>
-        <Lottie
-          animationData={worldMapAnimation}
-          loop={true}
-          autoplay={true}
-          className='w-full h-full object-cover'
-        />
+    <section ref={sectionRef} className='relative py-20 px-4 overflow-hidden'>
+      {/* Lottie Background with Edge Fade Effect */}
+      <div className='absolute inset-0 flex items-center justify-center'>
+        <div className='relative w-4/5 md:w-[70vw] max-w-[1300px] h-full'>
+          <Lottie
+            animationData={worldMapAnimation}
+            loop={true}
+            autoplay={true}
+            className='w-full h-full object-contain opacity-20'
+          />
+          {/* Left edge fade */}
+          <div className='absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent'></div>
+          {/* Right edge fade */}
+          <div className='absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent'></div>
+          {/* Top edge fade */}
+          <div className='absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white to-transparent'></div>
+          {/* Bottom edge fade */}
+          <div className='absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white to-transparent'></div>
+        </div>
       </div>
 
       {/* Content */}
@@ -145,19 +168,18 @@ export const WhereWeWorkSection: React.FC = () => {
         <Separator className='separator w-24 mx-auto mb-12 h-1 bg-gray-800' />
 
         {/* Regions Grid */}
-        <div
-          ref={regionsRef}
-          className='grid gap-8 md:gap-12 max-w-4xl mx-auto'
-        >
+        <div ref={regionsRef} className='grid gap-4 max-w-2xl mx-auto'>
           {regions.map((region, index) => (
             <div
               key={index}
-              className='region-item text-left bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg'
+              className='region-item text-center bg-transparent backdrop-blur-sm rounded-lg p-4 border border-black'
             >
-              <h3 className='font-bold text-xl md:text-2xl mb-3 text-gray-800'>
+              <h3 className='font-bold text-xl md:text-2xl mb-2 text-gray-800 relative inline-block'>
                 {t(region.title)}
+                {/* Purple underline from 30% to 100% width */}
+                <div className='region-underline absolute bottom-0 left-[-3%] right-[-3%] h-[2px] bg-purple-500'></div>
               </h3>
-              <P className='text-gray-700 leading-relaxed'>
+              <P className='text-gray-700 leading-relaxed mt-0!'>
                 {t(region.description)}
               </P>
             </div>
