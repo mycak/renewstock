@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H2, H3 } from '@/components/ui/typography';
+import { Separator } from '@/components/ui/separator';
 
 // Register GSAP plugins
 gsap.registerPlugin(SplitText, ScrollTrigger);
@@ -48,6 +49,21 @@ export const DefinesUsSection: React.FC = () => {
       ease: 'power2.out',
     });
 
+    // Animate separator after header
+    const separator = section.querySelector('.separator');
+    if (separator) {
+      tl.from(
+        separator,
+        {
+          duration: 0.6,
+          scaleX: 0,
+          transformOrigin: 'center',
+          ease: 'power2.out',
+        },
+        '-=0.2'
+      );
+    }
+
     // Split feature text elements - words only
     const featureElements = features.querySelectorAll('.feature-text');
 
@@ -57,7 +73,7 @@ export const DefinesUsSection: React.FC = () => {
         wordsClass: 'split-word',
       });
 
-      // Animate each feature's words with stagger
+      // Animate each feature's words with stagger - only word appearance
       tl.from(
         split.words,
         {
@@ -69,23 +85,6 @@ export const DefinesUsSection: React.FC = () => {
         },
         `-=${0.4}`
       ); // Overlap with previous animation
-
-      // Add highlight effect to the first word after animation
-      const highlightedWord = element.querySelector('.highlighted-word');
-      if (highlightedWord) {
-        tl.to(
-          highlightedWord,
-          {
-            duration: 0.5,
-            background:
-              'linear-gradient(120deg, transparent 0%, transparent 30%, #a855f7 10%, #fde68a 100%)',
-            backgroundSize: '200% 100%',
-            backgroundPosition: '100% 0',
-            ease: 'power2.inOut',
-          },
-          '-=0.2'
-        );
-      }
     });
 
     // Cleanup function
@@ -112,10 +111,13 @@ export const DefinesUsSection: React.FC = () => {
         {/* Header */}
         <H2
           ref={headerRef}
-          className='font-black text-3xl md:text-3xl mb-12 tracking-tight'
+          className='font-black text-3xl md:text-3xl tracking-tight border-none'
         >
           {t('defines_us.header')}
         </H2>
+
+        {/* Separator */}
+        <Separator className='separator w-24 mx-auto mb-12 h-1 bg-black' />
 
         {/* Features Grid */}
         <div ref={featuresRef} className='space-y-4 md:space-y-6'>
@@ -129,10 +131,14 @@ export const DefinesUsSection: React.FC = () => {
             return (
               <H3
                 key={index}
-                className='feature-text font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight'
+                className='feature-text font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight text-gray-800'
               >
-                <span className='highlighted-word relative'>{firstWord}</span>
-                {restOfText && <span> {restOfText}</span>}
+                <span className='highlighted-word relative bg-gradient-to-r from-purple-400 via-purple-500 to-purple-300 text-gray-800 px-2 py-1 rounded'>
+                  {firstWord}
+                </span>
+                {restOfText && (
+                  <span className='text-gray-800'> {restOfText}</span>
+                )}
               </H3>
             );
           })}
