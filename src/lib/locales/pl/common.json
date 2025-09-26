@@ -35,7 +35,7 @@
     }
   },
   "where_we_work": {
-    "header": "GDZIE DZIAŁAMY — I WYGRYWAMY:",
+    "header": "GDZIE DZIAŁAMY — I WYGRYWAMY",
     "regions": {
       "uk": {
         "title": "Wielka Brytania",
@@ -57,6 +57,16 @@
         "title": "Europa Wschodnia i kraje rosyjskojęzyczne",
         "description": "Znamy zasady, graczy i ścieżki (Centrum sortowania i wysyłki w Gruzji)"
       }
+    }
+  },
+  "contact": {
+    "header": "KONTAKT",
+    "description": {
+      "partner_not_solver": "PARTNER, A NIE ROZWIĄZYWACZ PROBLEMÓW.",
+      "dont_need_fix": "NIE MUSISZ NAPRAWIAĆ NADWYŻEK. MUSISZ ZROBIĆ Z NIMI COŚ LEPSZEGO.",
+      "resale_redefined": "ODSPRZEDAŻ NA NOWO. STRATEGICZNA. TRANSPARENTNA. NIEZAWODNA. ZBUDUJMY ODSPRZEDAŻ W TWOIM BIZNESIE — TAK, JAK POWINNA BYĆ.",
+      "phone_label": "TELEFON",
+      "email_label": "EMAIL"
     }
   }
 }

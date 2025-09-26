@@ -36,7 +36,7 @@
     }
   },
   "where_we_work": {
-    "header": "WHERE WE WORK — AND WIN:",
+    "header": "WHERE WE WORK — AND WIN",
     "regions": {
       "uk": {
         "title": "UK",
@@ -58,6 +58,16 @@
         "title": "Eastern Europe & Russian-speaking countries",
         "description": "We know the rules, the players, and the pathways (Sort & ship hub in Georgia)"
       }
+    }
+  },
+  "contact": {
+    "header": "CONTACT",
+    "description": {
+      "partner_not_solver": "A PARTNER, NOT A PROBLEM SOLVER.",
+      "dont_need_fix": "YOU DON'T NEED TO FIX OVERSTOCK. YOU NEED TO DO SOMETHING BETTER WITH IT.",
+      "resale_redefined": "RESALE, REDEFINED. STRATEGIC. TRANSPARENT. RELIABLE. LET'S BUILD RESALE INTO YOUR BUSINESS — THE WAY IT SHOULD BE.",
+      "phone_label": "PHONE",
+      "email_label": "EMAIL"
     }
   }
 }

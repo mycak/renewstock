@@ -27,7 +27,7 @@ export const HeroSection: React.FC = () => {
 
       {/* Main Header */}
       <div className='text-center max-w-6xl mx-auto space-y-12 md:space-y-8'>
-        <H1 className='font-black tracking-tight px-2 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight md:leading-none mb-2'>
+        <H1 className='font-black tracking-tighter px-2 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight md:leading-none mb-2 '>
           <div className='break-words hyphens-auto max-w-full overflow-hidden md:whitespace-nowrap'>
             <ScrambleText
               text={`${t('hero.main_header.line1')} ${t(
