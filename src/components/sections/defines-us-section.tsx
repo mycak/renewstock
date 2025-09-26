@@ -112,7 +112,7 @@ export const DefinesUsSection: React.FC = () => {
         {/* Header */}
         <H2
           ref={headerRef}
-          className='font-black text-3xl md:text-4xl lg:text-5xl mb-12 tracking-tight'
+          className='font-black text-3xl md:text-3xl mb-12 tracking-tight'
         >
           {t('defines_us.header')}
         </H2>
