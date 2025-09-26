@@ -34,5 +34,30 @@
       "elevated_circularity": "ELEVATED CIRCULARITY",
       "we_pay_upfront": "WE PAY UPFRONT"
     }
+  },
+  "where_we_work": {
+    "header": "WHERE WE WORK — AND WIN:",
+    "regions": {
+      "uk": {
+        "title": "UK",
+        "description": "Deep sourcing networks, especially British fashion"
+      },
+      "africa": {
+        "title": "Africa",
+        "description": "Resale infrastructure with exclusive partners. (Sort & ship hub in Gambia)"
+      },
+      "balkans": {
+        "title": "Balkans",
+        "description": "Efficient regional B2B and value recovery. (Sort & ship hub in Albania)"
+      },
+      "mena": {
+        "title": "MENA",
+        "description": "High-margin resale with localized logistics"
+      },
+      "eastern_europe": {
+        "title": "Eastern Europe & Russian-speaking countries",
+        "description": "We know the rules, the players, and the pathways (Sort & ship hub in Georgia)"
+      }
+    }
   }
 }

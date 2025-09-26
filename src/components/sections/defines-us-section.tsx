@@ -73,6 +73,18 @@ export const DefinesUsSection: React.FC = () => {
         wordsClass: 'split-word',
       });
 
+      // Apply highlight background to the first word
+      const firstSplitWord = split.words[0];
+      if (firstSplitWord) {
+        gsap.set(firstSplitWord, {
+          background: 'linear-gradient(135deg, #c084fc, #a855f7, #d8b4fe)',
+          color: '#1f2937',
+          padding: '4px 8px',
+          borderRadius: '4px',
+          display: 'inline-block',
+        });
+      }
+
       // Animate each feature's words with stagger - only word appearance
       tl.from(
         split.words,
@@ -80,7 +92,7 @@ export const DefinesUsSection: React.FC = () => {
           duration: 0.8,
           y: 80,
           autoAlpha: 0,
-          stagger: 0.08,
+          stagger: 0.34,
           ease: 'power2.out',
         },
         `-=${0.4}`
@@ -131,14 +143,10 @@ export const DefinesUsSection: React.FC = () => {
             return (
               <H3
                 key={index}
-                className='feature-text font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight text-gray-800'
+                className='feature-text font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-2'
               >
-                <span className='highlighted-word relative bg-gradient-to-r from-purple-400 via-purple-500 to-purple-300 text-gray-800 px-2 py-1 rounded'>
-                  {firstWord}
-                </span>
-                {restOfText && (
-                  <span className='text-gray-800'> {restOfText}</span>
-                )}
+                <span className='highlighted-word'>{firstWord}</span>
+                {restOfText && <span> {restOfText}</span>}
               </H3>
             );
           })}

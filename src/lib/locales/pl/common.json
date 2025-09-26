@@ -33,5 +33,30 @@
       "elevated_circularity": "PODWYŻSZONA CYRKULARNOŚĆ",
       "we_pay_upfront": "PŁACIMY Z GÓRY"
     }
+  },
+  "where_we_work": {
+    "header": "GDZIE DZIAŁAMY — I WYGRYWAMY:",
+    "regions": {
+      "uk": {
+        "title": "Wielka Brytania",
+        "description": "Głębokie sieci pozyskiwania, szczególnie brytyjska moda"
+      },
+      "africa": {
+        "title": "Afryka",
+        "description": "Infrastruktura odsprzedaży z ekskluzywnymi partnerami. (Centrum sortowania i wysyłki w Gambii)"
+      },
+      "balkans": {
+        "title": "Bałkany",
+        "description": "Skuteczny regionalny B2B i odzyskiwanie wartości. (Centrum sortowania i wysyłki w Albanii)"
+      },
+      "mena": {
+        "title": "MENA",
+        "description": "Wysokomarżowa odsprzedaż z zlokalizowaną logistyką"
+      },
+      "eastern_europe": {
+        "title": "Europa Wschodnia i kraje rosyjskojęzyczne",
+        "description": "Znamy zasady, graczy i ścieżki (Centrum sortowania i wysyłki w Gruzji)"
+      }
+    }
   }
 }
