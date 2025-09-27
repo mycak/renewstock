@@ -136,7 +136,7 @@ export const WhereWeWorkSection: React.FC = () => {
     <section ref={sectionRef} className='relative py-20 px-4 overflow-hidden'>
       {/* Lottie Background with Edge Fade Effect */}
       <div className='absolute inset-0 flex items-center justify-center'>
-        <div className='relative w-4/5 md:w-[70vw] max-w-[1300px] h-full'>
+        <div className='relative w-4/5 md:w-[100vw] lg:w-[80vw] max-w-[1300px] h-full'>
           <Lottie
             animationData={worldMapAnimation}
             loop={true}
