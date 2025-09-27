@@ -73,7 +73,7 @@ export const HeroSection: React.FC = () => {
           </H2>
 
           {/* Disclaimer - smaller text */}
-          <div className='pt-6'>
+          <div>
             <div className='text-sm md:text-base lg:text-lg font-medium text-gray-700'>
               <P className='mb-2 text-sm font-bold'>
                 <ScrambleText
@@ -107,7 +107,7 @@ export const HeroSection: React.FC = () => {
                   as='span'
                 />
               </P>
-              <P className='font-bold'>
+              <P className='font-bold mt-0!'>
                 <ScrambleText
                   text={t('hero.disclaimer.line2')}
                   delay={6}

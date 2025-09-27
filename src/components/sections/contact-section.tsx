@@ -3,20 +3,59 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
+import Lottie from 'lottie-react';
+import businessGirlAnimation from '../../../public/lottie/business-girl.json';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H2, P } from '@/components/ui/typography';
 import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
 import { CONTACT } from '@/shared/constants';
 
 // Register GSAP plugins
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
+// Contact form schema
+const contactFormSchema = z.object({
+  email: z.string().email('Please enter a valid email address'),
+  phone: z.string().min(1, 'Phone number is required'),
+  message: z.string().min(10, 'Message must be at least 10 characters long'),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
+
 export const ContactSection: React.FC = () => {
   const { t } = useTranslation('common');
   const sectionRef = useRef<HTMLElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
+
+  // Form setup
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      email: '',
+      phone: '',
+      message: '',
+    },
+  });
+
+  const onSubmit = (data: ContactFormValues) => {
+    console.log('Form data:', data);
+  };
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -164,6 +203,99 @@ export const ContactSection: React.FC = () => {
               {t('contact.description.email_label')}
             </P>
           </div>
+        </div>
+
+        {/* Contact Form */}
+        <div className='mt-16 max-w-2xl mx-auto'>
+          {/* Business Girl Lottie Animation */}
+          <div className='flex justify-center mb-8'>
+            <div className='w-24 h-24 md:w-32 md:h-32'>
+              <Lottie
+                animationData={businessGirlAnimation}
+                loop={true}
+                autoplay={true}
+                className='w-full h-full'
+              />
+            </div>
+          </div>
+
+          {/* Form Header */}
+          <H2 className='text-center text-3xl md:text-4xl font-black text-black mb-8 tracking-tight'>
+            Write to us!
+          </H2>
+
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+              <FormField
+                control={form.control}
+                name='email'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='text-lg font-semibold text-black'>
+                      Email Address
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder='your@email.com'
+                        {...field}
+                        className='border-2 border-gray-300 focus:border-purple-600 focus:ring-purple-600'
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name='phone'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='text-lg font-semibold text-black'>
+                      Phone Number
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder='+48 123 456 789'
+                        {...field}
+                        className='border-2 border-gray-300 focus:border-purple-600 focus:ring-purple-600'
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name='message'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='text-lg font-semibold text-black'>
+                      Message
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder='Tell us about your project...'
+                        rows={6}
+                        {...field}
+                        className='border-2 border-gray-300 focus:border-purple-600 focus:ring-purple-600 resize-none'
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <Button
+                type='submit'
+                variant='outline'
+                className='w-full border-2 border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white font-semibold py-3 px-6 text-lg transition-colors duration-200'
+              >
+                Send Message
+              </Button>
+            </form>
+          </Form>
         </div>
       </div>
     </section>
