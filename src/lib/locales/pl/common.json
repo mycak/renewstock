@@ -67,6 +67,21 @@
       "resale_redefined": "ODSPRZEDAŻ NA NOWO. STRATEGICZNA. TRANSPARENTNA. NIEZAWODNA. ZBUDUJMY ODSPRZEDAŻ W TWOIM BIZNESIE — TAK, JAK POWINNA BYĆ.",
       "phone_label": "TELEFON",
       "email_label": "EMAIL"
+    },
+    "form": {
+      "header": "Napisz do nas!",
+      "email_label": "Adres Email",
+      "email_placeholder": "twoj@email.com",
+      "phone_label": "Numer Telefonu",
+      "phone_placeholder": "+48 123 456 789",
+      "message_label": "Wiadomość",
+      "message_placeholder": "Opowiedz nam o swoim projekcie...",
+      "submit_button": "Wyślij Wiadomość",
+      "validation": {
+        "email_invalid": "Podaj prawidłowy adres email",
+        "phone_required": "Numer telefonu jest wymagany",
+        "message_min_length": "Wiadomość musi mieć co najmniej 10 znaków"
+      }
     }
   }
 }

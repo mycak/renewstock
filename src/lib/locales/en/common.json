@@ -68,6 +68,21 @@
       "resale_redefined": "RESALE, REDEFINED. STRATEGIC. TRANSPARENT. RELIABLE. LET'S BUILD RESALE INTO YOUR BUSINESS — THE WAY IT SHOULD BE.",
       "phone_label": "PHONE",
       "email_label": "EMAIL"
+    },
+    "form": {
+      "header": "Write to us!",
+      "email_label": "Email Address",
+      "email_placeholder": "your@email.com",
+      "phone_label": "Phone Number",
+      "phone_placeholder": "+48 123 456 789",
+      "message_label": "Message",
+      "message_placeholder": "Tell us about your project...",
+      "submit_button": "Send Message",
+      "validation": {
+        "email_invalid": "Please enter a valid email address",
+        "phone_required": "Phone number is required",
+        "message_min_length": "Message must be at least 10 characters long"
+      }
     }
   }
 }
