@@ -293,10 +293,10 @@ export const ContactSection: React.FC = () => {
         </div>
 
         {/* Contact Form */}
-        <div className='mt-16 max-w-2xl mx-auto'>
+        <div className='mt-16 mx-auto'>
           {/* Business Girl Lottie Animation */}
           <div ref={lottieRef} className='flex justify-center mb-8'>
-            <div className='w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48'>
+            <div className='w-32 h-32 md:w-60 md:h-60 lg:w-48 lg:h-48'>
               <Lottie
                 animationData={businessGirlAnimation}
                 loop={true}
@@ -309,12 +309,15 @@ export const ContactSection: React.FC = () => {
           {/* Form Header */}
           <H2
             ref={formHeaderRef}
-            className='text-center text-3xl md:text-4xl font-black text-black mb-8 tracking-tight'
+            className='contact-text font-black text-3xl md:text-3xl tracking-tight border-none'
           >
             {t('contact.form.header')}
           </H2>
 
-          <div ref={formRef}>
+          {/* Form Separator */}
+          <Separator className='separator w-24 mx-auto mb-12 h-1 bg-black' />
+
+          <div ref={formRef} className='max-w-2xl mx-auto'>
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
@@ -381,7 +384,7 @@ export const ContactSection: React.FC = () => {
                 <Button
                   type='submit'
                   variant='outline'
-                  className='w-full border-2 border-black text-purple-500 hover:bg-black hover:text-white font-semibold py-3 px-6 text-lg transition-colors duration-200'
+                  className='w-full border border-black text-black underline decoration-purple-500 decoration-2 underline-offset-4 hover:bg-black hover:text-white hover:no-underline font-semibold py-3 px-6 text-lg transition-all duration-200'
                 >
                   {t('contact.form.submit_button')}
                 </Button>
