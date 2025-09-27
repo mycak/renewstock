@@ -51,6 +51,8 @@ export const ContactSection: React.FC = () => {
   const formRef = useRef<HTMLDivElement>(null);
   const lottieRef = useRef<HTMLDivElement>(null);
   const formHeaderRef = useRef<HTMLHeadingElement>(null);
+  const contactHeaderRef = useRef<HTMLHeadingElement>(null);
+  const contactSeparatorRef = useRef<HTMLDivElement>(null);
 
   // Form setup
   const form = useForm<ContactFormValues>({
@@ -72,6 +74,8 @@ export const ContactSection: React.FC = () => {
     const form = formRef.current;
     const lottie = lottieRef.current;
     const formHeader = formHeaderRef.current;
+    const contactHeader = contactHeaderRef.current;
+    const contactSeparator = contactSeparatorRef.current;
 
     if (!section || !description) return;
 
@@ -84,6 +88,36 @@ export const ContactSection: React.FC = () => {
         toggleActions: 'play none none reverse',
       },
     });
+
+    // Animate contact header and separator first
+    if (contactHeader) {
+      const headerSplit = SplitText.create(contactHeader, {
+        type: 'words',
+        wordsClass: 'split-word',
+      });
+
+      tl.from(headerSplit.words, {
+        duration: 0.8,
+        y: 100,
+        opacity: 0,
+        stagger: 0.1,
+        ease: 'power2.out',
+      });
+    }
+
+    // Animate separator after header
+    if (contactSeparator) {
+      tl.from(
+        contactSeparator,
+        {
+          duration: 0.6,
+          scaleX: 0,
+          transformOrigin: 'center',
+          ease: 'power2.out',
+        },
+        '-=0.2'
+      );
+    }
 
     // Get all text elements for aggressive animation
     const textElements = description.querySelectorAll('.contact-text');
@@ -221,12 +255,18 @@ export const ContactSection: React.FC = () => {
     <section ref={sectionRef} className='py-20 px-4 bg-white text-black'>
       <div className='max-w-6xl mx-auto text-center'>
         {/* Header */}
-        <H2 className='contact-text font-black text-3xl md:text-3xl tracking-tight border-none'>
+        <H2
+          ref={contactHeaderRef}
+          className='font-black text-3xl md:text-3xl tracking-tight border-none'
+        >
           {t('contact.header')}
         </H2>
 
         {/* Separator */}
-        <Separator className='separator w-24 mx-auto mb-12 h-1 bg-black' />
+        <Separator
+          ref={contactSeparatorRef}
+          className='w-24 mx-auto mb-12 h-1 bg-black'
+        />
 
         {/* Description Module */}
         <div ref={descriptionRef} className='space-y-8 md:space-y-12'>
@@ -384,7 +424,7 @@ export const ContactSection: React.FC = () => {
                 <Button
                   type='submit'
                   variant='outline'
-                  className='w-full border border-black text-black underline decoration-purple-500 decoration-2 underline-offset-4 hover:bg-black hover:text-white hover:no-underline font-semibold py-3 px-6 text-lg transition-all duration-200'
+                  className='cursor-pointer w-full border border-black text-black no-underline hover:underline hover:decoration-purple-500 hover:decoration-2 hover:underline-offset-4 font-semibold py-3 px-6 text-lg transition-all duration-300 ease-out'
                 >
                   {t('contact.form.submit_button')}
                 </Button>
