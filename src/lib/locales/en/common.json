@@ -84,5 +84,25 @@
         "message_min_length": "Message must be at least 10 characters long"
       }
     }
+  },
+  "our_team": {
+    "header": "MEET OUR TEAM",
+    "members": {
+      "anna": {
+        "name": "Anna Kowalski",
+        "role": "CEO & Founder",
+        "description": "Visionary leader with 15+ years in renewable energy and circular economy. Anna drives strategic partnerships and sustainable innovation across global markets."
+      },
+      "michael": {
+        "name": "Michael Chen",
+        "role": "Chief Technology Officer",
+        "description": "Tech innovator specializing in AI-driven supply chain optimization. Michael leads our digital transformation initiatives and data analytics platforms."
+      },
+      "sofia": {
+        "name": "Sofia Rodriguez",
+        "role": "Head of Operations",
+        "description": "Operations expert with deep expertise in logistics and quality control. Sofia ensures seamless execution of our resale performance strategies worldwide."
+      }
+    }
   }
 }

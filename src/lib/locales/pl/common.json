@@ -83,5 +83,25 @@
         "message_min_length": "Wiadomość musi mieć co najmniej 10 znaków"
       }
     }
+  },
+  "our_team": {
+    "header": "POZNAJ NASZ ZESPÓŁ",
+    "members": {
+      "anna": {
+        "name": "Anna Kowalski",
+        "role": "Dyrektor Generalna i Założycielka",
+        "description": "Wizjonerska liderka z ponad 15-letnim doświadczeniem w energetyce odnawialnej i gospodarce cyrkularnej. Anna kieruje strategicznymi partnerstwami i zrównoważonymi innowacjami na rynkach globalnych."
+      },
+      "michael": {
+        "name": "Michael Chen",
+        "role": "Dyrektor ds. Technologii",
+        "description": "Innowator technologiczny specjalizujący się w optymalizacji łańcucha dostaw opartej na AI. Michael prowadzi nasze inicjatywy transformacji cyfrowej i platformy analityki danych."
+      },
+      "sofia": {
+        "name": "Sofia Rodriguez",
+        "role": "Dyrektor ds. Operacji",
+        "description": "Ekspertka ds. operacji z głęboką wiedzą w zakresie logistyki i kontroli jakości. Sofia zapewnia bezproblemową realizację naszych strategii wydajności odsprzedaży na całym świecie."
+      }
+    }
   }
 }
