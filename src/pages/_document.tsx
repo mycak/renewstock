@@ -1,8 +1,17 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
-export default function Document() {
+interface DocumentProps {
+  __NEXT_DATA__?: {
+    locale?: string;
+  };
+}
+
+export default function Document(props: DocumentProps) {
+  // Get locale from props (passed from Next.js)
+  const locale = props.__NEXT_DATA__?.locale || 'en';
+
   return (
-    <Html lang='en'>
+    <Html lang={locale}>
       <Head>
         {/* Essential meta tags that should be in document head */}
         <meta charSet='utf-8' />
