@@ -91,8 +91,16 @@ export const DefinesUsSection: React.FC = () => {
         word.removeAttribute('aria-label');
         word.removeAttribute('aria-hidden');
       });
-      
+
       featureSplits.push(split); // Store the split instance for cleanup
+
+      // Remove any ARIA attributes that SplitText might have added
+      (element as HTMLElement).removeAttribute('aria-label');
+      (element as HTMLElement).removeAttribute('aria-hidden');
+      split.words.forEach((word: Element) => {
+        word.removeAttribute('aria-label');
+        word.removeAttribute('aria-hidden');
+      });
 
       // Apply highlight background to the first word
       const firstSplitWord = split.words[0];
@@ -154,7 +162,11 @@ export const DefinesUsSection: React.FC = () => {
         <Separator className='separator w-24 mx-auto mb-12 h-1 bg-black' />
 
         {/* Features Grid */}
-        <div ref={featuresRef} className='space-y-4 md:space-y-6' key={i18n.language}>
+        <div
+          ref={featuresRef}
+          className='space-y-4 md:space-y-6'
+          key={i18n.language}
+        >
           {features.map((featureKey, index) => {
             const featureText = t(featureKey);
             // Split the text to highlight the first word/phrase
