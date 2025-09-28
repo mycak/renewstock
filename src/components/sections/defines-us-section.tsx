@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { cleanupSplitTextAria } from '@/lib/gsap-utils';
 import { H2, H3 } from '@/components/ui/typography';
 import { Separator } from '@/components/ui/separator';
 
@@ -42,12 +43,7 @@ export const DefinesUsSection: React.FC = () => {
     });
 
     // Remove any ARIA attributes that SplitText might have added
-    (header as HTMLElement).removeAttribute('aria-label');
-    (header as HTMLElement).removeAttribute('aria-hidden');
-    headerSplit.words.forEach((word: Element) => {
-      word.removeAttribute('aria-label');
-      word.removeAttribute('aria-hidden');
-    });
+    cleanupSplitTextAria(header as HTMLElement, headerSplit);
 
     // Animate header words
     tl.from(headerSplit.words, {
@@ -95,12 +91,7 @@ export const DefinesUsSection: React.FC = () => {
       featureSplits.push(split); // Store the split instance for cleanup
 
       // Remove any ARIA attributes that SplitText might have added
-      (element as HTMLElement).removeAttribute('aria-label');
-      (element as HTMLElement).removeAttribute('aria-hidden');
-      split.words.forEach((word: Element) => {
-        word.removeAttribute('aria-label');
-        word.removeAttribute('aria-hidden');
-      });
+      cleanupSplitTextAria(element as HTMLElement, split);
 
       // Apply highlight background to the first word
       const firstSplitWord = split.words[0];

@@ -11,6 +11,7 @@ import * as z from 'zod';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { cleanupSplitTextAria } from '@/lib/gsap-utils';
 import { H2, P } from '@/components/ui/typography';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
@@ -98,12 +99,7 @@ export const ContactSection: React.FC = () => {
       });
 
       // Remove any ARIA attributes that SplitText might have added
-      (contactHeader as HTMLElement).removeAttribute('aria-label');
-      (contactHeader as HTMLElement).removeAttribute('aria-hidden');
-      headerSplit.words.forEach((word: Element) => {
-        word.removeAttribute('aria-label');
-        word.removeAttribute('aria-hidden');
-      });
+      cleanupSplitTextAria(contactHeader as HTMLElement, headerSplit);
 
       tl.from(headerSplit.words, {
         duration: 0.4,
@@ -147,12 +143,7 @@ export const ContactSection: React.FC = () => {
       allWords.push(...split.words);
 
       // Remove any ARIA attributes that SplitText might have added
-      (element as HTMLElement).removeAttribute('aria-label');
-      (element as HTMLElement).removeAttribute('aria-hidden');
-      split.words.forEach((word: Element) => {
-        word.removeAttribute('aria-label');
-        word.removeAttribute('aria-hidden');
-      });
+      cleanupSplitTextAria(element as HTMLElement, split);
 
       // Apply highlight background to highlighted links after split
       const highlightedLinks = element.querySelectorAll('.highlighted-link');
@@ -222,12 +213,7 @@ export const ContactSection: React.FC = () => {
       });
 
       // Remove any ARIA attributes that SplitText might have added
-      (formHeader as HTMLElement).removeAttribute('aria-label');
-      (formHeader as HTMLElement).removeAttribute('aria-hidden');
-      headerSplit.words.forEach((word: Element) => {
-        word.removeAttribute('aria-label');
-        word.removeAttribute('aria-hidden');
-      });
+      cleanupSplitTextAria(formHeader as HTMLElement, headerSplit);
 
       gsap.fromTo(
         headerSplit.words,
@@ -333,7 +319,7 @@ export const ContactSection: React.FC = () => {
           {/* Size 5: PHONE - Only link the phone number */}
           <div className='contact-text text-center'>
             <div
-              className='font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-4 tracking-[-0.05em] flex items-center gap-4 mx-auto justify-center'
+              className='font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-4 tracking-[-0.05em] flex items-center gap-4 mx-auto justify-center flex-col md:flex-row'
               style={{ fontWeight: 900 }}
             >
               {t('contact.description.phone_label')}
@@ -349,7 +335,7 @@ export const ContactSection: React.FC = () => {
           {/* Size 5: EMAIL - Only link the email address */}
           <div className='contact-text text-center'>
             <div
-              className='font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-4 tracking-[-0.05em] flex items-center gap-4 mx-auto justify-center'
+              className='font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-4 tracking-[-0.05em] flex items-center gap-4 mx-auto justify-center flex-col-reverse md:flex-row'
               style={{ fontWeight: 900 }}
             >
               <Link
