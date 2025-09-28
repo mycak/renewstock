@@ -104,6 +104,66 @@
       }
     }
   },
+  "sellers": {
+    "header": "DLA SPRZEDAWCÓW",
+    "description": "Przekształć swoje nadwyżki i zwroty w natychmiastowe przychody. Zapewniamy bezproblemowe, transparentne rozwiązanie, które chroni Twoją markę, maksymalizując odzyskiwanie wartości.",
+    "features": {
+      "instant_cash_flow": {
+        "title": "NATYCHMIASTOWY PRZEPŁYW GOTÓWKI",
+        "description": "Otrzymaj wypłatę z góry za swoje zapasy. Bez czekania, bez niepewności—natychmiastowy zastrzyk kapitału dla Twojego biznesu."
+      },
+      "zero_risk_disposal": {
+        "title": "UTYLIZACJA BEZ RYZYKA",
+        "description": "Kompletne oczyszczanie magazynu z pełnym łańcuchem nadzoru. Twoje produkty są obsługiwane profesjonalnie od odbioru do końcowej sprzedaży."
+      },
+      "brand_protection": {
+        "title": "OCHRONA MARKI",
+        "description": "Kontrolowane kanały odsprzedaży, które utrzymują integralność Twojej marki. Brak przecieków na szary rynek lub nieautoryzowanej sprzedaży."
+      },
+      "transparent_reporting": {
+        "title": "TRANSPARENTNE RAPORTOWANIE",
+        "description": "Pełna widoczność procesu odsprzedaży. Śledź podróż swoich zapasów z szczegółową analityką wydajności."
+      }
+    },
+    "cta": {
+      "title": "GOTOWY NA PRZEKSZTAŁCENIE NADWYŻEK?",
+      "description": "Dołącz do wiodących marek, które odkryły moc strategicznych partnerstw w odsprzedaży."
+    }
+  },
+  "buyers": {
+    "header": "DLA KUPUJĄCYCH",
+    "description": "Uzyskaj dostęp do premium zapasów w konkurencyjnych cenach przez nasz wyselekcjonowany marketplace. Dostarczamy wysokiej jakości produkty z pełną identyfikowalnością i niezawodnymi łańcuchami dostaw.",
+    "benefits": {
+      "curated_quality": {
+        "title": "WYSELEKCJONOWANA JAKOŚĆ",
+        "description": "Ręcznie wybrane zapasy od zaufanych marek. Każdy produkt jest weryfikowany i oceniany, aby zapewnić stałe standardy jakości."
+      },
+      "competitive_pricing": {
+        "title": "KONKURENCYJNE CENY",
+        "description": "Dostęp do cen hurtowych na produkty premium. Lepsze marże dzięki naszym bezpośrednim relacjom z markami."
+      },
+      "reliable_supply": {
+        "title": "NIEZAWODNE DOSTAWY",
+        "description": "Stały przepływ zapasów w wielu kategoriach produktów. Przewidywalne sourcing dla planowania Twojego biznesu."
+      },
+      "logistics_support": {
+        "title": "WSPARCIE LOGISTYCZNE",
+        "description": "Kompleksowe usługi realizacji. Od magazynowania po dostawę ostatniej mili w naszej globalnej sieci."
+      }
+    },
+    "stats": {
+      "satisfaction": "98%",
+      "satisfaction_label": "Satysfakcja Kupujących",
+      "delivery_time": "72h",
+      "delivery_time_label": "Średni Czas Dostawy",
+      "regions": "25+",
+      "regions_label": "Obsługiwane Kraje"
+    },
+    "cta": {
+      "title": "ZOSTAŃ ZAUFANYM KUPUJĄCYM",
+      "description": "Dołącz do naszej sieci zweryfikowanych kupujących i uzyskaj dostęp do ekskluzywnych możliwości magazynowych."
+    }
+  },
   "navigation": {
     "home": "Główna",
     "about": "O Nas",
