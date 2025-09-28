@@ -71,9 +71,9 @@ export const OurTeamSection: React.FC = () => {
     cardElements.forEach((card, index) => {
       // Different entrance animations that don't cause overflow
       const directions = [
-        { y: 50, scale: 0.8, rotation: -15 }, // From bottom with slight rotation
+        { x: -200, scale: 0.8, rotation: -15 }, // From bottom with slight rotation
         { y: 30, scale: 0.6, rotation: 360 }, // From bottom with scale
-        { y: 40, scale: 0.7, rotation: 50 }, // From bottom with slight rotation
+        { x: 20, scale: 0.5, rotation: 50 }, // From bottom with slight rotation
       ];
 
       const direction = directions[index % directions.length];
@@ -91,6 +91,7 @@ export const OurTeamSection: React.FC = () => {
           duration: 1.2,
           autoAlpha: 1,
           y: 0,
+          x: 0,
           scale: 1,
           rotation: 0,
           ease: 'elastic.out(1, 0.8)',
@@ -98,13 +99,12 @@ export const OurTeamSection: React.FC = () => {
         `-=${0.8 - index * 0.2}` // Staggered timing
       );
 
-      // Add floating animation
+      // Add floating animation with reduced bounce range
       gsap.to(card, {
-        y: -10,
+        y: -2,
+        x: 0,
         duration: 2 + index * 0.5,
         ease: 'power2.inOut',
-        repeat: -1,
-        yoyo: true,
         delay: 1 + index * 0.3,
       });
 
@@ -194,7 +194,7 @@ export const OurTeamSection: React.FC = () => {
   ];
 
   return (
-    <section ref={sectionRef} className='py-20 px-4 bg-white'>
+    <section ref={sectionRef} className='py-20 px-4 bg-white overflow-hidden'>
       <div className='max-w-6xl mx-auto text-center'>
         {/* Header */}
         <H2
