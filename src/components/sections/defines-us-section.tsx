@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { cleanupSplitTextAria } from '@/lib/gsap-utils';
 import { H2, H3 } from '@/components/ui/typography';
 import { Separator } from '@/components/ui/separator';
 
@@ -12,7 +13,7 @@ import { Separator } from '@/components/ui/separator';
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export const DefinesUsSection: React.FC = () => {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLHeadingElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
@@ -42,12 +43,7 @@ export const DefinesUsSection: React.FC = () => {
     });
 
     // Remove any ARIA attributes that SplitText might have added
-    (header as HTMLElement).removeAttribute('aria-label');
-    (header as HTMLElement).removeAttribute('aria-hidden');
-    headerSplit.words.forEach((word: Element) => {
-      word.removeAttribute('aria-label');
-      word.removeAttribute('aria-hidden');
-    });
+    cleanupSplitTextAria(header as HTMLElement, headerSplit);
 
     // Animate header words
     tl.from(headerSplit.words, {
@@ -75,6 +71,7 @@ export const DefinesUsSection: React.FC = () => {
 
     // Split feature text elements - words only
     const featureElements = features.querySelectorAll('.feature-text');
+    const featureSplits: SplitText[] = []; // Store references to split instances
 
     featureElements.forEach((element) => {
       const split = SplitText.create(element, {
@@ -90,6 +87,11 @@ export const DefinesUsSection: React.FC = () => {
         word.removeAttribute('aria-label');
         word.removeAttribute('aria-hidden');
       });
+
+      featureSplits.push(split); // Store the split instance for cleanup
+
+      // Remove any ARIA attributes that SplitText might have added
+      cleanupSplitTextAria(element as HTMLElement, split);
 
       // Apply highlight background to the first word
       const firstSplitWord = split.words[0];
@@ -110,7 +112,7 @@ export const DefinesUsSection: React.FC = () => {
           duration: 0.8,
           y: 80,
           autoAlpha: 0,
-          stagger: 0.34,
+          stagger: 0.25,
           ease: 'power2.out',
         },
         `-=${0.4}`
@@ -120,12 +122,12 @@ export const DefinesUsSection: React.FC = () => {
     // Cleanup function
     return () => {
       headerSplit?.revert();
-      featureElements.forEach((element) => {
-        const split = SplitText.create(element, { type: 'words' });
-        split.revert();
+      // Clean up all stored split instances
+      featureSplits.forEach((split) => {
+        split?.revert();
       });
     };
-  }, []);
+  }, [t]); // Re-run effect when translations change
 
   const features = [
     'defines_us.features.real_resale_performance',
@@ -142,6 +144,7 @@ export const DefinesUsSection: React.FC = () => {
         <H2
           ref={headerRef}
           className='font-black text-3xl md:text-3xl tracking-tight border-none'
+          key={`header-${i18n.language}`}
         >
           {t('defines_us.header')}
         </H2>
@@ -150,7 +153,11 @@ export const DefinesUsSection: React.FC = () => {
         <Separator className='separator w-24 mx-auto mb-12 h-1 bg-black' />
 
         {/* Features Grid */}
-        <div ref={featuresRef} className='space-y-4 md:space-y-6'>
+        <div
+          ref={featuresRef}
+          className='space-y-4 md:space-y-6'
+          key={i18n.language}
+        >
           {features.map((featureKey, index) => {
             const featureText = t(featureKey);
             // Split the text to highlight the first word/phrase
@@ -160,7 +167,7 @@ export const DefinesUsSection: React.FC = () => {
 
             return (
               <H3
-                key={index}
+                key={`${featureKey}-${i18n.language}-${index}`}
                 className='feature-text font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-2'
               >
                 <span className='highlighted-word'>{firstWord}</span>

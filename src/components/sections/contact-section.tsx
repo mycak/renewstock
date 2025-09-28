@@ -11,6 +11,7 @@ import * as z from 'zod';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { cleanupSplitTextAria } from '@/lib/gsap-utils';
 import { H2, P } from '@/components/ui/typography';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
@@ -98,18 +99,13 @@ export const ContactSection: React.FC = () => {
       });
 
       // Remove any ARIA attributes that SplitText might have added
-      (contactHeader as HTMLElement).removeAttribute('aria-label');
-      (contactHeader as HTMLElement).removeAttribute('aria-hidden');
-      headerSplit.words.forEach((word: Element) => {
-        word.removeAttribute('aria-label');
-        word.removeAttribute('aria-hidden');
-      });
+      cleanupSplitTextAria(contactHeader as HTMLElement, headerSplit);
 
       tl.from(headerSplit.words, {
-        duration: 0.8,
+        duration: 0.4,
         y: 100,
         opacity: 0,
-        stagger: 0.1,
+        stagger: 0.08,
         ease: 'power2.out',
       });
     }
@@ -147,12 +143,7 @@ export const ContactSection: React.FC = () => {
       allWords.push(...split.words);
 
       // Remove any ARIA attributes that SplitText might have added
-      (element as HTMLElement).removeAttribute('aria-label');
-      (element as HTMLElement).removeAttribute('aria-hidden');
-      split.words.forEach((word: Element) => {
-        word.removeAttribute('aria-label');
-        word.removeAttribute('aria-hidden');
-      });
+      cleanupSplitTextAria(element as HTMLElement, split);
 
       // Apply highlight background to highlighted links after split
       const highlightedLinks = element.querySelectorAll('.highlighted-link');
@@ -183,7 +174,7 @@ export const ContactSection: React.FC = () => {
       duration: 0.8,
       y: () => (Math.random() > 0.5 ? -120 : 120), // Random top or bottom
       opacity: 0,
-      stagger: 0.07, // Faster stagger since we have more elements
+      stagger: 0.06, // Faster stagger since we have more elements
       ease: 'power3.out',
       rotation: () => (Math.random() - 0.5) * 20, // Random rotation -10 to +10
     });
@@ -222,28 +213,24 @@ export const ContactSection: React.FC = () => {
       });
 
       // Remove any ARIA attributes that SplitText might have added
-      (formHeader as HTMLElement).removeAttribute('aria-label');
-      (formHeader as HTMLElement).removeAttribute('aria-hidden');
-      headerSplit.words.forEach((word: Element) => {
-        word.removeAttribute('aria-label');
-        word.removeAttribute('aria-hidden');
-      });
+      cleanupSplitTextAria(formHeader as HTMLElement, headerSplit);
 
       gsap.fromTo(
         headerSplit.words,
         {
           opacity: 0,
-          y: 30,
+          y: 40,
         },
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
+          duration: 0.8,
           stagger: 0.1,
           ease: 'power2.out',
+          delay: 0.3, // Add slight delay
           scrollTrigger: {
             trigger: formHeader,
-            start: 'top 95%',
+            start: 'top 85%', // Match form trigger point
             toggleActions: 'play none none reverse',
           },
         }
@@ -251,21 +238,22 @@ export const ContactSection: React.FC = () => {
     }
 
     if (form) {
-      // Form animation
+      // Form animation - appears later with bigger delay
       gsap.fromTo(
         form,
         {
           opacity: 0,
-          y: 30,
+          y: 50,
         },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 1.0,
           ease: 'power2.out',
+          delay: 0.5, // Add delay for later appearance
           scrollTrigger: {
             trigger: form,
-            start: 'top 95%',
+            start: 'top 85%', // Trigger when form is closer to viewport
             toggleActions: 'play none none reverse',
           },
         }
@@ -331,7 +319,7 @@ export const ContactSection: React.FC = () => {
           {/* Size 5: PHONE - Only link the phone number */}
           <div className='contact-text text-center'>
             <div
-              className='font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-4 tracking-[-0.05em] flex items-center gap-4 mx-auto justify-center'
+              className='font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-4 tracking-[-0.05em] flex items-center gap-4 mx-auto justify-center flex-col md:flex-row'
               style={{ fontWeight: 900 }}
             >
               {t('contact.description.phone_label')}
@@ -347,7 +335,7 @@ export const ContactSection: React.FC = () => {
           {/* Size 5: EMAIL - Only link the email address */}
           <div className='contact-text text-center'>
             <div
-              className='font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-4 tracking-[-0.05em] flex items-center gap-4 mx-auto justify-center'
+              className='font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-4 tracking-[-0.05em] flex items-center gap-4 mx-auto justify-center flex-col-reverse md:flex-row'
               style={{ fontWeight: 900 }}
             >
               <Link

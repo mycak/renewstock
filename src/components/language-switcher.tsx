@@ -1,20 +1,23 @@
 'use client';
 
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
 import { Button } from '@/components/ui/button';
 import { Locale } from '@/lib/types/locale';
 
 export const LanguageSwitcher: React.FC = () => {
-  const { i18n } = useTranslation();
+  const router = useRouter();
 
   const toggleLanguage = () => {
-    const newLang = i18n.language === Locale.EN ? Locale.PL : Locale.EN;
-    i18n.changeLanguage(newLang);
+    const newLang = router.locale === Locale.EN ? Locale.PL : Locale.EN;
+    // Use Next.js router to change locale, which will update the URL
+    router.push(router.asPath, router.asPath, { locale: newLang });
   };
 
-  const currentLang = i18n.language === Locale.EN ? 'English' : 'Polski';
-  const targetLang = i18n.language === Locale.EN ? 'PL' : 'EN';
+  // Use router.locale as the source of truth for the current language
+  const currentLanguage = router.locale || Locale.EN;
+  const currentLang = currentLanguage === Locale.EN ? 'English' : 'Polski';
+  const targetLang = currentLanguage === Locale.EN ? 'PL' : 'EN';
 
   return (
     <Button
@@ -23,9 +26,11 @@ export const LanguageSwitcher: React.FC = () => {
       size='sm'
       className='fixed top-4 right-4 z-50 bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-purple-500 focus:outline-none'
       aria-label={`Switch language to ${
-        i18n.language === Locale.EN ? 'Polish' : 'English'
+        currentLanguage === Locale.EN ? 'Polish' : 'English'
       }. Current language: ${currentLang}`}
-      title={`Switch to ${i18n.language === Locale.EN ? 'Polish' : 'English'}`}
+      title={`Switch to ${
+        currentLanguage === Locale.EN ? 'Polish' : 'English'
+      }`}
     >
       {targetLang}
     </Button>

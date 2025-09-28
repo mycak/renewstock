@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { cleanupSplitTextAria } from '@/lib/gsap-utils';
 import Lottie from 'lottie-react';
 import { H2, P, H3 } from '@/components/ui/typography';
 import { Separator } from '@/components/ui/separator';
@@ -44,19 +45,14 @@ export const WhereWeWorkSection: React.FC = () => {
     });
 
     // Remove any ARIA attributes that SplitText might have added
-    (header as HTMLElement).removeAttribute('aria-label');
-    (header as HTMLElement).removeAttribute('aria-hidden');
-    headerSplit.words.forEach((word: Element) => {
-      word.removeAttribute('aria-label');
-      word.removeAttribute('aria-hidden');
-    });
+    cleanupSplitTextAria(header as HTMLElement, headerSplit);
 
     // Animate header words
     tl.from(headerSplit.words, {
-      duration: 0.8,
+      duration: 0.7,
       y: 100,
       autoAlpha: 0,
-      stagger: 0.1,
+      stagger: 0.07,
       ease: 'power2.out',
     });
 
@@ -83,7 +79,7 @@ export const WhereWeWorkSection: React.FC = () => {
       tl.from(
         element,
         {
-          duration: 0.8,
+          duration: 0.7,
           autoAlpha: 0,
           y: 30,
           ease: 'power2.out',
@@ -97,7 +93,7 @@ export const WhereWeWorkSection: React.FC = () => {
         tl.from(
           underline,
           {
-            duration: 0.8,
+            duration: 0.7,
             scaleX: 0,
             transformOrigin: 'left',
             ease: 'power2.out',
