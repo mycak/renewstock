@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
+import { Locale } from '@/lib/types/locale';
 
 interface MetaTagsProps {
   title?: string;
@@ -27,7 +28,7 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
   const metaKeywords = keywords || t('seo.keywords');
   const ogTitle = t('seo.og.title');
   const ogDescription = t('seo.og.description');
-  const ogImage = image || '/images/renewstock-og-image.jpg';
+  const ogImage = image || '/logo/animated-logo.gif';
   const twitterTitle = t('seo.twitter.title');
   const twitterDescription = t('seo.twitter.description');
   
@@ -55,8 +56,8 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
       <link rel="canonical" href={canonicalUrl} />
       
       {/* Alternate language links for SEO */}
-      <link rel="alternate" hrefLang="en" href={`${baseUrl}?lang=en`} />
-      <link rel="alternate" hrefLang="pl" href={`${baseUrl}?lang=pl`} />
+      <link rel="alternate" hrefLang={Locale.EN} href={`${baseUrl}?lang=${Locale.EN}`} />
+      <link rel="alternate" hrefLang={Locale.PL} href={`${baseUrl}?lang=${Locale.PL}`} />
       <link rel="alternate" hrefLang="x-default" href={baseUrl} />
       
       {/* Open Graph / Facebook */}
@@ -66,7 +67,7 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
       <meta property="og:image" content={fullImageUrl} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:site_name" content="RenewStock" />
-      <meta property="og:locale" content={i18n.language === 'en' ? 'en_US' : 'pl_PL'} />
+      <meta property="og:locale" content={i18n.language === Locale.EN ? 'en_US' : 'pl_PL'} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={ogTitle} />
@@ -97,7 +98,7 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "business",
-              "availableLanguage": ["en", "pl"],
+              "availableLanguage": [Locale.EN, Locale.PL],
               "telephone": "+48732923949",
               "email": "office@renewstock.eu"
             },

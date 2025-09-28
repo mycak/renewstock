@@ -301,7 +301,7 @@ export const ContactSection: React.FC = () => {
 
           {/* Size 5: PHONE - Only link the phone number */}
           <div className='contact-text text-center'>
-            <P
+            <div
               className='font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-4 tracking-[-0.05em] flex items-center gap-4 mx-auto justify-center'
               style={{ fontWeight: 900 }}
             >
@@ -312,12 +312,12 @@ export const ContactSection: React.FC = () => {
               >
                 {CONTACT.PHONE.DISPLAY}
               </Link>
-            </P>
+            </div>
           </div>
 
           {/* Size 5: EMAIL - Only link the email address */}
           <div className='contact-text text-center'>
-            <P
+            <div
               className='font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-4 tracking-[-0.05em] flex items-center gap-4 mx-auto justify-center'
               style={{ fontWeight: 900 }}
             >
@@ -328,7 +328,7 @@ export const ContactSection: React.FC = () => {
                 {CONTACT.EMAIL.ADDRESS}
               </Link>
               {t('contact.description.email_label')}
-            </P>
+            </div>
           </div>
         </div>
 
