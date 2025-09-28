@@ -104,5 +104,19 @@
         "description": "Operations expert with deep expertise in logistics and quality control. Sofia ensures seamless execution of our resale performance strategies worldwide."
       }
     }
+  },
+  "seo": {
+    "title": "RenewStock - The Circular Partner You Didn't Know You Needed",
+    "description": "Transform overstock and returns into performance assets. RenewStock delivers real resale performance with end-to-end control, no market leakage, and elevated circularity.",
+    "keywords": "circular economy, overstock management, returns processing, sustainable resale, inventory optimization, waste reduction",
+    "og": {
+      "title": "RenewStock - Transforming Overstock Into Performance Assets",
+      "description": "The circular partner you didn't know you needed. We pay upfront and deliver real resale performance with complete transparency and control.",
+      "image": "/images/renewstock-og-image.jpg"
+    },
+    "twitter": {
+      "title": "RenewStock - The Circular Partner You Need",
+      "description": "Transform overstock and returns into performance assets. Real resale performance with end-to-end control and elevated circularity."
+    }
   }
 }

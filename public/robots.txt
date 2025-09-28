@@ -1,0 +1,10 @@
+# robots.txt for RenewStock
+User-agent: *
+Allow: /
+
+# Block access to development files
+Disallow: /_next/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://www.renewstock.eu/sitemap.xml

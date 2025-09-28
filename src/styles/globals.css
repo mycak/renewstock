@@ -133,4 +133,35 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Improved focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-purple-500;
+  }
+  
+  /* Screen reader only class */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  }
+  
+  /* Focus within for containers */
+  .focus-within\:ring-purple-500:focus-within {
+    @apply ring-2 ring-purple-500;
+  }
+  
+  /* Ensure sufficient color contrast */
+  .text-muted-foreground {
+    @apply text-gray-600;
+  }
+  
+  /* Motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
