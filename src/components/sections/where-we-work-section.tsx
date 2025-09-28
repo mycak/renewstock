@@ -53,10 +53,10 @@ export const WhereWeWorkSection: React.FC = () => {
 
     // Animate header words
     tl.from(headerSplit.words, {
-      duration: 0.8,
+      duration: 0.7,
       y: 100,
       autoAlpha: 0,
-      stagger: 0.1,
+      stagger: 0.07,
       ease: 'power2.out',
     });
 
@@ -83,7 +83,7 @@ export const WhereWeWorkSection: React.FC = () => {
       tl.from(
         element,
         {
-          duration: 0.8,
+          duration: 0.7,
           autoAlpha: 0,
           y: 30,
           ease: 'power2.out',
@@ -97,7 +97,7 @@ export const WhereWeWorkSection: React.FC = () => {
         tl.from(
           underline,
           {
-            duration: 0.8,
+            duration: 0.7,
             scaleX: 0,
             transformOrigin: 'left',
             ease: 'power2.out',

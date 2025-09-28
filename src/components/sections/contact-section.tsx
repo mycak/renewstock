@@ -106,10 +106,10 @@ export const ContactSection: React.FC = () => {
       });
 
       tl.from(headerSplit.words, {
-        duration: 0.8,
+        duration: 0.4,
         y: 100,
         opacity: 0,
-        stagger: 0.1,
+        stagger: 0.08,
         ease: 'power2.out',
       });
     }
@@ -183,7 +183,7 @@ export const ContactSection: React.FC = () => {
       duration: 0.8,
       y: () => (Math.random() > 0.5 ? -120 : 120), // Random top or bottom
       opacity: 0,
-      stagger: 0.07, // Faster stagger since we have more elements
+      stagger: 0.06, // Faster stagger since we have more elements
       ease: 'power3.out',
       rotation: () => (Math.random() - 0.5) * 20, // Random rotation -10 to +10
     });
@@ -233,17 +233,18 @@ export const ContactSection: React.FC = () => {
         headerSplit.words,
         {
           opacity: 0,
-          y: 30,
+          y: 40,
         },
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
+          duration: 0.8,
           stagger: 0.1,
           ease: 'power2.out',
+          delay: 0.3, // Add slight delay
           scrollTrigger: {
             trigger: formHeader,
-            start: 'top 95%',
+            start: 'top 85%', // Match form trigger point
             toggleActions: 'play none none reverse',
           },
         }
@@ -251,21 +252,22 @@ export const ContactSection: React.FC = () => {
     }
 
     if (form) {
-      // Form animation
+      // Form animation - appears later with bigger delay
       gsap.fromTo(
         form,
         {
           opacity: 0,
-          y: 30,
+          y: 50,
         },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 1.0,
           ease: 'power2.out',
+          delay: 0.5, // Add delay for later appearance
           scrollTrigger: {
             trigger: form,
-            start: 'top 95%',
+            start: 'top 85%', // Trigger when form is closer to viewport
             toggleActions: 'play none none reverse',
           },
         }

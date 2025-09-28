@@ -121,7 +121,7 @@ export const DefinesUsSection: React.FC = () => {
           duration: 0.8,
           y: 80,
           autoAlpha: 0,
-          stagger: 0.34,
+          stagger: 0.25,
           ease: 'power2.out',
         },
         `-=${0.4}`

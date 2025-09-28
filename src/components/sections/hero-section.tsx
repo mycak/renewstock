@@ -59,7 +59,7 @@ export const HeroSection: React.FC = () => {
 
         {/* Subheader */}
         <div className='space-y-6 w-4/5 md:max-w-3/5 mx-auto'>
-          <H2 className='font-bold leading-tight text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl'>
+          <H2 className='font-bold leading-tight text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-4'>
             <TypewriterText
               texts={
                 t('hero.subheader.words', { returnObjects: true }) as string[]

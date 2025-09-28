@@ -65,20 +65,20 @@ export const OurTeamSection: React.FC = () => {
       );
     }
 
-    // Animate team cards with crazy effects
+    // Animate team cards with contained effects (no overflow)
     const cardElements = cards.querySelectorAll('.team-card');
 
     cardElements.forEach((card, index) => {
-      // Different entrance animations for each card
+      // Different entrance animations that don't cause overflow
       const directions = [
-        { x: -200, rotation: -15 }, // Left with rotation
-        { y: 20, scale: 0.5, rotation: 360 }, // Bottom with scale and spin
-        { x: 200, y: -15, rotation: 15 }, // Top-right with rotation
+        { y: 50, scale: 0.8, rotation: -15 }, // From bottom with slight rotation
+        { y: 30, scale: 0.6, rotation: 360 }, // From bottom with scale
+        { y: 40, scale: 0.7, rotation: 50 }, // From bottom with slight rotation
       ];
 
       const direction = directions[index % directions.length];
 
-      // Initial state
+      // Initial state - no X translations that could cause overflow
       gsap.set(card, {
         autoAlpha: 0,
         ...direction,
@@ -90,7 +90,6 @@ export const OurTeamSection: React.FC = () => {
         {
           duration: 1.2,
           autoAlpha: 1,
-          x: 0,
           y: 0,
           scale: 1,
           rotation: 0,
