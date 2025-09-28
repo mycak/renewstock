@@ -96,7 +96,7 @@ export const ContactSection: React.FC = () => {
         wordsClass: 'split-word',
         tag: 'span',
       });
-      
+
       // Remove any ARIA attributes that SplitText might have added
       (contactHeader as HTMLElement).removeAttribute('aria-label');
       (contactHeader as HTMLElement).removeAttribute('aria-hidden');
@@ -145,7 +145,7 @@ export const ContactSection: React.FC = () => {
       });
       splitInstances.push(split);
       allWords.push(...split.words);
-      
+
       // Remove any ARIA attributes that SplitText might have added
       (element as HTMLElement).removeAttribute('aria-label');
       (element as HTMLElement).removeAttribute('aria-hidden');
@@ -220,7 +220,7 @@ export const ContactSection: React.FC = () => {
         wordsClass: 'split-word',
         tag: 'span',
       });
-      
+
       // Remove any ARIA attributes that SplitText might have added
       (formHeader as HTMLElement).removeAttribute('aria-label');
       (formHeader as HTMLElement).removeAttribute('aria-hidden');

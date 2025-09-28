@@ -42,7 +42,7 @@ export const WhereWeWorkSection: React.FC = () => {
       wordsClass: 'split-word',
       tag: 'span',
     });
-    
+
     // Remove any ARIA attributes that SplitText might have added
     (header as HTMLElement).removeAttribute('aria-label');
     (header as HTMLElement).removeAttribute('aria-hidden');

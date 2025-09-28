@@ -40,7 +40,7 @@ export const DefinesUsSection: React.FC = () => {
       wordsClass: 'split-word',
       tag: 'span',
     });
-    
+
     // Remove any ARIA attributes that SplitText might have added
     (header as HTMLElement).removeAttribute('aria-label');
     (header as HTMLElement).removeAttribute('aria-hidden');
@@ -82,7 +82,7 @@ export const DefinesUsSection: React.FC = () => {
         wordsClass: 'split-word',
         tag: 'span',
       });
-      
+
       // Remove any ARIA attributes that SplitText might have added
       (element as HTMLElement).removeAttribute('aria-label');
       (element as HTMLElement).removeAttribute('aria-hidden');
