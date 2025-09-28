@@ -104,6 +104,12 @@
       }
     }
   },
+  "navigation": {
+    "home": "Główna",
+    "about": "O Nas",
+    "contact": "Kontakt",
+    "language": "Język"
+  },
   "seo": {
     "title": "RenewStock - Partner w Obiegu Którego Potrzebowałeś",
     "description": "Przekształć nadwyżki i zwroty w aktywa zwiększające wydajność. RenewStock zapewnia rzeczywistą wydajność odsprzedaży z pełną kontrolą i przejrzystością.",

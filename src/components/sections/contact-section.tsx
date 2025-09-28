@@ -269,7 +269,11 @@ export const ContactSection: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className='py-20 px-4 bg-white text-black'>
+    <section
+      id='contact'
+      ref={sectionRef}
+      className='py-20 px-4 bg-white text-black'
+    >
       <div className='max-w-6xl mx-auto text-center'>
         {/* Header */}
         <H2

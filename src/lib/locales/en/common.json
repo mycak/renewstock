@@ -105,6 +105,12 @@
       }
     }
   },
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "contact": "Contact",
+    "language": "Language"
+  },
   "seo": {
     "title": "RenewStock - The Circular Partner You Didn't Know You Needed",
     "description": "Transform overstock and returns into performance assets. RenewStock delivers real resale performance with end-to-end control, no market leakage, and elevated circularity.",

@@ -4,8 +4,19 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { Button } from '@/components/ui/button';
 import { Locale } from '@/lib/types/locale';
+import { cn } from '@/lib/utils';
 
-export const LanguageSwitcher: React.FC = () => {
+interface LanguageSwitcherProps {
+  /** Whether to use fixed positioning (for standalone usage) */
+  isFixed?: boolean;
+  /** Additional CSS classes */
+  className?: string;
+}
+
+export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
+  isFixed = true,
+  className,
+}) => {
   const router = useRouter();
 
   const toggleLanguage = () => {
@@ -24,7 +35,11 @@ export const LanguageSwitcher: React.FC = () => {
       onClick={toggleLanguage}
       variant='outline'
       size='sm'
-      className='fixed top-4 right-4 z-50 bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-purple-500 focus:outline-none'
+      className={cn(
+        isFixed ? 'fixed top-6 right-4 z-50' : 'relative',
+        'bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-purple-500 focus:outline-none',
+        className
+      )}
       aria-label={`Switch language to ${
         currentLanguage === Locale.EN ? 'Polish' : 'English'
       }. Current language: ${currentLang}`}

@@ -1,3 +1,4 @@
+import { NavigationHeader } from '@/components/navigation-header';
 import { HeroSection } from '@/components/sections/hero-section';
 import { DefinesUsSection } from '@/components/sections/defines-us-section';
 import { WhereWeWorkSection } from '@/components/sections/where-we-work-section';
@@ -9,15 +10,21 @@ import { SkipNavigation } from '@/components/seo/skip-navigation';
 
 export default function Home() {
   return (
-    <main id='main-content'>
+    <>
       <MetaTags />
       <SkipNavigation />
-      <LanguageSwitcher />
-      <HeroSection />
-      <DefinesUsSection />
-      <WhereWeWorkSection />
-      <OurTeamSection />
-      <ContactSection />
-    </main>
+      <NavigationHeader />
+      {/* Standalone Language Switcher for desktop (hidden on mobile since it's in the nav menu) */}
+      <div className='md:block hidden'>
+        <LanguageSwitcher />
+      </div>
+      <main id='main-content'>
+        <HeroSection />
+        <DefinesUsSection />
+        <WhereWeWorkSection />
+        <OurTeamSection />
+        <ContactSection />
+      </main>
+    </>
   );
 }

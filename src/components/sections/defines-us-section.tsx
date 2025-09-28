@@ -138,7 +138,7 @@ export const DefinesUsSection: React.FC = () => {
   ];
 
   return (
-    <section ref={sectionRef} className='py-20 px-4 bg-white'>
+    <section id='defines-us' ref={sectionRef} className='py-20 px-4 bg-white'>
       <div className='max-w-6xl mx-auto text-center'>
         {/* Header */}
         <H2

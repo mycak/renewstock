@@ -11,7 +11,10 @@ export const HeroSection: React.FC = () => {
   const { t } = useTranslation('common');
 
   return (
-    <section className='min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-white text-black'>
+    <section
+      id='hero'
+      className='min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-white text-black'
+    >
       {/* Animated Logo */}
       <div className='mb-8 md:mb-16'>
         <Image
