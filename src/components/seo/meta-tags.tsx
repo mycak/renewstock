@@ -49,7 +49,6 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={metaKeywords} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta charSet="utf-8" />
       
       {/* Language and Locale */}
       <meta httpEquiv="content-language" content={i18n.language} />

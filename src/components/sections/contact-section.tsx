@@ -94,6 +94,15 @@ export const ContactSection: React.FC = () => {
       const headerSplit = SplitText.create(contactHeader, {
         type: 'words',
         wordsClass: 'split-word',
+        tag: 'span',
+      });
+      
+      // Remove any ARIA attributes that SplitText might have added
+      (contactHeader as HTMLElement).removeAttribute('aria-label');
+      (contactHeader as HTMLElement).removeAttribute('aria-hidden');
+      headerSplit.words.forEach((word: Element) => {
+        word.removeAttribute('aria-label');
+        word.removeAttribute('aria-hidden');
       });
 
       tl.from(headerSplit.words, {
@@ -130,9 +139,20 @@ export const ContactSection: React.FC = () => {
       const split = SplitText.create(element, {
         type: 'words',
         wordsClass: 'split-word',
+        reduceWhiteSpace: false,
+        // Disable ARIA attributes to prevent accessibility issues
+        tag: 'span', // Ensure words are wrapped in spans, not divs
       });
       splitInstances.push(split);
       allWords.push(...split.words);
+      
+      // Remove any ARIA attributes that SplitText might have added
+      (element as HTMLElement).removeAttribute('aria-label');
+      (element as HTMLElement).removeAttribute('aria-hidden');
+      split.words.forEach((word: Element) => {
+        word.removeAttribute('aria-label');
+        word.removeAttribute('aria-hidden');
+      });
 
       // Apply highlight background to highlighted links after split
       const highlightedLinks = element.querySelectorAll('.highlighted-link');
@@ -198,6 +218,15 @@ export const ContactSection: React.FC = () => {
       const headerSplit = SplitText.create(formHeader, {
         type: 'words',
         wordsClass: 'split-word',
+        tag: 'span',
+      });
+      
+      // Remove any ARIA attributes that SplitText might have added
+      (formHeader as HTMLElement).removeAttribute('aria-label');
+      (formHeader as HTMLElement).removeAttribute('aria-hidden');
+      headerSplit.words.forEach((word: Element) => {
+        word.removeAttribute('aria-label');
+        word.removeAttribute('aria-hidden');
       });
 
       gsap.fromTo(

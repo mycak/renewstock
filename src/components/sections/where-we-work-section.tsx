@@ -40,6 +40,15 @@ export const WhereWeWorkSection: React.FC = () => {
     const headerSplit = SplitText.create(header, {
       type: 'words',
       wordsClass: 'split-word',
+      tag: 'span',
+    });
+    
+    // Remove any ARIA attributes that SplitText might have added
+    (header as HTMLElement).removeAttribute('aria-label');
+    (header as HTMLElement).removeAttribute('aria-hidden');
+    headerSplit.words.forEach((word: Element) => {
+      word.removeAttribute('aria-label');
+      word.removeAttribute('aria-hidden');
     });
 
     // Animate header words

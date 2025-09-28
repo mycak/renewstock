@@ -6,7 +6,6 @@ export default function Document() {
       <Head>
         {/* Essential meta tags that should be in document head */}
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
