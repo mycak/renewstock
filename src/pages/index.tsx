@@ -4,7 +4,6 @@ import { DefinesUsSection } from '@/components/sections/defines-us-section';
 import { WhereWeWorkSection } from '@/components/sections/where-we-work-section';
 import { OurTeamSection } from '@/components/sections/our-team-section';
 import { ContactSection } from '@/components/sections/contact-section';
-import { LanguageSwitcher } from '@/components/language-switcher';
 import { MetaTags } from '@/components/seo/meta-tags';
 import { SkipNavigation } from '@/components/seo/skip-navigation';
 
@@ -14,10 +13,7 @@ export default function Home() {
       <MetaTags />
       <SkipNavigation />
       <NavigationHeader />
-      {/* Standalone Language Switcher for desktop (hidden on mobile since it's in the nav menu) */}
-      <div className='md:block hidden'>
-        <LanguageSwitcher />
-      </div>
+
       <main id='main-content'>
         <HeroSection />
         <DefinesUsSection />

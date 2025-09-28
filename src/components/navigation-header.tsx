@@ -24,7 +24,6 @@ type NavigationItem = {
 export const NavigationHeader: React.FC = () => {
   const { t } = useTranslation('common');
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
   // Navigation items
@@ -66,20 +65,10 @@ export const NavigationHeader: React.FC = () => {
     }
   };
 
-  // Handle scroll effect for header background
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   // Header animation on mount
   useEffect(() => {
     if (headerRef.current) {
+      // Set initial state and animate to visible
       gsap.fromTo(
         headerRef.current,
         {
@@ -92,6 +81,15 @@ export const NavigationHeader: React.FC = () => {
           duration: 0.8,
           ease: 'power2.out',
           delay: 0.5, // Delay to appear after hero animation
+          onComplete: () => {
+            // Remove Tailwind classes that conflict with final state
+            if (headerRef.current) {
+              headerRef.current.classList.remove(
+                'opacity-0',
+                '-translate-y-full'
+              );
+            }
+          },
         }
       );
     }
@@ -100,13 +98,9 @@ export const NavigationHeader: React.FC = () => {
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/80 backdrop-blur-xl shadow-xl border-b border-white/20 backdrop-saturate-150'
-          : 'bg-white/10 backdrop-blur-sm'
-      }`}
+      className='fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-xl shadow-xl border-b border-white/20 backdrop-saturate-150 opacity-0 -translate-y-full'
     >
-      <div className='max-w-6xl mx-auto px-8'>
+      <div className='max-w-6xl mx-auto px-2 md:px-8'>
         <div className='flex items-center justify-between h-16 md:h-20'>
           {/* Logo / Brand */}
           <div className='flex-shrink-0'>
@@ -130,15 +124,11 @@ export const NavigationHeader: React.FC = () => {
                 <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full' />
               </button>
             ))}
-
-            {/* Language Switcher */}
-            <div className='ml-4'>
-              <LanguageSwitcher />
-            </div>
+            <LanguageSwitcher isFixed={false} />
           </nav>
 
           {/* Mobile Menu */}
-          <div className='md:hidden'>
+          <div className='md:hidden absolute right-4'>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button
@@ -203,6 +193,8 @@ export const NavigationHeader: React.FC = () => {
             </Sheet>
           </div>
         </div>
+
+        {/* Absolutely positioned Language Switcher */}
       </div>
 
       {/* slideInFromRight animation is defined in globals.css */}
