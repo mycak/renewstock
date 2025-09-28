@@ -67,17 +67,17 @@ export const OurTeamSection: React.FC = () => {
 
     // Animate team cards with crazy effects
     const cardElements = cards.querySelectorAll('.team-card');
-    
+
     cardElements.forEach((card, index) => {
       // Different entrance animations for each card
       const directions = [
         { x: -200, rotation: -15 }, // Left with rotation
-        { y: 200, scale: 0.5, rotation: 360 }, // Bottom with scale and spin
-        { x: 200, y: -100, rotation: 15 } // Top-right with rotation
+        { y: 20, scale: 0.5, rotation: 360 }, // Bottom with scale and spin
+        { x: 200, y: -15, rotation: 15 }, // Top-right with rotation
       ];
-      
+
       const direction = directions[index % directions.length];
-      
+
       // Initial state
       gsap.set(card, {
         autoAlpha: 0,
@@ -132,7 +132,7 @@ export const OurTeamSection: React.FC = () => {
           duration: 0.3,
           ease: 'power2.out',
         });
-        
+
         if (avatar) {
           gsap.to(avatar, {
             rotation: 360,
@@ -154,9 +154,17 @@ export const OurTeamSection: React.FC = () => {
     });
 
     // Respect reduced motion preference
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
     if (prefersReducedMotion) {
-      gsap.set(cardElements, { autoAlpha: 1, x: 0, y: 0, scale: 1, rotation: 0 });
+      gsap.set(cardElements, {
+        autoAlpha: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotation: 0,
+      });
     }
 
     // Cleanup function
@@ -201,13 +209,13 @@ export const OurTeamSection: React.FC = () => {
         <Separator className='separator w-24 mx-auto mb-12 h-1 bg-black' />
 
         {/* Team Cards */}
-        <div 
-          ref={cardsRef} 
+        <div
+          ref={cardsRef}
           className='grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto'
         >
           {teamMembers.map((member, index) => {
             const IconComponent = member.icon;
-            
+
             return (
               <div
                 key={index}
