@@ -1,16 +1,17 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import { Locale, DEFAULT_LOCALE } from './types/locale';
 
 // Import translation files
 import enTranslations from './locales/en/common.json';
 import plTranslations from './locales/pl/common.json';
 
 const resources = {
-  en: {
+  [Locale.EN]: {
     common: enTranslations,
   },
-  pl: {
+  [Locale.PL]: {
     common: plTranslations,
   },
 };
@@ -20,8 +21,8 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'en', // English as primary language
-    lng: 'en', // Set default language for SSR
+    fallbackLng: DEFAULT_LOCALE,
+    lng: DEFAULT_LOCALE, // Set default language for SSR
     defaultNS: 'common',
     ns: ['common'],
 

@@ -103,5 +103,19 @@
         "description": "Ekspertka ds. operacji z głęboką wiedzą w zakresie logistyki i kontroli jakości. Sofia zapewnia bezproblemową realizację naszych strategii wydajności odsprzedaży na całym świecie."
       }
     }
+  },
+  "seo": {
+    "title": "RenewStock - Partner w Obiegu Którego Potrzebowałeś",
+    "description": "Przekształć nadwyżki i zwroty w aktywa zwiększające wydajność. RenewStock zapewnia rzeczywistą wydajność odsprzedaży z pełną kontrolą i przejrzystością.",
+    "keywords": "gospodarka obiegowa, zarządzanie nadwyżkami, przetwarzanie zwrotów, zrównoważona odsprzedaż, optymalizacja magazynu, redukcja odpadów",
+    "og": {
+      "title": "RenewStock - Przekształcamy Nadwyżki w Aktywa Wydajnościowe",
+      "description": "Partner w obiegu którego potrzebowałeś. Płacimy z góry i zapewniamy rzeczywistą wydajność odsprzedaży z pełną transparentnością i kontrolą.",
+      "image": "/logo/animated-logo.gif"
+    },
+    "twitter": {
+      "title": "RenewStock - Partner w Obiegu Którego Potrzebujesz",
+      "description": "Przekształć nadwyżki i zwroty w aktywa wydajnościowe. Rzeczywista wydajność odsprzedaży z pełną kontrolą i podwyższoną cyrkularnością."
+    }
   }
 }

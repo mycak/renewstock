@@ -33,7 +33,6 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
     {
       ref: elementRef,
       className: cn('inline-block', className),
-      'aria-label': texts.join(' '), // Accessibility: provide the full text for screen readers
     },
     texts.join(' ') // Initial content (will be replaced by animation)
   );

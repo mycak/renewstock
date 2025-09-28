@@ -48,7 +48,6 @@ export const ScrambleText: React.FC<ScrambleTextProps> = ({
     {
       ref: elementRef,
       className: cn('inline-block', className),
-      'aria-label': text, // Accessibility: provide the actual text for screen readers
     },
     text // Initial text content (will be replaced by animation)
   );

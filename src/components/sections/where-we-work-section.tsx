@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lottie from 'lottie-react';
-import { H2, P } from '@/components/ui/typography';
+import { H2, P, H3 } from '@/components/ui/typography';
 import { Separator } from '@/components/ui/separator';
 import worldMapAnimation from '../../../public/lottie/world-map.json';
 
@@ -40,6 +40,15 @@ export const WhereWeWorkSection: React.FC = () => {
     const headerSplit = SplitText.create(header, {
       type: 'words',
       wordsClass: 'split-word',
+      tag: 'span',
+    });
+
+    // Remove any ARIA attributes that SplitText might have added
+    (header as HTMLElement).removeAttribute('aria-label');
+    (header as HTMLElement).removeAttribute('aria-hidden');
+    headerSplit.words.forEach((word: Element) => {
+      word.removeAttribute('aria-label');
+      word.removeAttribute('aria-hidden');
     });
 
     // Animate header words
@@ -174,11 +183,11 @@ export const WhereWeWorkSection: React.FC = () => {
               key={index}
               className='region-item text-center bg-transparent backdrop-blur-sm rounded-lg p-4 border border-black'
             >
-              <h3 className='font-bold text-xl md:text-2xl mb-2 text-gray-800 relative inline-block'>
+              <H3 className='font-bold text-xl md:text-2xl mb-2 text-gray-800 relative inline-block border-none'>
                 {t(region.title)}
                 {/* Purple underline from 30% to 100% width */}
                 <div className='region-underline absolute bottom-0 left-[-3%] right-[-3%] h-[2px] bg-purple-500'></div>
-              </h3>
+              </H3>
               <P className='text-gray-700 leading-relaxed mt-0!'>
                 {t(region.description)}
               </P>
