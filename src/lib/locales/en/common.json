@@ -82,6 +82,12 @@
         "email_invalid": "Please enter a valid email address",
         "phone_required": "Phone number is required",
         "message_min_length": "Message must be at least 10 characters long"
+      },
+      "messages": {
+        "success": "Thank you! Your message has been sent successfully. We'll get back to you shortly.",
+        "sending": "Sending message...",
+        "error": "An error occurred while sending your message. Please try again or contact us directly.",
+        "validation_error": "Please check the accuracy of the filled data."
       }
     }
   },

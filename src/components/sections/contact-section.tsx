@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 import Lottie from 'lottie-react';
@@ -36,12 +36,22 @@ type ContactFormValues = {
   message: string;
 };
 
+type FormStatus = 'idle' | 'loading' | 'success' | 'error';
+
+interface ApiResponse {
+  success: boolean;
+  message?: string;
+  error?: string;
+}
+
 export const ContactSection: React.FC = () => {
   const { t } = useTranslation('common');
+  const [formStatus, setFormStatus] = useState<FormStatus>('idle');
+  const [statusMessage, setStatusMessage] = useState<string>('');
 
   // Contact form schema with translations
   const contactFormSchema = z.object({
-    email: z.email(t('contact.form.validation.email_invalid')),
+    email: z.string().email(t('contact.form.validation.email_invalid')),
     phone: z.string().min(1, t('contact.form.validation.phone_required')),
     message: z
       .string()
@@ -65,8 +75,34 @@ export const ContactSection: React.FC = () => {
     },
   });
 
-  const onSubmit = (data: ContactFormValues) => {
-    console.log('Form data:', data);
+  const onSubmit = async (data: ContactFormValues) => {
+    setFormStatus('loading');
+    setStatusMessage(t('contact.form.messages.sending'));
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result: ApiResponse = await response.json();
+
+      if (result.success) {
+        setFormStatus('success');
+        setStatusMessage(t('contact.form.messages.success'));
+        form.reset(); // Clear the form on success
+      } else {
+        setFormStatus('error');
+        setStatusMessage(result.error || t('contact.form.messages.error'));
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setFormStatus('error');
+      setStatusMessage(t('contact.form.messages.error'));
+    }
   };
 
   useEffect(() => {
@@ -445,10 +481,27 @@ export const ContactSection: React.FC = () => {
                 <Button
                   type='submit'
                   variant='outline'
-                  className='cursor-pointer w-full border border-black text-black no-underline hover:underline hover:decoration-purple-500 hover:decoration-2 hover:underline-offset-4 font-semibold py-3 px-6 text-lg transition-all duration-300 ease-out'
+                  disabled={formStatus === 'loading'}
+                  className='cursor-pointer w-full border border-black text-black no-underline hover:underline hover:decoration-purple-500 hover:decoration-2 hover:underline-offset-4 font-semibold py-3 px-6 text-lg transition-all duration-300 ease-out disabled:opacity-50 disabled:cursor-not-allowed'
                 >
-                  {t('contact.form.submit_button')}
+                  {formStatus === 'loading'
+                    ? t('contact.form.messages.sending')
+                    : t('contact.form.submit_button')}
                 </Button>
+                {/* Status Message */}
+                {statusMessage && (
+                  <div
+                    className={`mt-4 p-4 rounded-md text-center font-medium ${
+                      formStatus === 'success'
+                        ? 'bg-green-100 text-green-800 border border-green-200'
+                        : formStatus === 'error'
+                        ? 'bg-red-100 text-red-800 border border-red-200'
+                        : 'bg-blue-100 text-blue-800 border border-blue-200'
+                    }`}
+                  >
+                    {statusMessage}
+                  </div>
+                )}
               </form>
             </Form>
           </div>

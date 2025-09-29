@@ -81,6 +81,12 @@
         "email_invalid": "Podaj prawidłowy adres email",
         "phone_required": "Numer telefonu jest wymagany",
         "message_min_length": "Wiadomość musi mieć co najmniej 10 znaków"
+      },
+      "messages": {
+        "success": "Dziękujemy! Wiadomość została wysłana pomyślnie. Skontaktujemy się z Tobą wkrótce.",
+        "sending": "Wysyłanie wiadomości...",
+        "error": "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie lub skontaktuj się z nami bezpośrednio.",
+        "validation_error": "Sprawdź poprawność wypełnionych danych."
       }
     }
   },
