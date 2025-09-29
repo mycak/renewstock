@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cleanupSplitTextAria } from '@/lib/gsap-utils';
 import { H2, H3, P } from '@/components/ui/typography';
 import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
 
 // Register GSAP plugins
 gsap.registerPlugin(SplitText, ScrollTrigger);
@@ -89,7 +90,7 @@ export const BuyersSection: React.FC = () => {
     const benefitCards = content.querySelectorAll('.benefit-card');
     benefitCards.forEach((card) => {
       const cardElement = card as HTMLElement;
-      
+
       cardElement.addEventListener('mouseenter', () => {
         gsap.to(cardElement, {
           scale: 1.02,
@@ -121,6 +122,13 @@ export const BuyersSection: React.FC = () => {
     'buyers.benefits.reliable_supply',
     'buyers.benefits.logistics_support',
   ];
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id='buyers' ref={sectionRef} className='py-20 px-4 bg-gray-50'>
@@ -170,7 +178,7 @@ export const BuyersSection: React.FC = () => {
                 <H3 className='font-black text-4xl md:text-5xl text-purple-600 border-none'>
                   {t('buyers.stats.satisfaction')}
                 </H3>
-                <P className='text-gray-600 mt-2 mt-0!'>
+                <P className='text-gray-600 mt-0!'>
                   {t('buyers.stats.satisfaction_label')}
                 </P>
               </div>
@@ -178,7 +186,7 @@ export const BuyersSection: React.FC = () => {
                 <H3 className='font-black text-4xl md:text-5xl text-purple-600 border-none'>
                   {t('buyers.stats.delivery_time')}
                 </H3>
-                <P className='text-gray-600 mt-2 mt-0!'>
+                <P className='text-gray-600 mt-0!'>
                   {t('buyers.stats.delivery_time_label')}
                 </P>
               </div>
@@ -186,7 +194,7 @@ export const BuyersSection: React.FC = () => {
                 <H3 className='font-black text-4xl md:text-5xl text-purple-600 border-none'>
                   {t('buyers.stats.regions')}
                 </H3>
-                <P className='text-gray-600 mt-2 mt-0!'>
+                <P className='text-gray-600 mt-0!'>
                   {t('buyers.stats.regions_label')}
                 </P>
               </div>
@@ -195,13 +203,21 @@ export const BuyersSection: React.FC = () => {
 
           {/* Partnership Call to Action */}
           <div className='content-item mt-12'>
-            <div className='bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-8 text-white'>
-              <H3 className='font-bold text-2xl md:text-3xl mb-4 border-none'>
+            <div className='bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-8 border-2 border-purple-500'>
+              <H3 className='font-bold text-2xl md:text-3xl mb-4 border-none text-purple-800'>
                 {t('buyers.cta.title')}
               </H3>
-              <P className='text-lg text-blue-100 mt-0!'>
+              <P className='text-lg text-purple-700 mt-0! mb-6'>
                 {t('buyers.cta.description')}
               </P>
+              <Button
+                onClick={scrollToContact}
+                variant='outline'
+                size='lg'
+                className='bg-transparent border-2 border-purple-500 text-purple-600 hover:bg-purple-500 hover:text-white transition-all duration-300 font-semibold px-8 py-3'
+              >
+                {t('common.get_in_touch')}
+              </Button>
             </div>
           </div>
         </div>

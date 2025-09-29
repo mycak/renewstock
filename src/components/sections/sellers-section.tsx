@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cleanupSplitTextAria } from '@/lib/gsap-utils';
 import { H2, H3, P } from '@/components/ui/typography';
 import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
 
 // Register GSAP plugins
 gsap.registerPlugin(SplitText, ScrollTrigger);
@@ -98,6 +99,13 @@ export const SellersSection: React.FC = () => {
     'sellers.features.transparent_reporting',
   ];
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id='sellers' ref={sectionRef} className='py-20 px-4 bg-white'>
       <div className='max-w-6xl mx-auto text-center'>
@@ -145,9 +153,17 @@ export const SellersSection: React.FC = () => {
               <H3 className='font-bold text-2xl md:text-3xl mb-4 border-none'>
                 {t('sellers.cta.title')}
               </H3>
-              <P className='text-lg text-purple-100 mt-0!'>
+              <P className='text-lg text-purple-100 mt-0! mb-6'>
                 {t('sellers.cta.description')}
               </P>
+              <Button
+                onClick={scrollToContact}
+                variant='secondary'
+                size='lg'
+                className='bg-white text-purple-600 hover:bg-purple-50 transition-all duration-300 font-semibold px-8 py-3'
+              >
+                {t('common.get_in_touch')}
+              </Button>
             </div>
           </div>
         </div>
