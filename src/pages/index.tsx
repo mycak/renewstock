@@ -1,5 +1,7 @@
 import { NavigationHeader } from '@/components/navigation-header';
 import { HeroSection } from '@/components/sections/hero-section';
+import { SellersSection } from '@/components/sections/sellers-section';
+import { BuyersSection } from '@/components/sections/buyers-section';
 import { DefinesUsSection } from '@/components/sections/defines-us-section';
 import { WhereWeWorkSection } from '@/components/sections/where-we-work-section';
 import { OurTeamSection } from '@/components/sections/our-team-section';
@@ -16,6 +18,8 @@ export default function Home() {
 
       <main id='main-content'>
         <HeroSection />
+        <SellersSection />
+        <BuyersSection />
         <DefinesUsSection />
         <WhereWeWorkSection />
         <OurTeamSection />

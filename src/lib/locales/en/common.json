@@ -105,11 +105,74 @@
       }
     }
   },
+  "sellers": {
+    "header": "FOR SELLERS",
+    "description": "Transform your overstock and returns into immediate revenue. We provide a seamless, transparent solution that protects your brand while maximizing value recovery.",
+    "features": {
+      "instant_cash_flow": {
+        "title": "INSTANT CASH FLOW",
+        "description": "Get paid upfront for your inventory. No waiting, no uncertainty—immediate capital injection for your business."
+      },
+      "zero_risk_disposal": {
+        "title": "ZERO-RISK DISPOSAL",
+        "description": "Complete inventory clearance with full chain of custody. Your products are handled professionally from pickup to final sale."
+      },
+      "brand_protection": {
+        "title": "BRAND PROTECTION",
+        "description": "Controlled resale channels that maintain your brand integrity. No grey market leakage or unauthorized selling."
+      },
+      "transparent_reporting": {
+        "title": "TRANSPARENT REPORTING",
+        "description": "Full visibility into the resale process. Track your inventory journey with detailed performance analytics."
+      }
+    },
+    "cta": {
+      "title": "READY TO TRANSFORM OVERSTOCK?",
+      "description": "Join leading brands who've discovered the power of strategic resale partnerships."
+    }
+  },
+  "buyers": {
+    "header": "FOR BUYERS",
+    "description": "Access premium inventory at competitive prices through our curated marketplace. We deliver quality products with full traceability and reliable supply chains.",
+    "benefits": {
+      "curated_quality": {
+        "title": "CURATED QUALITY",
+        "description": "Hand-selected inventory from trusted brands. Every product is verified and graded to ensure consistent quality standards."
+      },
+      "competitive_pricing": {
+        "title": "COMPETITIVE PRICING",
+        "description": "Access wholesale pricing on premium products. Better margins through our direct brand relationships."
+      },
+      "reliable_supply": {
+        "title": "RELIABLE SUPPLY",
+        "description": "Consistent inventory flow across multiple product categories. Predictable sourcing for your business planning."
+      },
+      "logistics_support": {
+        "title": "LOGISTICS SUPPORT",
+        "description": "End-to-end fulfillment services. From warehousing to last-mile delivery across our global network."
+      }
+    },
+    "stats": {
+      "satisfaction": "98%",
+      "satisfaction_label": "Buyer Satisfaction",
+      "delivery_time": "72h",
+      "delivery_time_label": "Average Delivery",
+      "regions": "25+",
+      "regions_label": "Countries Served"
+    },
+    "cta": {
+      "title": "BECOME A TRUSTED BUYER",
+      "description": "Join our network of verified buyers and access exclusive inventory opportunities."
+    }
+  },
   "navigation": {
     "home": "Home",
     "about": "About Us",
     "contact": "Contact",
     "language": "Language"
+  },
+  "common": {
+    "get_in_touch": "Get In Touch"
   },
   "seo": {
     "title": "RenewStock - The Circular Partner You Didn't Know You Needed",
