@@ -98,7 +98,7 @@ export const NavigationHeader: React.FC = () => {
   return (
     <header
       ref={headerRef}
-      className='fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-xl shadow-xl border-b border-white/20 backdrop-saturate-150 opacity-0 -translate-y-full'
+      className='fixed top-0 left-0 right-0 z-50 transition-all duration-[270ms] bg-white/80 backdrop-blur-xl shadow-xl border-b border-white/20 backdrop-saturate-150 opacity-0 -translate-y-full'
     >
       <div className='max-w-6xl mx-auto px-2 md:px-8'>
         <div className='flex items-center justify-between h-16 md:h-20'>
@@ -106,7 +106,7 @@ export const NavigationHeader: React.FC = () => {
           <div className='flex-shrink-0'>
             <button
               onClick={() => handleNavClick('hero')}
-              className='text-xl md:text-2xl font-black text-black hover:text-purple-600 transition-colors duration-300'
+              className='text-xl md:text-2xl font-black text-black hover:text-purple-600 transition-colors duration-[270ms]'
             >
               RENEWSTOCK
             </button>
@@ -118,10 +118,10 @@ export const NavigationHeader: React.FC = () => {
               <button
                 key={item.key}
                 onClick={() => handleNavClick(item.sectionId || item.key)}
-                className='text-black hover:text-purple-600 font-semibold transition-colors duration-300 relative group'
+                className='text-black hover:text-purple-600 font-semibold transition-colors duration-[270ms] relative group'
               >
                 {item.label}
-                <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full' />
+                <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-[270ms] group-hover:w-full' />
               </button>
             ))}
             <LanguageSwitcher isFixed={false} />
@@ -134,7 +134,7 @@ export const NavigationHeader: React.FC = () => {
                 <Button
                   variant='ghost'
                   size='icon'
-                  className='text-black hover:text-purple-600 hover:bg-purple-50 transition-colors duration-300'
+                  className='text-black hover:text-purple-600 hover:bg-purple-50 transition-colors duration-[270ms]'
                 >
                   <Menu className='h-6 w-6' />
                   <span className='sr-only'>Open menu</span>
@@ -166,16 +166,16 @@ export const NavigationHeader: React.FC = () => {
                     <button
                       key={item.key}
                       onClick={() => handleNavClick(item.sectionId || item.key)}
-                      className='text-left text-3xl font-black text-black hover:text-purple-600 transition-all duration-300 relative group w-max'
+                      className='text-left text-3xl font-black text-black hover:text-purple-600 transition-all duration-[270ms] relative group w-max'
                       style={{
                         animationDelay: `${index * 0.1}s`,
                         animation: isOpen
-                          ? 'slideInFromRight 0.5s ease-out forwards'
+                          ? 'slideInFromRight 0.45s ease-out forwards'
                           : 'none',
                       }}
                     >
                       {item.label}
-                      <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full' />
+                      <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-[270ms] group-hover:w-full' />
                     </button>
                   ))}
 

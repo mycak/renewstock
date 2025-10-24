@@ -37,7 +37,7 @@ export const HeroSection: React.FC = () => {
                 'hero.main_header.partner'
               )} ${t('hero.main_header.line1_end')}`}
               delay={0}
-              duration={2.4}
+              duration={2.16}
               chars='upperCase'
               speed={0.6}
               revealDelay={0}
@@ -50,7 +50,7 @@ export const HeroSection: React.FC = () => {
             <ScrambleText
               text={t('hero.main_header.line2')}
               delay={0}
-              duration={2}
+              duration={1.8}
               chars='upperCase'
               speed={0.7}
               revealDelay={0}
@@ -67,8 +67,8 @@ export const HeroSection: React.FC = () => {
               texts={
                 t('hero.subheader.words', { returnObjects: true }) as string[]
               }
-              delay={0.5}
-              typingSpeed={0.05}
+              delay={0.45}
+              typingSpeed={0.045}
               showCursor={false}
               className=''
               as='span'
@@ -81,31 +81,31 @@ export const HeroSection: React.FC = () => {
               <P className='mb-2 text-sm font-bold'>
                 <ScrambleText
                   text={t('hero.disclaimer.line1_start')}
-                  delay={4}
-                  duration={1}
+                  delay={3.6}
+                  duration={0.9}
                   chars='upperCase'
                   speed={0.5}
-                  revealDelay={0.3}
+                  revealDelay={0.27}
                   className='inline'
                   as='span'
                 />
                 <ScrambleText
                   text={t('hero.disclaimer.line1_highlight')}
-                  delay={0.5}
-                  duration={5.5}
+                  delay={0.45}
+                  duration={4.95}
                   chars='upperCase'
                   speed={0.5}
-                  revealDelay={0.3}
+                  revealDelay={0.27}
                   className='inline text-purple-600'
                   as='span'
                 />
                 <ScrambleText
                   text={t('hero.disclaimer.line1_end')}
-                  delay={5.5}
-                  duration={0.5}
+                  delay={4.95}
+                  duration={0.45}
                   chars='upperCase'
                   speed={0.5}
-                  revealDelay={0.3}
+                  revealDelay={0.27}
                   className='inline'
                   as='span'
                 />
@@ -113,11 +113,11 @@ export const HeroSection: React.FC = () => {
               <P className='font-bold mt-0!'>
                 <ScrambleText
                   text={t('hero.disclaimer.line2')}
-                  delay={6}
-                  duration={1.5}
+                  delay={5.4}
+                  duration={1.35}
                   chars='upperCase'
                   speed={0.4}
-                  revealDelay={0.2}
+                  revealDelay={0.18}
                   className='inline'
                   as='span'
                 />

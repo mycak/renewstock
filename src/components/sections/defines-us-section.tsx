@@ -47,10 +47,10 @@ export const DefinesUsSection: React.FC = () => {
 
     // Animate header words
     tl.from(headerSplit.words, {
-      duration: 0.8,
+      duration: 0.72,
       y: 100,
       autoAlpha: 0,
-      stagger: 0.1,
+      stagger: 0.09,
       ease: 'power2.out',
     });
 
@@ -60,12 +60,12 @@ export const DefinesUsSection: React.FC = () => {
       tl.from(
         separator,
         {
-          duration: 0.6,
+          duration: 0.54,
           scaleX: 0,
           transformOrigin: 'center',
           ease: 'power2.out',
         },
-        '-=0.2'
+        '-=0.18'
       );
     }
 
@@ -109,13 +109,13 @@ export const DefinesUsSection: React.FC = () => {
       tl.from(
         split.words,
         {
-          duration: 0.8,
+          duration: 0.72,
           y: 80,
           autoAlpha: 0,
-          stagger: 0.25,
+          stagger: 0.225,
           ease: 'power2.out',
         },
-        `-=${0.4}`
+        `-=${0.36}`
       ); // Overlap with previous animation
     });
 

@@ -138,10 +138,10 @@ export const ContactSection: React.FC = () => {
       cleanupSplitTextAria(contactHeader as HTMLElement, headerSplit);
 
       tl.from(headerSplit.words, {
-        duration: 0.4,
+        duration: 0.36,
         y: 100,
         opacity: 0,
-        stagger: 0.08,
+        stagger: 0.072,
         ease: 'power2.out',
       });
     }
@@ -151,12 +151,12 @@ export const ContactSection: React.FC = () => {
       tl.from(
         contactSeparator,
         {
-          duration: 0.6,
+          duration: 0.54,
           scaleX: 0,
           transformOrigin: 'center',
           ease: 'power2.out',
         },
-        '-=0.2'
+        '-=0.18'
       );
     }
 
@@ -207,10 +207,10 @@ export const ContactSection: React.FC = () => {
 
     // Animate all words in random order
     tl.from(shuffledWords, {
-      duration: 0.8,
+      duration: 0.72,
       y: () => (Math.random() > 0.5 ? -120 : 120), // Random top or bottom
       opacity: 0,
-      stagger: 0.06, // Faster stagger since we have more elements
+      stagger: 0.054, // Faster stagger since we have more elements
       ease: 'power3.out',
       rotation: () => (Math.random() - 0.5) * 20, // Random rotation -10 to +10
     });
@@ -229,7 +229,7 @@ export const ContactSection: React.FC = () => {
           opacity: 1,
           scale: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.72,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: lottie,
@@ -260,10 +260,10 @@ export const ContactSection: React.FC = () => {
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.1,
+          duration: 0.72,
+          stagger: 0.09,
           ease: 'power2.out',
-          delay: 0.3, // Add slight delay
+          delay: 0.27, // Add slight delay
           scrollTrigger: {
             trigger: formHeader,
             start: 'top 85%', // Match form trigger point
@@ -284,9 +284,9 @@ export const ContactSection: React.FC = () => {
         {
           opacity: 1,
           y: 0,
-          duration: 1.0,
+          duration: 0.9,
           ease: 'power2.out',
-          delay: 0.5, // Add delay for later appearance
+          delay: 0.45, // Add delay for later appearance
           scrollTrigger: {
             trigger: form,
             start: 'top 85%', // Trigger when form is closer to viewport
@@ -365,7 +365,7 @@ export const ContactSection: React.FC = () => {
               {t('contact.description.phone_label')}
               <Link
                 href={CONTACT.PHONE.HREF}
-                className='highlighted-link text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl transition-all duration-300 hover:scale-105 hover:text-purple-500 inline-block'
+                className='highlighted-link text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl transition-all duration-[270ms] hover:scale-105 hover:text-purple-500 inline-block'
               >
                 {CONTACT.PHONE.DISPLAY}
               </Link>
@@ -380,7 +380,7 @@ export const ContactSection: React.FC = () => {
             >
               <Link
                 href={CONTACT.EMAIL.HREF}
-                className='highlighted-link text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl transition-all duration-300 hover:scale-105 hover:text-purple-500 inline-block'
+                className='highlighted-link text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl transition-all duration-[270ms] hover:scale-105 hover:text-purple-500 inline-block'
               >
                 {CONTACT.EMAIL.ADDRESS}
               </Link>
@@ -482,7 +482,7 @@ export const ContactSection: React.FC = () => {
                   type='submit'
                   variant='outline'
                   disabled={formStatus === 'loading'}
-                  className='cursor-pointer w-full border border-black text-black no-underline hover:underline hover:decoration-purple-500 hover:decoration-2 hover:underline-offset-4 font-semibold py-3 px-6 text-lg transition-all duration-300 ease-out disabled:opacity-50 disabled:cursor-not-allowed'
+                  className='cursor-pointer w-full border border-black text-black no-underline hover:underline hover:decoration-purple-500 hover:decoration-2 hover:underline-offset-4 font-semibold py-3 px-6 text-lg transition-all duration-[270ms] ease-out disabled:opacity-50 disabled:cursor-not-allowed'
                 >
                   {formStatus === 'loading'
                     ? t('contact.form.messages.sending')

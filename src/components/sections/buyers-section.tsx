@@ -48,10 +48,10 @@ export const BuyersSection: React.FC = () => {
 
     // Animate header words
     tl.from(headerSplit.words, {
-      duration: 0.8,
+      duration: 0.72,
       y: 100,
       autoAlpha: 0,
-      stagger: 0.1,
+      stagger: 0.09,
       ease: 'power2.out',
     });
 
@@ -61,12 +61,12 @@ export const BuyersSection: React.FC = () => {
       tl.from(
         separator,
         {
-          duration: 0.6,
+          duration: 0.54,
           scaleX: 0,
           transformOrigin: 'center',
           ease: 'power2.out',
         },
-        '-=0.2'
+        '-=0.18'
       );
     }
 
@@ -76,13 +76,13 @@ export const BuyersSection: React.FC = () => {
       tl.from(
         contentItems,
         {
-          duration: 0.8,
+          duration: 0.72,
           y: 60,
           autoAlpha: 0,
-          stagger: 0.2,
+          stagger: 0.18,
           ease: 'power2.out',
         },
-        '-=0.3'
+        '-=0.27'
       );
     }
 
@@ -95,7 +95,7 @@ export const BuyersSection: React.FC = () => {
         gsap.to(cardElement, {
           scale: 1.02,
           y: -5,
-          duration: 0.3,
+          duration: 0.27,
           ease: 'power2.out',
         });
       });
@@ -104,7 +104,7 @@ export const BuyersSection: React.FC = () => {
         gsap.to(cardElement, {
           scale: 1,
           y: 0,
-          duration: 0.3,
+          duration: 0.27,
           ease: 'power2.out',
         });
       });
@@ -159,7 +159,7 @@ export const BuyersSection: React.FC = () => {
             {buyerBenefits.map((benefitKey, index) => (
               <div
                 key={`${benefitKey}-${i18n.language}-${index}`}
-                className='benefit-card bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300'
+                className='benefit-card bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-[270ms]'
               >
                 <H3 className='font-bold text-xl md:text-2xl mb-3 text-gray-800 border-none'>
                   {t(`${benefitKey}.title`)}
@@ -214,7 +214,7 @@ export const BuyersSection: React.FC = () => {
                 onClick={scrollToContact}
                 variant='outline'
                 size='lg'
-                className='bg-transparent border-2 border-purple-500 text-purple-600 hover:bg-purple-500 hover:text-white transition-all duration-300 font-semibold px-8 py-3'
+                className='bg-transparent border-2 border-purple-500 text-purple-600 hover:bg-purple-500 hover:text-white transition-all duration-[270ms] font-semibold px-8 py-3'
               >
                 {t('common.get_in_touch')}
               </Button>

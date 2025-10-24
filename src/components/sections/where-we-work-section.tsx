@@ -49,10 +49,10 @@ export const WhereWeWorkSection: React.FC = () => {
 
     // Animate header words
     tl.from(headerSplit.words, {
-      duration: 0.7,
+      duration: 0.63,
       y: 100,
       autoAlpha: 0,
-      stagger: 0.07,
+      stagger: 0.063,
       ease: 'power2.out',
     });
 
@@ -62,12 +62,12 @@ export const WhereWeWorkSection: React.FC = () => {
       tl.from(
         separator,
         {
-          duration: 0.6,
+          duration: 0.54,
           scaleX: 0,
           transformOrigin: 'center',
           ease: 'power2.out',
         },
-        '-=0.2'
+        '-=0.18'
       );
     }
 
@@ -79,12 +79,12 @@ export const WhereWeWorkSection: React.FC = () => {
       tl.from(
         element,
         {
-          duration: 0.7,
+          duration: 0.63,
           autoAlpha: 0,
           y: 30,
           ease: 'power2.out',
         },
-        `-=${0.6}`
+        `-=${0.54}`
       ); // Overlap with previous animation
 
       // Animate underline after region appears
@@ -93,12 +93,12 @@ export const WhereWeWorkSection: React.FC = () => {
         tl.from(
           underline,
           {
-            duration: 0.7,
+            duration: 0.63,
             scaleX: 0,
             transformOrigin: 'left',
             ease: 'power2.out',
           },
-          '-=0.4'
+          '-=0.36'
         ); // Start slightly before region animation ends
       }
     });

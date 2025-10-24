@@ -43,10 +43,10 @@ export const OurTeamSection: React.FC = () => {
 
     // Animate header words
     tl.from(headerSplit.words, {
-      duration: 0.8,
+      duration: 0.72,
       y: 100,
       autoAlpha: 0,
-      stagger: 0.1,
+      stagger: 0.09,
       ease: 'power2.out',
     });
 
@@ -56,12 +56,12 @@ export const OurTeamSection: React.FC = () => {
       tl.from(
         separator,
         {
-          duration: 0.6,
+          duration: 0.54,
           scaleX: 0,
           transformOrigin: 'center',
           ease: 'power2.out',
         },
-        '-=0.2'
+        '-=0.18'
       );
     }
 
@@ -88,7 +88,7 @@ export const OurTeamSection: React.FC = () => {
       tl.to(
         card,
         {
-          duration: 1.2,
+          duration: 1.08,
           autoAlpha: 1,
           y: 0,
           x: 0,
@@ -96,16 +96,16 @@ export const OurTeamSection: React.FC = () => {
           rotation: 0,
           ease: 'elastic.out(1, 0.8)',
         },
-        `-=${0.8 - index * 0.2}` // Staggered timing
+        `-=${0.72 - index * 0.18}` // Staggered timing
       );
 
       // Add floating animation with reduced bounce range
       gsap.to(card, {
         y: -2,
         x: 0,
-        duration: 2 + index * 0.5,
+        duration: 1.8 + index * 0.45,
         ease: 'power2.inOut',
-        delay: 1 + index * 0.3,
+        delay: 0.9 + index * 0.27,
       });
 
       // Avatar icon animation within each card
@@ -114,11 +114,11 @@ export const OurTeamSection: React.FC = () => {
         // Pulsing effect
         gsap.to(avatar, {
           scale: 1.1,
-          duration: 1.5,
+          duration: 1.35,
           ease: 'power2.inOut',
           repeat: -1,
           yoyo: true,
-          delay: 2 + index * 0.2,
+          delay: 1.8 + index * 0.18,
         });
       }
 
@@ -128,14 +128,14 @@ export const OurTeamSection: React.FC = () => {
           scale: 1.05,
           rotationY: 5,
           z: 50,
-          duration: 0.3,
+          duration: 0.27,
           ease: 'power2.out',
         });
 
         if (avatar) {
           gsap.to(avatar, {
             rotation: 360,
-            duration: 0.6,
+            duration: 0.54,
             ease: 'power2.out',
           });
         }
@@ -146,7 +146,7 @@ export const OurTeamSection: React.FC = () => {
           scale: 1,
           rotationY: 0,
           z: 0,
-          duration: 0.3,
+          duration: 0.27,
           ease: 'power2.out',
         });
       });
@@ -218,7 +218,7 @@ export const OurTeamSection: React.FC = () => {
             return (
               <div
                 key={index}
-                className='team-card bg-white border-2 border-black rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 transform-gpu'
+                className='team-card bg-white border-2 border-black rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-[270ms] transform-gpu'
                 style={{ perspective: '1000px' }}
               >
                 {/* Avatar */}

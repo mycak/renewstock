@@ -48,10 +48,10 @@ export const SellersSection: React.FC = () => {
 
     // Animate header words
     tl.from(headerSplit.words, {
-      duration: 0.8,
+      duration: 0.72,
       y: 100,
       autoAlpha: 0,
-      stagger: 0.1,
+      stagger: 0.09,
       ease: 'power2.out',
     });
 
@@ -61,12 +61,12 @@ export const SellersSection: React.FC = () => {
       tl.from(
         separator,
         {
-          duration: 0.6,
+          duration: 0.54,
           scaleX: 0,
           transformOrigin: 'center',
           ease: 'power2.out',
         },
-        '-=0.2'
+        '-=0.18'
       );
     }
 
@@ -76,13 +76,13 @@ export const SellersSection: React.FC = () => {
       tl.from(
         contentItems,
         {
-          duration: 0.8,
+          duration: 0.72,
           y: 60,
           autoAlpha: 0,
-          stagger: 0.2,
+          stagger: 0.18,
           ease: 'power2.out',
         },
-        '-=0.3'
+        '-=0.27'
       );
     }
 
@@ -135,7 +135,7 @@ export const SellersSection: React.FC = () => {
             {sellerFeatures.map((featureKey, index) => (
               <div
                 key={`${featureKey}-${i18n.language}-${index}`}
-                className='bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-purple-300 transition-colors duration-300'
+                className='bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-purple-300 transition-colors duration-[270ms]'
               >
                 <H3 className='font-bold text-xl md:text-2xl mb-3 text-gray-800 border-none'>
                   {t(`${featureKey}.title`)}
@@ -160,7 +160,7 @@ export const SellersSection: React.FC = () => {
                 onClick={scrollToContact}
                 variant='secondary'
                 size='lg'
-                className='bg-white text-purple-600 hover:bg-purple-50 transition-all duration-300 font-semibold px-8 py-3'
+                className='bg-white text-purple-600 hover:bg-purple-50 transition-all duration-[270ms] font-semibold px-8 py-3'
               >
                 {t('common.get_in_touch')}
               </Button>
