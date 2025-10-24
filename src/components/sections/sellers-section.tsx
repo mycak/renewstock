@@ -107,7 +107,7 @@ export const SellersSection: React.FC = () => {
   };
 
   return (
-    <section id='sellers' ref={sectionRef} className='py-20 px-4 bg-white'>
+    <section id='sellers' ref={sectionRef} className='py-20 px-4 bg-gray-50'>
       <div className='max-w-6xl mx-auto text-center'>
         {/* Header */}
         <H2

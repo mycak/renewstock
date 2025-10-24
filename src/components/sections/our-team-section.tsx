@@ -194,7 +194,7 @@ export const OurTeamSection: React.FC = () => {
   ];
 
   return (
-    <section ref={sectionRef} className='py-20 px-4 bg-white overflow-hidden'>
+    <section ref={sectionRef} className='py-20 px-4 overflow-hidden bg-gray-50'>
       <div className='max-w-6xl mx-auto text-center'>
         {/* Header */}
         <H2
