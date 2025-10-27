@@ -93,11 +93,10 @@ export const PartnershipSection: React.FC = () => {
                   </div>
                   <div>
                     <H3 className='font-bold text-lg md:text-xl text-gray-900 mb-0'>
-                      Active Partnership
+                      {t('partnership.benefits.active_partnership.title')}
                     </H3>
                     <P className='text-gray-700 text-base md:text-lg mt-0!'>
-                      We maintain close, ongoing communication throughout the
-                      entire resale lifecycle.
+                      {t('partnership.benefits.active_partnership.description')}
                     </P>
                   </div>
                 </div>
@@ -120,11 +119,12 @@ export const PartnershipSection: React.FC = () => {
                   </div>
                   <div>
                     <H3 className='font-bold text-lg md:text-xl text-gray-900 mb-0'>
-                      Full Accountability
+                      {t('partnership.benefits.full_accountability.title')}
                     </H3>
                     <P className='text-gray-700 text-base md:text-lg mt-0!'>
-                      Complete transparency with detailed reporting and regular
-                      check-ins.
+                      {t(
+                        'partnership.benefits.full_accountability.description'
+                      )}
                     </P>
                   </div>
                 </div>
@@ -147,11 +147,10 @@ export const PartnershipSection: React.FC = () => {
                   </div>
                   <div>
                     <H3 className='font-bold text-lg md:text-xl text-gray-900 mb-0'>
-                      Long-term Growth
+                      {t('partnership.benefits.long_term_growth.title')}
                     </H3>
                     <P className='text-gray-700 text-base md:text-lg mt-0!'>
-                      Building sustainable resale strategies that evolve with
-                      your business.
+                      {t('partnership.benefits.long_term_growth.description')}
                     </P>
                   </div>
                 </div>

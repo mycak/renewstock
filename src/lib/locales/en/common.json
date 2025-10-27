@@ -81,7 +81,21 @@
   },
   "partnership": {
     "header": "WE DON'T DISAPPEAR AFTER PICKUP.",
-    "subheader": "WE STAY CLOSE. WE STAY ACCOUNTABLE. WE GROW RESALE WITH YOU."
+    "subheader": "WE STAY CLOSE. WE STAY ACCOUNTABLE. WE GROW RESALE WITH YOU.",
+    "benefits": {
+      "active_partnership": {
+        "title": "Active Partnership",
+        "description": "We maintain close, ongoing communication throughout the entire resale lifecycle."
+      },
+      "full_accountability": {
+        "title": "Full Accountability",
+        "description": "Complete transparency with detailed reporting and regular check-ins."
+      },
+      "long_term_growth": {
+        "title": "Long-term Growth",
+        "description": "Building sustainable resale strategies that evolve with your business."
+      }
+    }
   },
   "standards": {
     "header": "RESALE ALIGNED WITH YOUR STANDARDS.",

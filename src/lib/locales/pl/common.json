@@ -84,7 +84,21 @@
   },
   "partnership": {
     "header": "NIE ZNIKAMY PO ODBIORZE.",
-    "subheader": "POZOSTAJEMY BLISKO. POZOSTAJEMY ODPOWIEDZIALNI. ROZWIJAMY ODSPRZEDAŻ Z TOBĄ."
+    "subheader": "POZOSTAJEMY BLISKO. POZOSTAJEMY ODPOWIEDZIALNI. ROZWIJAMY ODSPRZEDAŻ Z TOBĄ.",
+    "benefits": {
+      "active_partnership": {
+        "title": "Aktywne Partnerstwo",
+        "description": "Utrzymujemy bliską, ciągłą komunikację przez cały cykl życia odsprzedaży."
+      },
+      "full_accountability": {
+        "title": "Pełna Odpowiedzialność",
+        "description": "Całkowita transparentność ze szczegółowymi raportami i regularnymi spotkaniami kontrolnymi."
+      },
+      "long_term_growth": {
+        "title": "Długoterminowy Rozwój",
+        "description": "Budowanie zrównoważonych strategii odsprzedaży, które ewoluują wraz z Twoim biznesem."
+      }
+    }
   },
   "standards": {
     "header": "ODSPRZEDAŻ ZGODNA Z TWOIMI STANDARDAMI.",
