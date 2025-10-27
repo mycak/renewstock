@@ -3,6 +3,10 @@ import { HeroSection } from '@/components/sections/hero-section';
 import { SellersSection } from '@/components/sections/sellers-section';
 import { BuyersSection } from '@/components/sections/buyers-section';
 import { DefinesUsSection } from '@/components/sections/defines-us-section';
+import { BrandStorySection } from '@/components/sections/brand-story-section';
+import { ProcessSection } from '@/components/sections/process-section';
+import { PartnershipSection } from '@/components/sections/partnership-section';
+import { StandardsSection } from '@/components/sections/standards-section';
 import { WhereWeWorkSection } from '@/components/sections/where-we-work-section';
 import { OurTeamSection } from '@/components/sections/our-team-section';
 import { ContactSection } from '@/components/sections/contact-section';
@@ -18,9 +22,13 @@ export default function Home() {
 
       <main id='main-content'>
         <HeroSection />
+        <DefinesUsSection />
         <SellersSection />
         <BuyersSection />
-        <DefinesUsSection />
+        <BrandStorySection />
+        <ProcessSection />
+        <PartnershipSection />
+        <StandardsSection />
         <WhereWeWorkSection />
         <OurTeamSection />
         <ContactSection />

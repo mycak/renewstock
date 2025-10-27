@@ -35,6 +35,65 @@
       "we_pay_upfront": "WE PAY UPFRONT"
     }
   },
+  "brand_story": {
+    "header": "WE'VE OPERATED IN THE SHADOWS. NOW WE'RE SETTING THE TERMS.",
+    "story": {
+      "past": "For years, we played behind the scenes: silent sourcing partner, discreet distributor, invisible problem-solver.",
+      "now": "NOW? WE'VE BUILT OUR OWN INFRASTRUCTURE, CHANNELS, AND PLAYBOOK. AND WE'RE HERE TO SCALE WITH YOU — ON YOUR TERMS."
+    },
+    "opportunity": {
+      "header": "RETURNS. EXCESS. DEADSTOCK. NOT A PROBLEM. AN OPPORTUNITY.",
+      "tagline": "WITH RENEWSTOCK, YOUR IDLE STOCK BECOMES:",
+      "benefits": [
+        "cash flow",
+        "data-backed ESG value",
+        "brand-safe resale in strategic markets"
+      ],
+      "footer": "PRESENT WHERE IT MATTERS. SOLVING WHAT OTHERS DON'T. KNOW THE PRODUCT'S VALUE — AND HOW NOT TO WASTE IT."
+    }
+  },
+  "process": {
+    "header": "SIMPLE. SECURE. BUILT FOR BRANDS.",
+    "steps": {
+      "clear_process": {
+        "title": "CLEAR PROCESS. NO SURPRISES.",
+        "description": "We stay in active contact with your team. You send available offers — we evaluate them together.",
+        "details": "After reviewing your stock, we come back with a precise, transparent proposal. If aligned, we request a proforma — which we pay upfront and without negotiation. Then we organize transport and get to work."
+      },
+      "full_visibility": {
+        "title": "FULL VISIBILITY — AND REAL PARTNERSHIP",
+        "description": "You'll always know:",
+        "points": ["Where your stock goes", "How it's sold", "Who is involved"],
+        "partnership": "But we go further: We schedule monthly strategy check-ins to align on pricing, markets, and product flow. We're not a one-off solution — we're in this with you."
+      },
+      "payment_options": {
+        "title": "FLAT BUYOUT OR SMART REV-SHARE",
+        "description": "Prefer clarity? Take the full upfront offer. Want more upside? Choose revenue share — backed by live reporting.",
+        "considerations": "Our offer always considers:",
+        "points": [
+          "Your resale restrictions",
+          "Purchase & target pricing",
+          "Any necessary product handling"
+        ],
+        "footer": "Either way: you stay in control, we handle the rest."
+      }
+    }
+  },
+  "partnership": {
+    "header": "WE DON'T DISAPPEAR AFTER PICKUP.",
+    "subheader": "WE STAY CLOSE. WE STAY ACCOUNTABLE. WE GROW RESALE WITH YOU."
+  },
+  "standards": {
+    "header": "RESALE ALIGNED WITH YOUR STANDARDS.",
+    "intro": "You set the terms — we follow them.",
+    "points": [
+      "Market restrictions respected",
+      "Brand rules documented",
+      "ESG data delivered with every batch",
+      "Ready to sign resale agreements — with full commitment"
+    ],
+    "footer": "We're here for the long run. Not shortcuts."
+  },
   "where_we_work": {
     "header": "WHERE WE WORK — AND WIN",
     "regions": {

@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cleanupSplitTextAria } from '@/lib/gsap-utils';
-import { H2, H3 } from '@/components/ui/typography';
+import { H2 } from '@/components/ui/typography';
 import { Separator } from '@/components/ui/separator';
 
 // Register GSAP plugins
@@ -166,13 +166,13 @@ export const DefinesUsSection: React.FC = () => {
             const restOfText = words.slice(1).join(' ');
 
             return (
-              <H3
+              <h3
                 key={`${featureKey}-${i18n.language}-${index}`}
                 className='feature-text font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-2'
               >
                 <span className='highlighted-word'>{firstWord}</span>
                 {restOfText && <span> {restOfText}</span>}
-              </H3>
+              </h3>
             );
           })}
         </div>

@@ -34,6 +34,69 @@
       "we_pay_upfront": "PŁACIMY Z GÓRY"
     }
   },
+  "brand_story": {
+    "header": "DZIAŁALIŚMY W CIENIU. TERAZ USTALAMY WARUNKI.",
+    "story": {
+      "past": "Przez lata działaliśmy za kulisami: cichy partner sourcingowy, dyskretny dystrybutor, niewidzialny rozwiązywacz problemów.",
+      "now": "TERAZ? ZBUDOWALIŚMY WŁASNĄ INFRASTRUKTURĘ, KANAŁY I STRATEGIĘ. I JESTEŚMY TUTAJ, ABY SKALOWAĆ SIĘ Z TOBĄ — NA TWOICH WARUNKACH."
+    },
+    "opportunity": {
+      "header": "ZWROTY. NADWYŻKI. DEADSTOCK. TO NIE PROBLEM. TO SZANSA.",
+      "tagline": "Z RENEWSTOCK, TWÓJ ZALEGAJĄCY TOWAR STAJE SIĘ:",
+      "benefits": [
+        "przepływem gotówki",
+        "wartością ESG opartą na danych",
+        "bezpieczną dla marki odsprzedażą na strategicznych rynkach"
+      ],
+      "footer": "OBECNI TAM, GDZIE TO MA ZNACZENIE. ROZWIĄZUJEMY TO, CZEGO INNI NIE ROBIĄ. ZNAMY WARTOŚĆ PRODUKTU — I JAK JEJ NIE MARNOWAĆ."
+    }
+  },
+  "process": {
+    "header": "PROSTE. BEZPIECZNE. STWORZONE DLA MAREK.",
+    "steps": {
+      "clear_process": {
+        "title": "PRZEJRZYSTY PROCES. BEZ NIESPODZIANEK.",
+        "description": "Pozostajemy w aktywnym kontakcie z Twoim zespołem. Wysyłasz dostępne oferty — oceniamy je razem.",
+        "details": "Po przejrzeniu Twojego towaru, wracamy z precyzyjną, przejrzystą propozycją. Jeśli wszystko się zgadza, prosimy o proformę — którą płacimy z góry i bez negocjacji. Następnie organizujemy transport i zabieramy się do pracy."
+      },
+      "full_visibility": {
+        "title": "PEŁNA WIDOCZNOŚĆ — I PRAWDZIWE PARTNERSTWO",
+        "description": "Zawsze będziesz wiedzieć:",
+        "points": [
+          "Dokąd trafia Twój towar",
+          "Jak jest sprzedawany",
+          "Kto jest zaangażowany"
+        ],
+        "partnership": "Ale idziemy dalej: Planujemy comiesięczne spotkania strategiczne, aby uzgodnić ceny, rynki i przepływ produktów. Nie jesteśmy jednorazowym rozwiązaniem — jesteśmy w tym z Tobą."
+      },
+      "payment_options": {
+        "title": "WYKUP CAŁKOWITY LUB INTELIGENTNY PODZIAŁ PRZYCHODÓW",
+        "description": "Wolisz jasność? Weź pełną ofertę z góry. Chcesz więcej? Wybierz podział przychodów — wspierany raportowaniem na żywo.",
+        "considerations": "Nasza oferta zawsze uwzględnia:",
+        "points": [
+          "Twoje ograniczenia odsprzedaży",
+          "Ceny zakupu i docelowe",
+          "Wszelką niezbędną obsługę produktu"
+        ],
+        "footer": "Tak czy inaczej: Ty zachowujesz kontrolę, my zajmujemy się resztą."
+      }
+    }
+  },
+  "partnership": {
+    "header": "NIE ZNIKAMY PO ODBIORZE.",
+    "subheader": "POZOSTAJEMY BLISKO. POZOSTAJEMY ODPOWIEDZIALNI. ROZWIJAMY ODSPRZEDAŻ Z TOBĄ."
+  },
+  "standards": {
+    "header": "ODSPRZEDAŻ ZGODNA Z TWOIMI STANDARDAMI.",
+    "intro": "Ty ustalasz warunki — my ich przestrzegamy.",
+    "points": [
+      "Ograniczenia rynkowe są respektowane",
+      "Zasady marki są udokumentowane",
+      "Dane ESG dostarczane z każdą partią",
+      "Gotowi do podpisania umów odsprzedaży — z pełnym zaangażowaniem"
+    ],
+    "footer": "Jesteśmy tu na długo. Nie na skróty."
+  },
   "where_we_work": {
     "header": "GDZIE DZIAŁAMY — I WYGRYWAMY",
     "regions": {
