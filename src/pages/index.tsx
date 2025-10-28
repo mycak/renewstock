@@ -8,7 +8,6 @@ import { ProcessSection } from '@/components/sections/process-section';
 import { PartnershipSection } from '@/components/sections/partnership-section';
 import { StandardsSection } from '@/components/sections/standards-section';
 import { WhereWeWorkSection } from '@/components/sections/where-we-work-section';
-import { OurTeamSection } from '@/components/sections/our-team-section';
 import { ContactSection } from '@/components/sections/contact-section';
 import { MetaTags } from '@/components/seo/meta-tags';
 import { SkipNavigation } from '@/components/seo/skip-navigation';
@@ -30,7 +29,6 @@ export default function Home() {
         <PartnershipSection />
         <StandardsSection />
         <WhereWeWorkSection />
-        <OurTeamSection />
         <ContactSection />
       </main>
     </>

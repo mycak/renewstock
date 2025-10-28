@@ -137,16 +137,16 @@
     }
   },
   "contact": {
-    "header": "KONTAKT",
+    "header": "SKONTAKTUJ SIĘ Z NAMI",
     "description": {
       "partner_not_solver": "PARTNER, A NIE ROZWIĄZYWACZ PROBLEMÓW.",
       "dont_need_fix": "NIE MUSISZ NAPRAWIAĆ NADWYŻEK. MUSISZ ZROBIĆ Z NIMI COŚ LEPSZEGO.",
-      "resale_redefined": "ODSPRZEDAŻ NA NOWO. STRATEGICZNA. TRANSPARENTNA. NIEZAWODNA. ZBUDUJMY ODSPRZEDAŻ W TWOIM BIZNESIE — TAK, JAK POWINNA BYĆ.",
       "phone_label": "TELEFON",
       "email_label": "EMAIL"
     },
     "form": {
-      "header": "NAPISZ DO NAS!",
+      "name_label": "Imię i Nazwisko",
+      "name_placeholder": "Twoje imię",
       "email_label": "Adres Email",
       "email_placeholder": "twoj@email.com",
       "phone_label": "Numer Telefonu",
@@ -155,6 +155,7 @@
       "message_placeholder": "Opowiedz nam o swoim projekcie...",
       "submit_button": "Wyślij Wiadomość",
       "validation": {
+        "name_required": "Imię i nazwisko jest wymagane",
         "email_invalid": "Podaj prawidłowy adres email",
         "phone_required": "Numer telefonu jest wymagany",
         "message_min_length": "Wiadomość musi mieć co najmniej 10 znaków"

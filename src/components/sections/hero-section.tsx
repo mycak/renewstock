@@ -61,7 +61,7 @@ export const HeroSection: React.FC = () => {
         </H1>
 
         {/* Subheader */}
-        <div className='space-y-6 w-4/5 md:max-w-3/5 mx-auto'>
+        <div className='space-y-6 w-4/5 md:max-w-3/5 mx-auto mt-4'>
           <H2 className='font-bold leading-tight text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl min-h-[5.2rem] lg:min-h-[6.2rem]'>
             <TypewriterText
               texts={
@@ -110,7 +110,7 @@ export const HeroSection: React.FC = () => {
                   as='span'
                 />
               </P>
-              <P className='font-bold mt-0!'>
+              <P className='font-bold mt-2!'>
                 <ScrambleText
                   text={t('hero.disclaimer.line2')}
                   delay={5.4}

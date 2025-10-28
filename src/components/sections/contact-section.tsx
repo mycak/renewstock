@@ -2,9 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Link from 'next/link';
-import Lottie from 'lottie-react';
-import businessGirlAnimation from '../../../public/lottie/business-girl.json';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -25,12 +22,12 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { CONTACT } from '@/shared/constants';
 
 // Register GSAP plugins
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 type ContactFormValues = {
+  name: string;
   email: string;
   phone: string;
   message: string;
@@ -51,6 +48,7 @@ export const ContactSection: React.FC = () => {
 
   // Contact form schema with translations
   const contactFormSchema = z.object({
+    name: z.string().min(1, t('contact.form.validation.name_required')),
     email: z.string().email(t('contact.form.validation.email_invalid')),
     phone: z.string().min(1, t('contact.form.validation.phone_required')),
     message: z
@@ -60,8 +58,6 @@ export const ContactSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
-  const lottieRef = useRef<HTMLDivElement>(null);
-  const formHeaderRef = useRef<HTMLHeadingElement>(null);
   const contactHeaderRef = useRef<HTMLHeadingElement>(null);
   const contactSeparatorRef = useRef<HTMLDivElement>(null);
 
@@ -69,6 +65,7 @@ export const ContactSection: React.FC = () => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
+      name: '',
       email: '',
       phone: '',
       message: '',
@@ -109,8 +106,6 @@ export const ContactSection: React.FC = () => {
     const section = sectionRef.current;
     const description = descriptionRef.current;
     const form = formRef.current;
-    const lottie = lottieRef.current;
-    const formHeader = formHeaderRef.current;
     const contactHeader = contactHeaderRef.current;
     const contactSeparator = contactSeparatorRef.current;
 
@@ -215,64 +210,7 @@ export const ContactSection: React.FC = () => {
       rotation: () => (Math.random() - 0.5) * 20, // Random rotation -10 to +10
     });
 
-    // Animate Lottie, Form Header, and Form with separate ScrollTriggers
-    if (lottie) {
-      // Lottie animation
-      gsap.fromTo(
-        lottie,
-        {
-          opacity: 0,
-          scale: 0.8,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.72,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: lottie,
-            start: 'top 95%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
-    }
-
-    if (formHeader) {
-      // Form header animation - split text and animate words
-      const headerSplit = SplitText.create(formHeader, {
-        type: 'words',
-        wordsClass: 'split-word',
-        tag: 'span',
-      });
-
-      // Remove any ARIA attributes that SplitText might have added
-      cleanupSplitTextAria(formHeader as HTMLElement, headerSplit);
-
-      gsap.fromTo(
-        headerSplit.words,
-        {
-          opacity: 0,
-          y: 40,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.72,
-          stagger: 0.09,
-          ease: 'power2.out',
-          delay: 0.27, // Add slight delay
-          scrollTrigger: {
-            trigger: formHeader,
-            start: 'top 85%', // Match form trigger point
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
-    }
-
+    // Animate Form with separate ScrollTrigger
     if (form) {
       // Form animation - appears later with bigger delay
       gsap.fromTo(
@@ -339,87 +277,35 @@ export const ContactSection: React.FC = () => {
           >
             {t('contact.description.dont_need_fix')}
           </P>
-
-          {/* Size 4: RENEWSTOCK with RENEW bolder - Make this bolder */}
-          <div className='contact-text text-center mb-0!'>
-            <P
-              className='font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl inline tracking-tight'
-              style={{ fontWeight: 950 }}
-            >
-              <span className='font-bold'>RENEW</span>
-              <span className='font-medium'>STOCK</span>
-            </P>
-          </div>
-
-          {/* Size 1: RESALE, REDEFINED... */}
-          <P className='contact-text text-sm md:text-base lg:text-lg text-center max-w-4xl mx-auto leading-relaxed mt-2! font-extrabold tracking-[-0.05em]'>
-            {t('contact.description.resale_redefined')}
-          </P>
-
-          {/* Size 5: PHONE - Only link the phone number */}
-          <div className='contact-text text-center'>
-            <div
-              className='font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-4 tracking-[-0.05em] flex items-center gap-4 mx-auto justify-center flex-col md:flex-row'
-              style={{ fontWeight: 900 }}
-            >
-              {t('contact.description.phone_label')}
-              <Link
-                href={CONTACT.PHONE.HREF}
-                className='highlighted-link text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl transition-all duration-[270ms] hover:scale-105 hover:text-purple-500 inline-block'
-              >
-                {CONTACT.PHONE.DISPLAY}
-              </Link>
-            </div>
-          </div>
-
-          {/* Size 5: EMAIL - Only link the email address */}
-          <div className='contact-text text-center'>
-            <div
-              className='font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-4 tracking-[-0.05em] flex items-center gap-4 mx-auto justify-center flex-col-reverse md:flex-row'
-              style={{ fontWeight: 900 }}
-            >
-              <Link
-                href={CONTACT.EMAIL.HREF}
-                className='highlighted-link text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl transition-all duration-[270ms] hover:scale-105 hover:text-purple-500 inline-block'
-              >
-                {CONTACT.EMAIL.ADDRESS}
-              </Link>
-              {t('contact.description.email_label')}
-            </div>
-          </div>
         </div>
 
         {/* Contact Form */}
         <div className='mt-16 mx-auto'>
-          {/* Business Girl Lottie Animation */}
-          <div ref={lottieRef} className='flex justify-center mb-8'>
-            <div className='w-32 h-32 md:w-60 md:h-60 lg:w-48 lg:h-48'>
-              <Lottie
-                animationData={businessGirlAnimation}
-                loop={true}
-                autoplay={true}
-                className='w-full h-full'
-              />
-            </div>
-          </div>
-
-          {/* Form Header */}
-          <H2
-            ref={formHeaderRef}
-            className='contact-text font-black text-3xl md:text-3xl tracking-tight border-none'
-          >
-            {t('contact.form.header')}
-          </H2>
-
-          {/* Form Separator */}
-          <Separator className='separator w-24 mx-auto mb-12 h-1 bg-black' />
-
           <div ref={formRef} className='max-w-2xl mx-auto'>
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
                 className='space-y-6'
               >
+                <FormField
+                  control={form.control}
+                  name='name'
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className='text-lg font-semibold text-black'>
+                        {t('contact.form.name_label')}
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder={t('contact.form.name_placeholder')}
+                          {...field}
+                          className='border-2 border-gray-300 focus:border-purple-600 focus:ring-purple-600'
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
                 <FormField
                   control={form.control}
                   name='email'
@@ -482,7 +368,7 @@ export const ContactSection: React.FC = () => {
                   type='submit'
                   variant='outline'
                   disabled={formStatus === 'loading'}
-                  className='cursor-pointer w-full border border-black text-black no-underline hover:underline hover:decoration-purple-500 hover:decoration-2 hover:underline-offset-4 font-semibold py-3 px-6 text-lg transition-all duration-[270ms] ease-out disabled:opacity-50 disabled:cursor-not-allowed'
+                  className='cursor-pointer w-full border border-black text-black underline decoration-purple-600 decoration-2 underline-offset-4 hover:decoration-4 font-semibold py-3 px-6 text-lg transition-all duration-[270ms] ease-out disabled:opacity-50 disabled:cursor-not-allowed'
                 >
                   {formStatus === 'loading'
                     ? t('contact.form.messages.sending')
