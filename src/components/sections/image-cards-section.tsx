@@ -34,13 +34,24 @@ export const ImageCardsSection: React.FC = () => {
     });
 
     const cardElements = cards.querySelectorAll('.image-card');
-    tl.from(cardElements, {
-      y: 80,
-      opacity: 0,
-      stagger: 0.15,
-      duration: 0.8,
-      ease: 'power2.out',
-      clearProps: 'all',
+
+    // Animate each card from different horizontal directions with smoother motion
+    cardElements.forEach((card, index) => {
+      const direction = index === 0 ? -80 : index === 1 ? 0 : 80; // left, center, right - reduced distance
+      const yOffset = index === 1 ? 30 : 15; // center card moves slightly more vertical
+
+      tl.from(
+        card,
+        {
+          x: direction,
+          y: yOffset,
+          opacity: 0,
+          duration: 1,
+          ease: 'power3.out',
+          clearProps: 'all',
+        },
+        index * 0.12 // slightly faster stagger for smoother feel
+      );
     });
 
     return () => {
@@ -88,7 +99,7 @@ export const ImageCardsSection: React.FC = () => {
     <section
       id='image-cards'
       ref={sectionRef}
-      className='py-20 px-4 bg-gray-50'
+      className='py-20 px-4 bg-gray-50 overflow-hidden'
     >
       <div className='max-w-7xl mx-auto'>
         <div ref={cardsRef} className='grid grid-cols-1 md:grid-cols-3 gap-6'>

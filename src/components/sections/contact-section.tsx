@@ -272,7 +272,7 @@ export const ContactSection: React.FC = () => {
 
           {/* Size 3: YOU DON'T NEED TO FIX OVERSTOCK... - EXTRA BOLD - Smaller spacing */}
           <P
-            className='contact-text font-black text-2xl md:text-4xl lg:text-4xl xl:text-5xl text-center leading-tighter tracking-tighter w-4/5 mx-auto mb-6'
+            className='contact-text font-black text-sm md:text-4xl lg:text-4xl xl:text-5xl text-center leading-tighter tracking-tighter w-4/5 mx-auto mb-6'
             style={{ fontWeight: 900, lineHeight: '1.1' }}
           >
             {t('contact.description.dont_need_fix')}
