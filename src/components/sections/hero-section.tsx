@@ -30,16 +30,16 @@ export const HeroSection: React.FC = () => {
 
       {/* Main Header */}
       <div className='text-center max-w-6xl mx-auto space-y-12 md:space-y-8'>
-        <H1 className='font-black tracking-tighter px-2 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight md:leading-none mb-2 '>
+        <H1 className='font-black tracking-tighter px-2 text-center text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight md:leading-none mb-2 '>
           <div className='break-words hyphens-auto max-w-full overflow-hidden md:whitespace-nowrap'>
             <ScrambleText
               text={`${t('hero.main_header.line1')} ${t(
                 'hero.main_header.partner'
               )} ${t('hero.main_header.line1_end')}`}
               delay={0}
-              duration={2.16}
+              duration={1.5}
               chars='upperCase'
-              speed={0.6}
+              speed={0.8}
               revealDelay={0}
               className='block leading-none'
               as='span'
@@ -50,9 +50,9 @@ export const HeroSection: React.FC = () => {
             <ScrambleText
               text={t('hero.main_header.line2')}
               delay={0}
-              duration={1.8}
+              duration={1.2}
               chars='upperCase'
-              speed={0.7}
+              speed={0.9}
               revealDelay={0}
               className='block leading-none'
               as='span'
@@ -62,13 +62,13 @@ export const HeroSection: React.FC = () => {
 
         {/* Subheader */}
         <div className='space-y-6 w-4/5 md:max-w-3/5 mx-auto mt-4'>
-          <H2 className='font-bold leading-tight text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl min-h-[5.2rem] lg:min-h-[6.2rem]'>
+          <H2 className='font-bold leading-tight text-sm! sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl min-h-[5.2rem] lg:min-h-[6.2rem]'>
             <TypewriterText
               texts={
                 t('hero.subheader.words', { returnObjects: true }) as string[]
               }
-              delay={0.45}
-              typingSpeed={0.045}
+              delay={0.3}
+              typingSpeed={0.035}
               showCursor={false}
               className=''
               as='span'
@@ -81,31 +81,31 @@ export const HeroSection: React.FC = () => {
               <P className='mb-2 text-sm font-bold'>
                 <ScrambleText
                   text={t('hero.disclaimer.line1_start')}
-                  delay={3.6}
-                  duration={0.9}
+                  delay={2.4}
+                  duration={0.6}
                   chars='upperCase'
-                  speed={0.5}
-                  revealDelay={0.27}
+                  speed={0.7}
+                  revealDelay={0.18}
                   className='inline'
                   as='span'
                 />
                 <ScrambleText
                   text={t('hero.disclaimer.line1_highlight')}
-                  delay={0.45}
-                  duration={4.95}
+                  delay={0.3}
+                  duration={3.3}
                   chars='upperCase'
-                  speed={0.5}
-                  revealDelay={0.27}
+                  speed={0.7}
+                  revealDelay={0.18}
                   className='inline text-purple-600'
                   as='span'
                 />
                 <ScrambleText
                   text={t('hero.disclaimer.line1_end')}
-                  delay={4.95}
-                  duration={0.45}
+                  delay={3.3}
+                  duration={0.3}
                   chars='upperCase'
-                  speed={0.5}
-                  revealDelay={0.27}
+                  speed={0.7}
+                  revealDelay={0.18}
                   className='inline'
                   as='span'
                 />
@@ -113,11 +113,11 @@ export const HeroSection: React.FC = () => {
               <P className='font-bold mt-2!'>
                 <ScrambleText
                   text={t('hero.disclaimer.line2')}
-                  delay={5.4}
-                  duration={1.35}
+                  delay={3.6}
+                  duration={0.9}
                   chars='upperCase'
-                  speed={0.4}
-                  revealDelay={0.18}
+                  speed={0.6}
+                  revealDelay={0.12}
                   className='inline'
                   as='span'
                 />

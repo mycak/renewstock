@@ -136,7 +136,7 @@ export const NavigationHeader: React.FC = () => {
                   size='icon'
                   className='text-black hover:text-purple-600 hover:bg-purple-50 transition-colors duration-[270ms] h-14 w-14'
                 >
-                  <Menu className='h-12 w-12' strokeWidth={3} />
+                  <Menu className='h-6! w-6!' strokeWidth={3} />
                   <span className='sr-only'>Open menu</span>
                 </Button>
               </SheetTrigger>
@@ -144,7 +144,7 @@ export const NavigationHeader: React.FC = () => {
                 side='top'
                 className='w-full h-screen bg-white border-none px-6'
               >
-                <SheetHeader className='text-left pt-8 pb-12'>
+                <SheetHeader className='text-left pt-8 pb-2 pl-1!'>
                   <div className='flex items-center justify-between'>
                     <SheetTitle className='text-3xl md:text-4xl font-black text-black'>
                       RENEWSTOCK

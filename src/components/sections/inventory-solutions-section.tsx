@@ -89,7 +89,7 @@ export const InventorySolutionsSection: React.FC = () => {
       title: 'Maximize underutilized revenue',
       description:
         "Set the price you want to get for your product; we'll take care of the rest.",
-      image: '/images/stock-2.jpg',
+      image: '/images/stock-12.jpg',
       content: {
         heading: 'Revenue Optimization',
         text: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
@@ -99,7 +99,7 @@ export const InventorySolutionsSection: React.FC = () => {
       title: 'Control where your inventory goes',
       description:
         'Control which distribution channels, retailers, and geographies your inventory is sold in.',
-      image: '/images/stock-3.jpg',
+      image: '/images/stock-11.jpg',
       content: {
         heading: 'Full Control',
         text: 'Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante donec eu libero.',
@@ -122,7 +122,7 @@ export const InventorySolutionsSection: React.FC = () => {
     <section
       id='inventory-solutions'
       ref={sectionRef}
-      className='py-20 px-4 bg-gradient-to-br from-purple-50/50 via-purple-100/30 to-purple-50/50'
+      className='py-20 px-4 bg-gradient-to-br from-purple-50/50 via-purple-100/30 to-purple-50/50 overflow-hidden'
     >
       <div className='max-w-7xl mx-auto'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-start'>
