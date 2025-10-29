@@ -120,7 +120,7 @@ export const ImageCardsSection: React.FC = () => {
                 <H3 className='font-bold text-2xl text-white mb-3 leading-tight border-none'>
                   {card.title}
                 </H3>
-                <P className='text-white/90 text-base leading-relaxed mb-4'>
+                <P className='text-white/90 text-base leading-relaxed mb-4 mt-0!'>
                   {card.description}
                 </P>
                 <Button

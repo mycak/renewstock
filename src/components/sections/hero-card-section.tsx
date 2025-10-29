@@ -62,7 +62,7 @@ export const HeroCardSection: React.FC = () => {
           className='relative rounded-3xl overflow-hidden shadow-2xl group'
         >
           {/* Background Image */}
-          <div className='relative h-[500px] md:h-[600px]'>
+          <div className='relative h-[600px] md:h-[600px]'>
             <Image
               src='/images/stock-4.jpg'
               alt='Join our platform'

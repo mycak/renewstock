@@ -157,7 +157,7 @@ export const FeaturedInventorySection: React.FC = () => {
                 <H3 className='font-bold text-xl mb-3 text-gray-900 border-none'>
                   {item.title}
                 </H3>
-                <P className='text-gray-600 leading-relaxed mb-6'>
+                <P className='text-gray-600 leading-relaxed mb-6 mt-0!'>
                   {item.description}
                 </P>
 

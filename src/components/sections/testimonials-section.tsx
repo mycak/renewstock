@@ -46,10 +46,10 @@ export const TestimonialsSection: React.FC = () => {
       tl.from(
         testimonialCards,
         {
-          y: 60,
+          y: 30,
           opacity: 0,
-          stagger: 0.2,
-          duration: 0.8,
+          stagger: 0.15,
+          duration: 0.6,
           ease: 'power2.out',
         },
         '-=0.4'
@@ -107,7 +107,7 @@ export const TestimonialsSection: React.FC = () => {
 
       <div className='max-w-7xl mx-auto relative z-10'>
         {/* Header */}
-        <div ref={headerRef} className='text-center mb-16'>
+        <div ref={headerRef} className='text-center mb-4'>
           <P className='text-sm font-semibold tracking-wider text-purple-600 uppercase mb-4'>
             TESTIMONIALS
           </P>
@@ -164,10 +164,10 @@ export const TestimonialsSection: React.FC = () => {
                   <H3 className='font-bold text-lg text-gray-900 border-none mb-1'>
                     {testimonial.author}
                   </H3>
-                  <P className='text-sm text-gray-600 leading-tight mt-0'>
+                  <P className='text-sm text-gray-600 leading-tight mt-0!'>
                     {testimonial.position}
                   </P>
-                  <P className='text-sm font-semibold text-purple-600 mt-0'>
+                  <P className='text-sm font-semibold text-purple-600 mt-0!'>
                     {testimonial.company}
                   </P>
                 </div>

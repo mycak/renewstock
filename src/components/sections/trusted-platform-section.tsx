@@ -136,10 +136,10 @@ export const TrustedPlatformSection: React.FC = () => {
                 <H3 className='stat-number font-black text-5xl md:text-6xl lg:text-7xl text-white mb-4 border-none'>
                   {stat.value}
                 </H3>
-                <P className='text-xl md:text-2xl font-bold text-white/90 mb-3 mt-0'>
+                <P className='text-xl md:text-2xl font-bold text-white/90 mb-3 mt-0!'>
                   {stat.label}
                 </P>
-                <P className='text-sm md:text-base text-white/70 leading-relaxed mt-0 min-h-[3rem]'>
+                <P className='text-sm md:text-base text-white/70 leading-relaxed mt-0! min-h-[3rem]'>
                   {stat.description}
                 </P>
               </div>

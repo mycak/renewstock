@@ -22,6 +22,11 @@ export const InventorySolutionsSection: React.FC = () => {
 
     if (!section || !content || !image) return;
 
+    const cards = content.querySelectorAll('.solution-card');
+
+    // Set initial visibility to prevent blur
+    gsap.set([content, image, cards], { autoAlpha: 1 });
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
@@ -33,32 +38,35 @@ export const InventorySolutionsSection: React.FC = () => {
 
     tl.from(content, {
       x: -60,
-      autoAlpha: 0,
+      opacity: 0,
       duration: 0.8,
       ease: 'power2.out',
     }).from(
       image,
       {
         x: 60,
-        autoAlpha: 0,
+        opacity: 0,
         duration: 0.8,
         ease: 'power2.out',
       },
       '-=0.6'
     );
 
-    const cards = content.querySelectorAll('.solution-card');
     tl.from(
       cards,
       {
         y: 40,
-        autoAlpha: 0,
+        opacity: 0,
         stagger: 0.15,
         duration: 0.6,
         ease: 'power2.out',
+        clearProps: 'all',
       },
       '-=0.4'
     );
+
+    // Ensure final position is set after animation
+    tl.set(cards, { clearProps: 'all' });
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => {
@@ -114,7 +122,7 @@ export const InventorySolutionsSection: React.FC = () => {
     <section
       id='inventory-solutions'
       ref={sectionRef}
-      className='py-20 px-4 bg-gradient-to-br from-white via-purple-50/30 to-white'
+      className='py-20 px-4 bg-gradient-to-br from-white via-purple-50/80 to-white'
     >
       <div className='max-w-7xl mx-auto'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-start'>
@@ -131,10 +139,10 @@ export const InventorySolutionsSection: React.FC = () => {
 
             <div className='space-y-4 mb-8'>
               {solutions.map((solution, index) => (
-                <button
+                <div
                   key={index}
                   onClick={() => handleSolutionClick(index)}
-                  className={`solution-card w-full text-left p-4 rounded-lg transition-all duration-300 cursor-pointer block ${
+                  className={`solution-card w-full text-left p-4 rounded-lg transition-all duration-300 cursor-pointer ${
                     activeIndex === index
                       ? 'border-l-4 border-purple-600 pl-6 bg-purple-50'
                       : 'border-l-4 border-transparent pl-6 hover:bg-gray-50'
@@ -147,10 +155,10 @@ export const InventorySolutionsSection: React.FC = () => {
                   >
                     {solution.title}
                   </H3>
-                  <P className='text-gray-600 leading-relaxed mt-0 text-sm md:text-base'>
+                  <P className='text-gray-600 leading-relaxed text-sm md:text-base mt-0!'>
                     {solution.description}
                   </P>
-                </button>
+                </div>
               ))}
             </div>
 
@@ -184,7 +192,7 @@ export const InventorySolutionsSection: React.FC = () => {
                 <H3 className='font-bold text-xl md:text-2xl text-gray-900 mb-3 border-none'>
                   {solutions[activeIndex].content.heading}
                 </H3>
-                <P className='text-gray-600 leading-relaxed mt-0'>
+                <P className='text-gray-600 leading-relaxed mt-0!'>
                   {solutions[activeIndex].content.text}
                 </P>
               </div>
