@@ -100,13 +100,13 @@ export const NavigationHeader: React.FC = () => {
       ref={headerRef}
       className='fixed top-0 left-0 right-0 z-50 transition-all duration-[270ms] bg-white/80 backdrop-blur-xl shadow-xl border-b border-white/20 backdrop-saturate-150 opacity-0 -translate-y-full'
     >
-      <div className='max-w-6xl mx-auto px-2 md:px-8'>
+      <div className='max-w-6xl mx-auto px-4 md:px-8'>
         <div className='flex items-center justify-between h-16 md:h-20'>
           {/* Logo / Brand */}
           <div className='flex-shrink-0'>
             <button
               onClick={() => handleNavClick('hero')}
-              className='text-xl md:text-2xl font-black text-black hover:text-purple-600 transition-colors duration-[270ms]'
+              className='text-2xl md:text-3xl lg:text-4xl font-black text-black hover:text-purple-600 transition-colors duration-[270ms]'
             >
               RENEWSTOCK
             </button>
@@ -121,7 +121,7 @@ export const NavigationHeader: React.FC = () => {
                 className='text-black hover:text-purple-600 font-semibold transition-colors duration-[270ms] relative group'
               >
                 {item.label}
-                <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-[270ms] group-hover:w-full' />
+                <span className='absolute -bottom-1 left-0 w-0 h-1 bg-purple-600 transition-all duration-[270ms] group-hover:w-full' />
               </button>
             ))}
             <LanguageSwitcher isFixed={false} />
@@ -134,9 +134,9 @@ export const NavigationHeader: React.FC = () => {
                 <Button
                   variant='ghost'
                   size='icon'
-                  className='text-black hover:text-purple-600 hover:bg-purple-50 transition-colors duration-[270ms]'
+                  className='text-black hover:text-purple-600 hover:bg-purple-50 transition-colors duration-[270ms] h-14 w-14'
                 >
-                  <Menu className='h-6 w-6' />
+                  <Menu className='h-12 w-12' strokeWidth={3} />
                   <span className='sr-only'>Open menu</span>
                 </Button>
               </SheetTrigger>
@@ -146,7 +146,7 @@ export const NavigationHeader: React.FC = () => {
               >
                 <SheetHeader className='text-left pt-8 pb-12'>
                   <div className='flex items-center justify-between'>
-                    <SheetTitle className='text-2xl font-black text-black'>
+                    <SheetTitle className='text-3xl md:text-4xl font-black text-black'>
                       RENEWSTOCK
                     </SheetTitle>
                     <Button
@@ -166,7 +166,7 @@ export const NavigationHeader: React.FC = () => {
                     <button
                       key={item.key}
                       onClick={() => handleNavClick(item.sectionId || item.key)}
-                      className='text-left text-3xl font-black text-black hover:text-purple-600 transition-all duration-[270ms] relative group w-max'
+                      className='text-left text-2xl md:text-3xl font-black text-black hover:text-purple-600 transition-all duration-[270ms] relative group w-max'
                       style={{
                         animationDelay: `${index * 0.1}s`,
                         animation: isOpen
@@ -175,7 +175,7 @@ export const NavigationHeader: React.FC = () => {
                       }}
                     >
                       {item.label}
-                      <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-[270ms] group-hover:w-full' />
+                      <span className='absolute -bottom-1 left-0 w-0 h-1 bg-purple-600 transition-all duration-[270ms] group-hover:w-full' />
                     </button>
                   ))}
 

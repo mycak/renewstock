@@ -139,7 +139,7 @@ export const ProcessSection: React.FC = () => {
                         className='flex items-start gap-2 text-gray-700'
                       >
                         <span className='text-purple-600 font-bold'>→</span>
-                        <P className='text-sm md:text-base !mt-0'>{point}</P>
+                        <P className='text-sm md:text-base mt-0!'>{point}</P>
                       </li>
                     )
                   )}

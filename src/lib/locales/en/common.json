@@ -134,16 +134,16 @@
     }
   },
   "contact": {
-    "header": "CONTACT",
+    "header": "CONTACT US",
     "description": {
       "partner_not_solver": "A PARTNER, NOT A PROBLEM SOLVER.",
       "dont_need_fix": "YOU DON'T NEED TO FIX OVERSTOCK. YOU NEED TO DO SOMETHING BETTER WITH IT.",
-      "resale_redefined": "RESALE, REDEFINED. STRATEGIC. TRANSPARENT. RELIABLE. LET'S BUILD RESALE INTO YOUR BUSINESS — THE WAY IT SHOULD BE.",
       "phone_label": "PHONE",
       "email_label": "EMAIL"
     },
     "form": {
-      "header": "WRITE TO US!",
+      "name_label": "Name",
+      "name_placeholder": "Your name",
       "email_label": "Email Address",
       "email_placeholder": "your@email.com",
       "phone_label": "Phone Number",
@@ -152,6 +152,7 @@
       "message_placeholder": "Tell us about your project...",
       "submit_button": "Send Message",
       "validation": {
+        "name_required": "Name is required",
         "email_invalid": "Please enter a valid email address",
         "phone_required": "Phone number is required",
         "message_min_length": "Message must be at least 10 characters long"

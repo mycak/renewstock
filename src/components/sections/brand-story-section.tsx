@@ -127,7 +127,7 @@ export const BrandStorySection: React.FC = () => {
                     className='benefit-item flex items-start gap-3 text-gray-700'
                   >
                     <span className='text-purple-600 font-bold text-lg'>•</span>
-                    <P className='text-base md:text-lg !mt-0'>{benefit}</P>
+                    <P className='text-base md:text-lg !mt-0!'>{benefit}</P>
                   </li>
                 ))}
               </ul>
