@@ -122,12 +122,12 @@ export const InventorySolutionsSection: React.FC = () => {
     <section
       id='inventory-solutions'
       ref={sectionRef}
-      className='py-20 px-4 bg-gradient-to-br from-white via-purple-50/80 to-white'
+      className='py-20 px-4 bg-gradient-to-br from-purple-50/50 via-purple-100/30 to-purple-50/50'
     >
       <div className='max-w-7xl mx-auto'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-start'>
           {/* Left Content */}
-          <div ref={contentRef} className='lg:sticky lg:top-24'>
+          <div ref={contentRef}>
             <div className='mb-8'>
               <P className='text-sm font-semibold tracking-wider text-purple-600 uppercase mb-0'>
                 SELLERS
@@ -144,8 +144,8 @@ export const InventorySolutionsSection: React.FC = () => {
                   onClick={() => handleSolutionClick(index)}
                   className={`solution-card w-full text-left p-4 rounded-lg transition-all duration-300 cursor-pointer ${
                     activeIndex === index
-                      ? 'border-l-4 border-purple-600 pl-6 bg-purple-50'
-                      : 'border-l-4 border-transparent pl-6 hover:bg-gray-50'
+                      ? 'border-l-4 border-purple-600 pl-6 bg-white shadow-md'
+                      : 'border-l-4 border-transparent pl-6 hover:bg-white/70 hover:shadow-sm'
                   }`}
                 >
                   <H3
