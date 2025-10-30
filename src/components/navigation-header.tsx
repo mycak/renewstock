@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { LanguageSwitcher } from '@/components/language-switcher';
+import { P } from './ui/typography';
 
 type NavigationItem = {
   key: string;
@@ -181,9 +182,9 @@ export const NavigationHeader: React.FC = () => {
 
                   {/* Language Switcher in Mobile Menu */}
                   <div className='pt-8 mt-8 border-t border-gray-200'>
-                    <p className='text-lg font-bold text-black mb-2'>
+                    <P className='text-lg font-bold text-black mb-2'>
                       {t('navigation.language')}
-                    </p>
+                    </P>
                     <div className='relative z-10'>
                       <LanguageSwitcher isFixed={false} />
                     </div>

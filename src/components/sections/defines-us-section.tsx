@@ -168,7 +168,7 @@ export const DefinesUsSection: React.FC = () => {
             return (
               <h3
                 key={`${featureKey}-${i18n.language}-${index}`}
-                className='feature-text font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-2'
+                className='feature-text font-black text-2xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-2'
               >
                 <span className='highlighted-word'>{firstWord}</span>
                 {restOfText && <span> {restOfText}</span>}
