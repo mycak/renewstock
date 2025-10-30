@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H2, H3, P } from '@/components/ui/typography';
 import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +14,10 @@ export const InventorySolutionsSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(1);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -118,6 +122,40 @@ export const InventorySolutionsSection: React.FC = () => {
     setActiveIndex(index);
   };
 
+  const handlePrevious = () => {
+    setActiveIndex((prev) => (prev === 0 ? solutions.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev === solutions.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      handleNext();
+    }
+    if (isRightSwipe) {
+      handlePrevious();
+    }
+
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
+
   return (
     <section
       id='inventory-solutions'
@@ -125,9 +163,21 @@ export const InventorySolutionsSection: React.FC = () => {
       className='py-20 px-4 bg-gradient-to-br from-purple-50/50 via-purple-100/30 to-purple-50/50 overflow-hidden'
     >
       <div className='max-w-7xl mx-auto'>
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-start'>
+        {/* Section Header - Mobile only */}
+        <div className='mb-8 text-center lg:hidden'>
+          <P className='text-sm font-semibold tracking-wider text-purple-600 uppercase mb-0'>
+            SELLERS
+          </P>
+          <H2 className='font-black text-2xl md:text-4xl mb-6 leading-tight mt-0!'>
+            New revenue streams for all types of inventory
+          </H2>
+        </div>
+
+        {/* Desktop: Side-by-side layout */}
+        <div className='hidden lg:grid grid-cols-2 gap-12 items-start'>
           {/* Left Content */}
           <div ref={contentRef}>
+            {/* Section Header - Desktop */}
             <div className='mb-8'>
               <P className='text-sm font-semibold tracking-wider text-purple-600 uppercase mb-0'>
                 SELLERS
@@ -196,6 +246,94 @@ export const InventorySolutionsSection: React.FC = () => {
                   {solutions[activeIndex].content.text}
                 </P>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile: Carousel layout */}
+        <div className='lg:hidden'>
+          <div
+            ref={carouselRef}
+            className='relative'
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {/* Carousel Item */}
+            <div className='relative rounded-2xl overflow-hidden bg-gray-200 shadow-lg mb-6'>
+              <div className='relative h-[300px] sm:h-[350px]'>
+                <Image
+                  src={solutions[activeIndex].image}
+                  alt={solutions[activeIndex].title}
+                  fill
+                  className='object-cover transition-all duration-500'
+                  sizes='100vw'
+                />
+              </div>
+
+              {/* Content Card */}
+              <div className='bg-white p-6'>
+                <H3 className='font-bold text-xl text-gray-900 mb-3 border-none'>
+                  {solutions[activeIndex].title}
+                </H3>
+                <P className='text-gray-600 leading-relaxed mb-4 mt-0!'>
+                  {solutions[activeIndex].description}
+                </P>
+                <div className='border-t pt-4 mt-4'>
+                  <H3 className='font-semibold text-lg text-gray-900 mb-2 border-none'>
+                    {solutions[activeIndex].content.heading}
+                  </H3>
+                  <P className='text-gray-600 text-sm leading-relaxed mt-0!'>
+                    {solutions[activeIndex].content.text}
+                  </P>
+                </div>
+              </div>
+            </div>
+
+            {/* Carousel Navigation */}
+            <div className='flex items-center justify-between mb-6'>
+              <button
+                onClick={handlePrevious}
+                className='p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-300 active:scale-95'
+                aria-label='Previous solution'
+              >
+                <ChevronLeft className='w-6 h-6 text-purple-600' />
+              </button>
+
+              {/* Dots Indicator */}
+              <div className='flex gap-2'>
+                {solutions.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveIndex(index)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      activeIndex === index
+                        ? 'w-8 bg-purple-600'
+                        : 'w-2 bg-gray-300'
+                    }`}
+                    aria-label={`Go to solution ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={handleNext}
+                className='p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-300 active:scale-95'
+                aria-label='Next solution'
+              >
+                <ChevronRight className='w-6 h-6 text-purple-600' />
+              </button>
+            </div>
+
+            {/* Call to Action Button */}
+            <div className='text-center'>
+              <Button
+                onClick={scrollToContact}
+                size='lg'
+                className='bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer w-full sm:w-auto'
+              >
+                Get Started Today
+              </Button>
             </div>
           </div>
         </div>
