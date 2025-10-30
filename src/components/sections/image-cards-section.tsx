@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H3, P } from '@/components/ui/typography';
@@ -10,6 +11,7 @@ import { Button } from '@/components/ui/button';
 gsap.registerPlugin(ScrollTrigger);
 
 export const ImageCardsSection: React.FC = () => {
+  const { t } = useTranslation('common');
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
 
@@ -64,26 +66,23 @@ export const ImageCardsSection: React.FC = () => {
   const cards = [
     {
       image: '/images/stock-9.jpg',
-      title: 'Sellers: Maximize Revenue',
-      description:
-        'Transform excess inventory into new revenue streams with complete control.',
-      ctaText: 'Start Selling',
+      titleKey: 'image_cards.cards.sellers.title',
+      descriptionKey: 'image_cards.cards.sellers.description',
+      ctaKey: 'image_cards.cards.sellers.cta',
       imagePosition: 'center',
     },
     {
       image: '/images/stock-5.jpg',
-      title: 'Buyers: Premium Access',
-      description:
-        'Discover curated inventory from established brands at competitive pricing.',
-      ctaText: 'Browse Inventory',
+      titleKey: 'image_cards.cards.buyers.title',
+      descriptionKey: 'image_cards.cards.buyers.description',
+      ctaKey: 'image_cards.cards.buyers.cta',
       imagePosition: 'top',
     },
     {
       image: '/images/stock-10.jpg',
-      title: 'Global Distribution',
-      description:
-        'Connect with verified partners worldwide through our trusted platform.',
-      ctaText: 'Learn More',
+      titleKey: 'image_cards.cards.distribution.title',
+      descriptionKey: 'image_cards.cards.distribution.description',
+      ctaKey: 'image_cards.cards.distribution.cta',
       imagePosition: 'center',
     },
   ];
@@ -112,7 +111,7 @@ export const ImageCardsSection: React.FC = () => {
               <div className='absolute inset-0'>
                 <Image
                   src={card.image}
-                  alt={card.title}
+                  alt={t(card.titleKey)}
                   fill
                   className={`transition-transform duration-700 group-hover:scale-105 ${
                     card.imagePosition === 'top'
@@ -129,17 +128,17 @@ export const ImageCardsSection: React.FC = () => {
               {/* Content */}
               <div className='absolute inset-0 flex flex-col justify-end p-6'>
                 <H3 className='font-bold text-2xl text-white mb-3 leading-tight border-none'>
-                  {card.title}
+                  {t(card.titleKey)}
                 </H3>
                 <P className='text-white/90 text-base leading-relaxed mb-4 mt-0!'>
-                  {card.description}
+                  {t(card.descriptionKey)}
                 </P>
                 <Button
                   onClick={scrollToContact}
                   size='sm'
                   className='bg-white/95 text-purple-700 hover:bg-white font-semibold px-6 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 w-fit backdrop-blur-sm'
                 >
-                  {card.ctaText}
+                  {t(card.ctaKey)}
                 </Button>
               </div>
             </div>

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H2, H3, P } from '@/components/ui/typography';
@@ -10,6 +11,7 @@ import { Button } from '@/components/ui/button';
 gsap.registerPlugin(ScrollTrigger);
 
 export const FeaturedInventorySection: React.FC = () => {
+  const { t } = useTranslation('common');
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -92,21 +94,12 @@ export const FeaturedInventorySection: React.FC = () => {
   const inventoryItems = [
     {
       image: '/images/stock-2.jpg',
-      title: 'Premium Designer Collection',
-      description:
-        'High-end fashion pieces from established brands. Perfect for boutique retailers looking to expand their luxury offerings with authenticated merchandise.',
     },
     {
       image: '/images/stock-3.jpg',
-      title: 'Latest Tech Accessories',
-      description:
-        'Cutting-edge electronics and accessories from top manufacturers. Ideal for tech retailers seeking quality products with verified authenticity.',
     },
     {
       image: '/images/stock-4.jpg',
-      title: 'Modern Furniture Collection',
-      description:
-        'Contemporary furniture sets combining style and functionality. Perfect for home goods retailers expanding their catalog with designer pieces.',
     },
   ];
 
@@ -120,14 +113,13 @@ export const FeaturedInventorySection: React.FC = () => {
         {/* Header */}
         <div ref={headerRef} className='text-center mb-16'>
           <P className='text-sm font-semibold tracking-wider text-purple-600 uppercase mb-4'>
-            AVAILABLE NOW
+            {t('featured_inventory.eyebrow')}
           </P>
           <H2 className='font-black text-4xl md:text-5xl lg:text-6xl mb-6'>
-            Featured Inventory
+            {t('featured_inventory.header')}
           </H2>
           <P className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto'>
-            Discover premium inventory opportunities from trusted brands across
-            multiple categories
+            {t('featured_inventory.description')}
           </P>
         </div>
 
@@ -145,7 +137,7 @@ export const FeaturedInventorySection: React.FC = () => {
               <div className='relative h-64 bg-gray-100 overflow-hidden image-container'>
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={t(`featured_inventory.items.${index}.title`)}
                   fill
                   className='object-cover'
                   sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
@@ -155,15 +147,15 @@ export const FeaturedInventorySection: React.FC = () => {
               {/* Content */}
               <div className='p-6'>
                 <H3 className='font-bold text-xl mb-3 text-gray-900 border-none'>
-                  {item.title}
+                  {t(`featured_inventory.items.${index}.title`)}
                 </H3>
                 <P className='text-gray-600 leading-relaxed mb-6 mt-0!'>
-                  {item.description}
+                  {t(`featured_inventory.items.${index}.description`)}
                 </P>
 
                 {/* CTA Button */}
                 <Button className='w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold transition-colors duration-300'>
-                  View Details
+                  {t('featured_inventory.cta.view_details')}
                 </Button>
               </div>
             </div>
@@ -177,7 +169,7 @@ export const FeaturedInventorySection: React.FC = () => {
             size='lg'
             className='border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300 font-semibold px-8'
           >
-            Browse All Inventory
+            {t('featured_inventory.cta.browse_all')}
           </Button>
         </div>
       </div>

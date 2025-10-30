@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H2, H3, P } from '@/components/ui/typography';
@@ -9,6 +10,7 @@ import { H2, H3, P } from '@/components/ui/typography';
 gsap.registerPlugin(ScrollTrigger);
 
 export const TestimonialsSection: React.FC = () => {
+  const { t } = useTranslation('common');
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -65,29 +67,14 @@ export const TestimonialsSection: React.FC = () => {
 
   const testimonials = [
     {
-      quote:
-        'Working with this platform has transformed how we manage excess inventory. The discretion and control over distribution channels is exactly what we needed.',
-      author: 'Sarah Chen',
-      position: 'VP of Operations',
-      company: 'Global Fashion Brand',
       image: '/images/stock-6.jpg',
       rating: 5,
     },
     {
-      quote:
-        'The transparency and efficiency of the process exceeded our expectations. We were able to move inventory quickly while maintaining our brand integrity.',
-      author: 'Michael Rodriguez',
-      position: 'Supply Chain Director',
-      company: 'Leading Electronics Retailer',
       image: '/images/stock-7.jpg',
       rating: 5,
     },
     {
-      quote:
-        "Outstanding service and results. The platform gave us access to premium inventory we couldn't find elsewhere, all while ensuring complete confidentiality.",
-      author: 'Emma Thompson',
-      position: 'Head of Procurement',
-      company: 'International Distributor',
       image: '/images/stock-8.jpg',
       rating: 5,
     },
@@ -109,14 +96,13 @@ export const TestimonialsSection: React.FC = () => {
         {/* Header */}
         <div ref={headerRef} className='text-center mb-4'>
           <P className='text-sm font-semibold tracking-wider text-purple-600 uppercase mb-4'>
-            TESTIMONIALS
+            {t('testimonials.eyebrow')}
           </P>
           <H2 className='font-black text-4xl md:text-5xl lg:text-6xl mb-6'>
-            Trusted by Industry Leaders
+            {t('testimonials.header')}
           </H2>
           <P className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto'>
-            See what our partners have to say about their experience with our
-            platform
+            {t('testimonials.description')}
           </P>
         </div>
 
@@ -146,7 +132,7 @@ export const TestimonialsSection: React.FC = () => {
 
               {/* Quote */}
               <P className='text-gray-700 italic mb-6 text-base leading-relaxed flex-grow'>
-                &ldquo;{testimonial.quote}&rdquo;
+                &ldquo;{t(`testimonials.items.${index}.quote`)}&rdquo;
               </P>
 
               {/* Author Info */}
@@ -154,7 +140,7 @@ export const TestimonialsSection: React.FC = () => {
                 <div className='relative w-14 h-14 rounded-full overflow-hidden bg-gray-200 flex-shrink-0'>
                   <Image
                     src={testimonial.image}
-                    alt={testimonial.author}
+                    alt={t(`testimonials.items.${index}.author`)}
                     fill
                     className='object-cover'
                     sizes='56px'
@@ -162,13 +148,13 @@ export const TestimonialsSection: React.FC = () => {
                 </div>
                 <div>
                   <H3 className='font-bold text-lg text-gray-900 border-none mb-1'>
-                    {testimonial.author}
+                    {t(`testimonials.items.${index}.author`)}
                   </H3>
                   <P className='text-sm text-gray-600 leading-tight mt-0!'>
-                    {testimonial.position}
+                    {t(`testimonials.items.${index}.position`)}
                   </P>
                   <P className='text-sm font-semibold text-purple-600 mt-0!'>
-                    {testimonial.company}
+                    {t(`testimonials.items.${index}.company`)}
                   </P>
                 </div>
               </div>
@@ -180,18 +166,17 @@ export const TestimonialsSection: React.FC = () => {
         <div className='mt-16 text-center'>
           <div className='inline-block bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-8 md:p-12 shadow-xl'>
             <H3 className='font-bold text-2xl md:text-3xl text-white mb-4 border-none'>
-              Join hundreds of satisfied partners
+              {t('testimonials.cta.header')}
             </H3>
             <P className='text-white/90 text-lg mb-6 max-w-2xl mx-auto'>
-              Experience the difference of working with a trusted, intelligent
-              inventory distribution platform
+              {t('testimonials.cta.description')}
             </P>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <button className='bg-white text-purple-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-300'>
-                Get Started Today
+                {t('testimonials.cta.primary')}
               </button>
               <button className='bg-transparent border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white/10 transition-colors duration-300'>
-                Schedule a Demo
+                {t('testimonials.cta.secondary')}
               </button>
             </div>
           </div>

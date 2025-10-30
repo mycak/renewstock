@@ -267,5 +267,149 @@
       "title": "RenewStock - The Circular Partner You Need",
       "description": "Transform overstock and returns into performance assets. Real resale performance with end-to-end control and elevated circularity."
     }
+  },
+  "image_cards": {
+    "cards": {
+      "sellers": {
+        "title": "Sellers: Maximize Revenue",
+        "description": "Transform excess inventory into new revenue streams with complete control.",
+        "cta": "Start Selling"
+      },
+      "buyers": {
+        "title": "Buyers: Premium Access",
+        "description": "Discover curated inventory from established brands at competitive pricing.",
+        "cta": "Browse Inventory"
+      },
+      "distribution": {
+        "title": "Global Distribution",
+        "description": "Connect with verified partners worldwide through our trusted platform.",
+        "cta": "Learn More"
+      }
+    }
+  },
+  "trusted_platform": {
+    "header": "Where established brands and global retailers connect through trusted, intelligent inventory distribution",
+    "stats": {
+      "listings": {
+        "value": "7K+",
+        "label": "Posted Listings",
+        "description": "Active inventory opportunities across all categories"
+      },
+      "msrp": {
+        "value": "$2B+",
+        "label": "Total MSRP on Ghost",
+        "description": "Cumulative value of merchandise transacted"
+      },
+      "brands": {
+        "value": "4.5K+",
+        "label": "Direct Brands Listed",
+        "description": "Established brands trust our platform"
+      }
+    }
+  },
+  "hero_card": {
+    "title": "Transform Your Inventory Management",
+    "description": "Join thousands of satisfied partners who trust our platform for intelligent inventory distribution.",
+    "cta_primary": "Get Started Today",
+    "cta_secondary": "Schedule a Demo",
+    "stats": {
+      "listings": {
+        "value": "7K+",
+        "label": "Active Listings"
+      },
+      "msrp": {
+        "value": "$2B+",
+        "label": "Total MSRP"
+      },
+      "brands": {
+        "value": "4.5K+",
+        "label": "Brands Listed"
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "TESTIMONIALS",
+    "header": "Trusted by Industry Leaders",
+    "description": "See what our partners have to say about their experience with our platform",
+    "items": [
+      {
+        "quote": "Working with this platform has transformed how we manage excess inventory. The discretion and control over distribution channels is exactly what we needed.",
+        "author": "Sarah Chen",
+        "position": "VP of Operations",
+        "company": "Global Fashion Brand"
+      },
+      {
+        "quote": "The transparency and efficiency of the process exceeded our expectations. We were able to move inventory quickly while maintaining our brand integrity.",
+        "author": "Michael Rodriguez",
+        "position": "Supply Chain Director",
+        "company": "Leading Electronics Retailer"
+      },
+      {
+        "quote": "Outstanding service and results. The platform gave us access to premium inventory we couldn't find elsewhere, all while ensuring complete confidentiality.",
+        "author": "Emma Thompson",
+        "position": "Head of Procurement",
+        "company": "International Distributor"
+      }
+    ],
+    "cta": {
+      "header": "Join hundreds of satisfied partners",
+      "description": "Experience the difference of working with a trusted, intelligent inventory distribution platform",
+      "primary": "Get Started Today",
+      "secondary": "Schedule a Demo"
+    }
+  },
+  "featured_inventory": {
+    "eyebrow": "AVAILABLE NOW",
+    "header": "Featured Inventory",
+    "description": "Discover premium inventory opportunities from trusted brands across multiple categories",
+    "items": [
+      {
+        "title": "Premium Designer Collection",
+        "description": "High-end fashion pieces from established brands. Perfect for boutique retailers looking to expand their luxury offerings with authenticated merchandise."
+      },
+      {
+        "title": "Latest Tech Accessories",
+        "description": "Cutting-edge electronics and accessories from top manufacturers. Ideal for tech retailers seeking quality products with verified authenticity."
+      },
+      {
+        "title": "Modern Furniture Collection",
+        "description": "Contemporary furniture sets combining style and functionality. Perfect for home goods retailers expanding their catalog with designer pieces."
+      }
+    ],
+    "cta": {
+      "view_details": "View Details",
+      "browse_all": "Browse All Inventory"
+    }
+  },
+  "inventory_solutions": {
+    "eyebrow": "SELLERS",
+    "header": "New revenue streams for all types of inventory",
+    "solutions": [
+      {
+        "title": "Quickly turn inventory into liquidity",
+        "description": "Turn existing inventory into cash.",
+        "content": {
+          "heading": "Fast Conversion",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+        }
+      },
+      {
+        "title": "Maximize underutilized revenue",
+        "description": "Set the price you want to get for your product; we'll take care of the rest.",
+        "content": {
+          "heading": "Revenue Optimization",
+          "text": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+        }
+      },
+      {
+        "title": "Control where your inventory goes",
+        "description": "Control which distribution channels, retailers, and geographies your inventory is sold in.",
+        "content": {
+          "heading": "Full Control",
+          "text": "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante donec eu libero."
+        }
+      }
+    ],
+    "cta": "Get Started Today"
   }
 }

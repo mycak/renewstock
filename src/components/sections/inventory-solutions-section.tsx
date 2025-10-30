@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H2, H3, P } from '@/components/ui/typography';
@@ -11,6 +12,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 export const InventorySolutionsSection: React.FC = () => {
+  const { t } = useTranslation('common');
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -81,33 +83,13 @@ export const InventorySolutionsSection: React.FC = () => {
 
   const solutions = [
     {
-      title: 'Quickly turn inventory into liquidity',
-      description: 'Turn existing inventory into cash.',
       image: '/images/stock-1.jpg',
-      content: {
-        heading: 'Fast Conversion',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
-      },
     },
     {
-      title: 'Maximize underutilized revenue',
-      description:
-        "Set the price you want to get for your product; we'll take care of the rest.",
       image: '/images/stock-12.jpg',
-      content: {
-        heading: 'Revenue Optimization',
-        text: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
-      },
     },
     {
-      title: 'Control where your inventory goes',
-      description:
-        'Control which distribution channels, retailers, and geographies your inventory is sold in.',
       image: '/images/stock-11.jpg',
-      content: {
-        heading: 'Full Control',
-        text: 'Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante donec eu libero.',
-      },
     },
   ];
 
@@ -166,10 +148,10 @@ export const InventorySolutionsSection: React.FC = () => {
         {/* Section Header - Mobile only */}
         <div className='mb-8 text-center lg:hidden'>
           <P className='text-sm font-semibold tracking-wider text-purple-600 uppercase mb-0'>
-            SELLERS
+            {t('inventory_solutions.eyebrow')}
           </P>
           <H2 className='font-black text-2xl md:text-4xl mb-6 leading-tight mt-0!'>
-            New revenue streams for all types of inventory
+            {t('inventory_solutions.header')}
           </H2>
         </div>
 
@@ -180,10 +162,10 @@ export const InventorySolutionsSection: React.FC = () => {
             {/* Section Header - Desktop */}
             <div className='mb-8'>
               <P className='text-sm font-semibold tracking-wider text-purple-600 uppercase mb-0'>
-                SELLERS
+                {t('inventory_solutions.eyebrow')}
               </P>
               <H2 className='font-black text-2xl md:text-4xl mb-6 leading-tight mt-0!'>
-                New revenue streams for all types of inventory
+                {t('inventory_solutions.header')}
               </H2>
             </div>
 
@@ -203,10 +185,10 @@ export const InventorySolutionsSection: React.FC = () => {
                       activeIndex === index ? 'text-gray-900' : 'text-gray-500'
                     }`}
                   >
-                    {solution.title}
+                    {t(`inventory_solutions.solutions.${index}.title`)}
                   </H3>
                   <P className='text-gray-600 leading-relaxed text-sm md:text-base mt-0!'>
-                    {solution.description}
+                    {t(`inventory_solutions.solutions.${index}.description`)}
                   </P>
                 </div>
               ))}
@@ -219,7 +201,7 @@ export const InventorySolutionsSection: React.FC = () => {
                 size='lg'
                 className='bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer'
               >
-                Get Started Today
+                {t('inventory_solutions.cta')}
               </Button>
             </div>
           </div>
@@ -230,7 +212,7 @@ export const InventorySolutionsSection: React.FC = () => {
               <div className='relative h-[400px] md:h-[500px]'>
                 <Image
                   src={solutions[activeIndex].image}
-                  alt={solutions[activeIndex].title}
+                  alt={t(`inventory_solutions.solutions.${activeIndex}.title`)}
                   fill
                   className='object-cover transition-opacity duration-500'
                   sizes='(max-width: 1024px) 100vw, 50vw'
@@ -240,10 +222,14 @@ export const InventorySolutionsSection: React.FC = () => {
               {/* Floating Card Overlay */}
               <div className='bg-white p-6 rounded-b-2xl'>
                 <H3 className='font-bold text-xl md:text-2xl text-gray-900 mb-3 border-none'>
-                  {solutions[activeIndex].content.heading}
+                  {t(
+                    `inventory_solutions.solutions.${activeIndex}.content.heading`
+                  )}
                 </H3>
                 <P className='text-gray-600 leading-relaxed mt-0!'>
-                  {solutions[activeIndex].content.text}
+                  {t(
+                    `inventory_solutions.solutions.${activeIndex}.content.text`
+                  )}
                 </P>
               </div>
             </div>
@@ -264,7 +250,7 @@ export const InventorySolutionsSection: React.FC = () => {
               <div className='relative h-[300px] sm:h-[350px]'>
                 <Image
                   src={solutions[activeIndex].image}
-                  alt={solutions[activeIndex].title}
+                  alt={t(`inventory_solutions.solutions.${activeIndex}.title`)}
                   fill
                   className='object-cover transition-all duration-500'
                   sizes='100vw'
@@ -274,17 +260,23 @@ export const InventorySolutionsSection: React.FC = () => {
               {/* Content Card */}
               <div className='bg-white p-6'>
                 <H3 className='font-bold text-xl text-gray-900 mb-3 border-none'>
-                  {solutions[activeIndex].title}
+                  {t(`inventory_solutions.solutions.${activeIndex}.title`)}
                 </H3>
                 <P className='text-gray-600 leading-relaxed mb-4 mt-0!'>
-                  {solutions[activeIndex].description}
+                  {t(
+                    `inventory_solutions.solutions.${activeIndex}.description`
+                  )}
                 </P>
                 <div className='border-t pt-4 mt-4'>
                   <H3 className='font-semibold text-lg text-gray-900 mb-2 border-none'>
-                    {solutions[activeIndex].content.heading}
+                    {t(
+                      `inventory_solutions.solutions.${activeIndex}.content.heading`
+                    )}
                   </H3>
                   <P className='text-gray-600 text-sm leading-relaxed mt-0!'>
-                    {solutions[activeIndex].content.text}
+                    {t(
+                      `inventory_solutions.solutions.${activeIndex}.content.text`
+                    )}
                   </P>
                 </div>
               </div>
@@ -332,7 +324,7 @@ export const InventorySolutionsSection: React.FC = () => {
                 size='lg'
                 className='bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer w-full sm:w-auto'
               >
-                Get Started Today
+                {t('inventory_solutions.cta')}
               </Button>
             </div>
           </div>

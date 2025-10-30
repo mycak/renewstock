@@ -270,5 +270,149 @@
       "title": "RenewStock - Partner w Obiegu Którego Potrzebujesz",
       "description": "Przekształć nadwyżki i zwroty w aktywa wydajnościowe. Rzeczywista wydajność odsprzedaży z pełną kontrolą i podwyższoną cyrkularnością."
     }
+  },
+  "image_cards": {
+    "cards": {
+      "sellers": {
+        "title": "Sprzedawcy: Maksymalizuj Przychody",
+        "description": "Przekształć nadmiarowe zapasy w nowe strumienie przychodów z pełną kontrolą.",
+        "cta": "Zacznij Sprzedawać"
+      },
+      "buyers": {
+        "title": "Kupujący: Premium Dostęp",
+        "description": "Odkryj wyselekcjonowane zapasy od uznanych marek w konkurencyjnych cenach.",
+        "cta": "Przeglądaj Magazyn"
+      },
+      "distribution": {
+        "title": "Globalna Dystrybucja",
+        "description": "Połącz się z zweryfikowanymi partnerami na całym świecie poprzez naszą zaufaną platformę.",
+        "cta": "Dowiedz się Więcej"
+      }
+    }
+  },
+  "trusted_platform": {
+    "header": "Gdzie uznane marki i globalni detaliści łączą się poprzez zaufaną, inteligentną dystrybucję zapasów",
+    "stats": {
+      "listings": {
+        "value": "7K+",
+        "label": "Opublikowane Oferty",
+        "description": "Aktywne możliwości magazynowe we wszystkich kategoriach"
+      },
+      "msrp": {
+        "value": "$2B+",
+        "label": "Całkowite MSRP na Ghost",
+        "description": "Skumulowana wartość transakcji towarowych"
+      },
+      "brands": {
+        "value": "4.5K+",
+        "label": "Bezpośrednio Wymienione Marki",
+        "description": "Uznane marki ufają naszej platformie"
+      }
+    }
+  },
+  "hero_card": {
+    "title": "Przekształć Swoje Zarządzanie Zapasami",
+    "description": "Dołącz do tysięcy zadowolonych partnerów, którzy ufają naszej platformie w inteligentnej dystrybucji zapasów.",
+    "cta_primary": "Zacznij Dzisiaj",
+    "cta_secondary": "Umów Demo",
+    "stats": {
+      "listings": {
+        "value": "7K+",
+        "label": "Aktywne Oferty"
+      },
+      "msrp": {
+        "value": "$2B+",
+        "label": "Całkowite MSRP"
+      },
+      "brands": {
+        "value": "4.5K+",
+        "label": "Wymienione Marki"
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "OPINIE",
+    "header": "Zaufany przez Liderów Branży",
+    "description": "Zobacz, co nasi partnerzy mają do powiedzenia o swoim doświadczeniu z naszą platformą",
+    "items": [
+      {
+        "quote": "Współpraca z tą platformą przekształciła sposób, w jaki zarządzamy nadmiarowymi zapasami. Dyskrecja i kontrola nad kanałami dystrybucji to dokładnie to, czego potrzebowaliśmy.",
+        "author": "Sarah Chen",
+        "position": "VP ds. Operacji",
+        "company": "Globalna Marka Modowa"
+      },
+      {
+        "quote": "Przejrzystość i efektywność procesu przekroczyła nasze oczekiwania. Udało nam się szybko przenieść zapasy przy jednoczesnym zachowaniu integralności naszej marki.",
+        "author": "Michael Rodriguez",
+        "position": "Dyrektor ds. Łańcucha Dostaw",
+        "company": "Wiodący Detalista Elektroniki"
+      },
+      {
+        "quote": "Wybitna obsługa i rezultaty. Platforma dała nam dostęp do zapasów premium, których nie mogliśmy znaleźć gdzie indziej, a wszystko to przy zapewnieniu pełnej poufności.",
+        "author": "Emma Thompson",
+        "position": "Kierownik ds. Zakupów",
+        "company": "Międzynarodowy Dystrybutor"
+      }
+    ],
+    "cta": {
+      "header": "Dołącz do setek zadowolonych partnerów",
+      "description": "Doświadcz różnicy pracy z zaufaną, inteligentną platformą dystrybucji zapasów",
+      "primary": "Zacznij Dzisiaj",
+      "secondary": "Umów Demo"
+    }
+  },
+  "featured_inventory": {
+    "eyebrow": "DOSTĘPNE TERAZ",
+    "header": "Wyróżnione Zapasy",
+    "description": "Odkryj możliwości premium zapasów od zaufanych marek w wielu kategoriach",
+    "items": [
+      {
+        "title": "Kolekcja Premium Designer",
+        "description": "Wysokiej klasy elementy mody od uznanych marek. Idealne dla butikowych detalistów pragnących poszerzyć swoją luksusową ofertę o autentyczne towary."
+      },
+      {
+        "title": "Najnowsze Akcesoria Technologiczne",
+        "description": "Najnowocześniejsza elektronika i akcesoria od czołowych producentów. Idealne dla detalistów technologicznych poszukujących wysokiej jakości produktów z weryfikowaną autentycznością."
+      },
+      {
+        "title": "Nowoczesna Kolekcja Mebli",
+        "description": "Współczesne zestawy mebli łączące styl i funkcjonalność. Idealne dla detalistów artykułów domowych poszerzających swój katalog o designerskie elementy."
+      }
+    ],
+    "cta": {
+      "view_details": "Zobacz Szczegóły",
+      "browse_all": "Przeglądaj Wszystkie Zapasy"
+    }
+  },
+  "inventory_solutions": {
+    "eyebrow": "SPRZEDAWCY",
+    "header": "Nowe strumienie przychodów dla wszystkich rodzajów zapasów",
+    "solutions": [
+      {
+        "title": "Szybko przekształć zapasy w płynność",
+        "description": "Zamień istniejące zapasy w gotówkę.",
+        "content": {
+          "heading": "Szybka Konwersja",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+        }
+      },
+      {
+        "title": "Maksymalizuj niewykorzystane przychody",
+        "description": "Ustaw cenę, którą chcesz uzyskać za swój produkt; my zajmiemy się resztą.",
+        "content": {
+          "heading": "Optymalizacja Przychodów",
+          "text": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+        }
+      },
+      {
+        "title": "Kontroluj, dokąd trafiają Twoje zapasy",
+        "description": "Kontroluj, w których kanałach dystrybucji, detalistach i lokalizacjach geograficznych są sprzedawane Twoje zapasy.",
+        "content": {
+          "heading": "Pełna Kontrola",
+          "text": "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante donec eu libero."
+        }
+      }
+    ],
+    "cta": "Zacznij Dzisiaj"
   }
 }

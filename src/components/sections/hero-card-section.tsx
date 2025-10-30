@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H2, P } from '@/components/ui/typography';
@@ -10,6 +11,7 @@ import { Button } from '@/components/ui/button';
 gsap.registerPlugin(ScrollTrigger);
 
 export const HeroCardSection: React.FC = () => {
+  const { t } = useTranslation('common');
   const sectionRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -85,11 +87,10 @@ export const HeroCardSection: React.FC = () => {
           <div className='absolute inset-0 flex flex-col items-center justify-center text-center p-6 md:p-12'>
             <div className='max-w-4xl backdrop-blur-sm bg-white/5 rounded-2xl p-6 md:p-10 border border-white/10'>
               <H2 className='font-black text-3xl md:text-4xl lg:text-5xl text-white mb-4 leading-tight drop-shadow-lg'>
-                Transform Your Inventory Management
+                {t('hero_card.title')}
               </H2>
               <P className='text-base md:text-lg lg:text-xl text-white/95 leading-relaxed mb-6 drop-shadow-md'>
-                Join thousands of satisfied partners who trust our platform for
-                intelligent inventory distribution.
+                {t('hero_card.description')}
               </P>
 
               <div className='flex flex-col sm:flex-row gap-3 justify-center items-center mb-8'>
@@ -98,7 +99,7 @@ export const HeroCardSection: React.FC = () => {
                   size='lg'
                   className='bg-white text-purple-700 hover:bg-purple-50 font-bold px-8 py-3 text-base rounded-xl shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105'
                 >
-                  Get Started Today
+                  {t('hero_card.cta_primary')}
                 </Button>
                 <Button
                   onClick={scrollToContact}
@@ -106,7 +107,7 @@ export const HeroCardSection: React.FC = () => {
                   variant='outline'
                   className='bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold px-8 py-3 text-base rounded-xl shadow-2xl backdrop-blur-sm transition-all duration-300 hover:scale-105'
                 >
-                  Schedule a Demo
+                  {t('hero_card.cta_secondary')}
                 </Button>
               </div>
 
@@ -114,24 +115,26 @@ export const HeroCardSection: React.FC = () => {
               <div className='grid grid-cols-3 gap-4 pt-6 border-t border-white/20'>
                 <div>
                   <P className='text-2xl md:text-3xl font-black text-white mb-1'>
-                    7K+
+                    {t('hero_card.stats.listings.value')}
                   </P>
                   <P className='text-xs md:text-sm text-white/80'>
-                    Active Listings
+                    {t('hero_card.stats.listings.label')}
                   </P>
                 </div>
                 <div>
                   <P className='text-2xl md:text-3xl font-black text-white mb-1'>
-                    $2B+
+                    {t('hero_card.stats.msrp.value')}
                   </P>
-                  <P className='text-xs md:text-sm text-white/80'>Total MSRP</P>
+                  <P className='text-xs md:text-sm text-white/80'>
+                    {t('hero_card.stats.msrp.label')}
+                  </P>
                 </div>
                 <div>
                   <P className='text-2xl md:text-3xl font-black text-white mb-1'>
-                    4.5K+
+                    {t('hero_card.stats.brands.value')}
                   </P>
                   <P className='text-xs md:text-sm text-white/80'>
-                    Brands Listed
+                    {t('hero_card.stats.brands.label')}
                   </P>
                 </div>
               </div>

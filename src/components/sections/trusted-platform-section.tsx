@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H2, H3, P } from '@/components/ui/typography';
@@ -8,6 +9,7 @@ import { H2, H3, P } from '@/components/ui/typography';
 gsap.registerPlugin(ScrollTrigger);
 
 export const TrustedPlatformSection: React.FC = () => {
+  const { t } = useTranslation('common');
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
@@ -89,19 +91,19 @@ export const TrustedPlatformSection: React.FC = () => {
 
   const stats = [
     {
-      value: '7K+',
-      label: 'Posted Listings',
-      description: 'Active inventory opportunities across all categories',
+      valueKey: 'trusted_platform.stats.listings.value',
+      labelKey: 'trusted_platform.stats.listings.label',
+      descriptionKey: 'trusted_platform.stats.listings.description',
     },
     {
-      value: '$2B+',
-      label: 'Total MSRP on Ghost',
-      description: 'Cumulative value of merchandise transacted',
+      valueKey: 'trusted_platform.stats.msrp.value',
+      labelKey: 'trusted_platform.stats.msrp.label',
+      descriptionKey: 'trusted_platform.stats.msrp.description',
     },
     {
-      value: '4.5K+',
-      label: 'Direct Brands Listed',
-      description: 'Established brands trust our platform',
+      valueKey: 'trusted_platform.stats.brands.value',
+      labelKey: 'trusted_platform.stats.brands.label',
+      descriptionKey: 'trusted_platform.stats.brands.description',
     },
   ];
 
@@ -120,8 +122,7 @@ export const TrustedPlatformSection: React.FC = () => {
         {/* Header */}
         <div ref={headerRef} className='text-center mb-16'>
           <H2 className='font-black text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight max-w-5xl mx-auto'>
-            Where established brands and global retailers connect through
-            trusted, intelligent inventory distribution
+            {t('trusted_platform.header')}
           </H2>
         </div>
 
@@ -134,13 +135,13 @@ export const TrustedPlatformSection: React.FC = () => {
             <div key={index} className='stat-card text-center'>
               <div className='bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 h-full flex flex-col'>
                 <H3 className='stat-number font-black text-5xl md:text-6xl lg:text-7xl text-white mb-4 border-none'>
-                  {stat.value}
+                  {t(stat.valueKey)}
                 </H3>
                 <P className='text-xl md:text-2xl font-bold text-white/90 mb-3 mt-0!'>
-                  {stat.label}
+                  {t(stat.labelKey)}
                 </P>
                 <P className='text-sm md:text-base text-white/70 leading-relaxed mt-0! min-h-[3rem]'>
-                  {stat.description}
+                  {t(stat.descriptionKey)}
                 </P>
               </div>
             </div>
