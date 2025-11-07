@@ -234,7 +234,7 @@ export const ContactSection: React.FC = () => {
       <div className='max-w-6xl mx-auto text-center'>
         {/* Header */}
         <div ref={contactHeaderRef} className='mb-16'>
-          <P className='text-sm font-semibold tracking-wider text-purple-600 uppercase mb-4'>
+          <P className='text-sm font-semibold tracking-wider text-purple-500 uppercase mb-4'>
             {t('contact.description.partner_not_solver')}
           </P>
           <H2 className='font-black text-4xl md:text-5xl lg:text-6xl mb-6'>
@@ -336,7 +336,7 @@ export const ContactSection: React.FC = () => {
                 <Button
                   type='submit'
                   disabled={formStatus === 'loading'}
-                  className='w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed'
+                  className='w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed'
                 >
                   {formStatus === 'loading'
                     ? t('contact.form.messages.sending')

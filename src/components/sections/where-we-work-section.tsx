@@ -17,15 +17,13 @@ export const WhereWeWorkSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
-  const textOverlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
     const header = headerRef.current;
     const imageContainer = imageContainerRef.current;
-    const textOverlay = textOverlayRef.current;
 
-    if (!section || !header || !imageContainer || !textOverlay) return;
+    if (!section || !header || !imageContainer) return;
 
     // Create GSAP timeline with ScrollTrigger
     const tl = gsap.timeline({
@@ -40,6 +38,7 @@ export const WhereWeWorkSection: React.FC = () => {
     // Animate eyebrow and header
     const eyebrow = header.querySelector('.eyebrow-text');
     const headerTitle = header.querySelector('.header-title');
+    const description = header.querySelector('.description-text');
 
     if (eyebrow) {
       tl.from(eyebrow, {
@@ -72,6 +71,20 @@ export const WhereWeWorkSection: React.FC = () => {
       );
     }
 
+    // Animate description
+    if (description) {
+      tl.from(
+        description,
+        {
+          duration: 0.6,
+          y: 30,
+          opacity: 0,
+          ease: 'power2.out',
+        },
+        '-=0.2'
+      );
+    }
+
     // Animate image container with scale and fade
     tl.from(
       imageContainer,
@@ -82,31 +95,6 @@ export const WhereWeWorkSection: React.FC = () => {
         ease: 'power2.out',
       },
       '-=0.4'
-    );
-
-    // Animate text overlay
-    const overlaySplit = SplitText.create(textOverlay, {
-      type: 'chars,words',
-      charsClass: 'split-char',
-      wordsClass: 'split-word',
-      tag: 'span',
-    });
-
-    cleanupSplitTextAria(textOverlay as HTMLElement, overlaySplit);
-
-    tl.from(
-      overlaySplit.chars,
-      {
-        duration: 0.8,
-        opacity: 0,
-        scale: 0,
-        y: 80,
-        rotationX: -90,
-        transformOrigin: '0% 50% -50',
-        stagger: 0.02,
-        ease: 'back.out(1.7)',
-      },
-      '-=0.6'
     );
 
     // Cleanup function
@@ -127,13 +115,13 @@ export const WhereWeWorkSection: React.FC = () => {
       <div className='max-w-7xl mx-auto'>
         {/* Header */}
         <div ref={headerRef} className='text-center mb-16'>
-          <P className='eyebrow-text text-sm font-semibold tracking-wider text-purple-600 uppercase mb-4'>
+          <P className='eyebrow-text text-sm font-semibold tracking-wider text-purple-500 uppercase mb-4'>
             {t('where_we_work.eyebrow')}
           </P>
           <H2 className='header-title font-black text-4xl md:text-5xl lg:text-6xl mb-6'>
             {t('where_we_work.header')}
           </H2>
-          <P className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto'>
+          <P className='description-text text-lg md:text-xl text-gray-600 max-w-3xl mx-auto'>
             {t('where_we_work.description')}
           </P>
         </div>

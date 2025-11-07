@@ -97,7 +97,7 @@ export const HeroCardSection: React.FC = () => {
                 <Button
                   onClick={scrollToContact}
                   size='lg'
-                  className='bg-white text-purple-700 hover:bg-purple-50 font-bold px-8 py-3 text-base rounded-xl shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105'
+                  className='bg-white text-purple-500 hover:bg-purple-50 font-bold px-8 py-3 text-base rounded-xl shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105'
                 >
                   {t('hero_card.cta_primary')}
                 </Button>

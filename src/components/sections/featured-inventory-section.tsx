@@ -111,7 +111,7 @@ export const FeaturedInventorySection: React.FC = () => {
       <div className='max-w-7xl mx-auto'>
         {/* Header */}
         <div ref={headerRef} className='text-center mb-16'>
-          <P className='text-sm font-semibold tracking-wider text-purple-600 uppercase mb-4'>
+          <P className='text-sm font-semibold tracking-wider text-purple-500 uppercase mb-4'>
             {t('featured_inventory.eyebrow')}
           </P>
           <H2 className='font-black text-4xl md:text-5xl lg:text-6xl mb-6'>

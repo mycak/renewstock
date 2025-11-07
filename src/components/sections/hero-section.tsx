@@ -96,7 +96,7 @@ export const HeroSection: React.FC = () => {
                   chars='upperCase'
                   speed={0.7}
                   revealDelay={0.18}
-                  className='inline text-purple-600'
+                  className='inline text-purple-500'
                   as='span'
                 />
                 <ScrambleText
