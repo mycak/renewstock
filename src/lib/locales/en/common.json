@@ -354,7 +354,7 @@
         "description": "Turn existing inventory into cash.",
         "content": {
           "heading": "Fast Conversion",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+          "text": "Transform your dormant stock into immediate working capital. Our streamlined process ensures rapid evaluation and payment, typically within 48 hours of agreement. We handle everything from logistics to documentation, allowing you to focus on your core business while unlocking trapped value in your inventory."
         }
       },
       {
@@ -362,7 +362,7 @@
         "description": "Set the price you want to get for your product; we'll take care of the rest.",
         "content": {
           "heading": "Revenue Optimization",
-          "text": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+          "text": "Our data-driven approach identifies the optimal channels and markets for your products. We leverage our global network to ensure maximum value recovery, whether through direct buyout or revenue-sharing arrangements. You maintain pricing control while we execute the strategy that delivers the best returns."
         }
       },
       {
@@ -370,10 +370,9 @@
         "description": "Control which distribution channels, retailers, and geographies your inventory is sold in.",
         "content": {
           "heading": "Full Control",
-          "text": "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante donec eu libero."
+          "text": "Protect your brand integrity with complete visibility into distribution channels. Set geographic restrictions, approve retail partners, and maintain oversight of your products' journey. Our transparent reporting system provides real-time updates on inventory location, sales channels, and end-market destinations."
         }
       }
-    ],
-    "cta": "Get Started Today"
+    ]
   }
 }

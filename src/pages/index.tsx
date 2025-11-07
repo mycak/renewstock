@@ -9,6 +9,7 @@ import { FeaturedInventorySection } from '@/components/sections/featured-invento
 import { ImageCardsSection } from '@/components/sections/image-cards-section';
 import { HeroCardSection } from '@/components/sections/hero-card-section';
 import { ContactSection } from '@/components/sections/contact-section';
+import { FooterSection } from '@/components/sections/footer-section';
 import { MetaTags } from '@/components/seo/meta-tags';
 import { SkipNavigation } from '@/components/seo/skip-navigation';
 import { DefinesUsSection } from '@/components/sections/defines-us-section';
@@ -32,6 +33,8 @@ export default function Home() {
         <WhereWeWorkSection />
         <ContactSection />
       </main>
+
+      <FooterSection />
     </>
   );
 }

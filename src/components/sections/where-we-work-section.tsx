@@ -153,16 +153,16 @@ export const WhereWeWorkSection: React.FC = () => {
             priority
           />
 
-          {/* Blur Effect on Edges - Smooth gradients */}
+          {/* Blur Effect on Edges - Reduced horizontal blur on mobile */}
           <div className='absolute inset-0 pointer-events-none'>
             {/* Top blur */}
             <div className='absolute top-0 left-0 right-0 h-24 md:h-32 lg:h-40 bg-gradient-to-b from-gray-50 via-gray-50/60 to-transparent'></div>
             {/* Bottom blur */}
             <div className='absolute bottom-0 left-0 right-0 h-24 md:h-32 lg:h-40 bg-gradient-to-t from-gray-50 via-gray-50/60 to-transparent'></div>
-            {/* Left blur */}
-            <div className='absolute top-0 left-0 bottom-0 w-20 md:w-32 lg:w-40 bg-gradient-to-r from-gray-50 via-gray-50/60 to-transparent'></div>
-            {/* Right blur */}
-            <div className='absolute top-0 right-0 bottom-0 w-20 md:w-32 lg:w-40 bg-gradient-to-l from-gray-50 via-gray-50/60 to-transparent'></div>
+            {/* Left blur - Reduced on mobile */}
+            <div className='absolute top-0 left-0 bottom-0 w-8 md:w-20 lg:w-40 bg-gradient-to-r from-gray-50 via-gray-50/60 to-transparent'></div>
+            {/* Right blur - Reduced on mobile */}
+            <div className='absolute top-0 right-0 bottom-0 w-8 md:w-20 lg:w-40 bg-gradient-to-l from-gray-50 via-gray-50/60 to-transparent'></div>
           </div>
         </div>
       </div>

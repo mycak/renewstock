@@ -157,8 +157,11 @@ export const PartnershipSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Image - Right Side */}
-          <div ref={imageRef} className='relative h-[400px] lg:h-[600px]'>
+          {/* Image - Left Side */}
+          <div
+            ref={imageRef}
+            className='hidden lg:block relative h-[400px] lg:h-[600px]'
+          >
             <Image
               src='/images/stock-7.jpg'
               alt='Partnership Commitment'
