@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H2, H3, P } from '@/components/ui/typography';
-import { Button } from '@/components/ui/button';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -152,25 +151,9 @@ export const FeaturedInventorySection: React.FC = () => {
                 <P className='text-gray-600 leading-relaxed mb-6 mt-0!'>
                   {t(`featured_inventory.items.${index}.description`)}
                 </P>
-
-                {/* CTA Button */}
-                <Button className='w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold transition-colors duration-300'>
-                  {t('featured_inventory.cta.view_details')}
-                </Button>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* View All CTA */}
-        <div className='text-center mt-12'>
-          <Button
-            variant='outline'
-            size='lg'
-            className='border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300 font-semibold px-8'
-          >
-            {t('featured_inventory.cta.browse_all')}
-          </Button>
         </div>
       </div>
     </section>

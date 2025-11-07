@@ -7,7 +7,6 @@ import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cleanupSplitTextAria } from '@/lib/gsap-utils';
 import { H2 } from '@/components/ui/typography';
-import { Separator } from '@/components/ui/separator';
 
 // Register GSAP plugins
 gsap.registerPlugin(SplitText, ScrollTrigger);
@@ -47,10 +46,10 @@ export const DefinesUsSection: React.FC = () => {
 
     // Animate header words
     tl.from(headerSplit.words, {
-      duration: 0.72,
+      duration: 0.5,
       y: 100,
       autoAlpha: 0,
-      stagger: 0.09,
+      stagger: 0.07,
       ease: 'power2.out',
     });
 
@@ -60,7 +59,7 @@ export const DefinesUsSection: React.FC = () => {
       tl.from(
         separator,
         {
-          duration: 0.54,
+          duration: 0.45,
           scaleX: 0,
           transformOrigin: 'center',
           ease: 'power2.out',
@@ -109,10 +108,10 @@ export const DefinesUsSection: React.FC = () => {
       tl.from(
         split.words,
         {
-          duration: 0.72,
+          duration: 0.6,
           y: 80,
           autoAlpha: 0,
-          stagger: 0.225,
+          stagger: 0.175,
           ease: 'power2.out',
         },
         `-=${0.36}`
@@ -148,9 +147,6 @@ export const DefinesUsSection: React.FC = () => {
         >
           {t('defines_us.header')}
         </H2>
-
-        {/* Separator */}
-        <Separator className='separator w-24 mx-auto mb-12 h-1 bg-black' />
 
         {/* Features Grid */}
         <div

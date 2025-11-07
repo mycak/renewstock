@@ -21,8 +21,8 @@
     "disclaimer": {
       "line1_start": "*NOT A ",
       "line1_highlight": "LIQUIDATION HOUSE",
-      "line1_end": ".",
-      "line2": "A REVENUE ENGINE."
+      "line1_end": "",
+      "line2": "A REVENUE ENGINE"
     }
   },
   "defines_us": {
@@ -38,78 +38,81 @@
   "brand_story": {
     "header": "WE'VE OPERATED IN THE SHADOWS. NOW WE'RE SETTING THE TERMS.",
     "story": {
-      "past": "For years, we played behind the scenes: silent sourcing partner, discreet distributor, invisible problem-solver.",
-      "now": "NOW? WE'VE BUILT OUR OWN INFRASTRUCTURE, CHANNELS, AND PLAYBOOK. AND WE'RE HERE TO SCALE WITH YOU — ON YOUR TERMS."
+      "past": "For years, we played behind the scenes: silent sourcing partner, discreet distributor, invisible problem-solver",
+      "now": "NOW? WE'VE BUILT OUR OWN INFRASTRUCTURE, CHANNELS, AND PLAYBOOK. AND WE'RE HERE TO SCALE WITH YOU — ON YOUR TERMS"
     },
     "opportunity": {
-      "header": "RETURNS. EXCESS. DEADSTOCK. NOT A PROBLEM. AN OPPORTUNITY.",
+      "header": "RETURNS. EXCESS. DEADSTOCK. NOT A PROBLEM. AN OPPORTUNITY",
       "tagline": "WITH RENEWSTOCK, YOUR IDLE STOCK BECOMES:",
       "benefits": [
         "cash flow",
         "data-backed ESG value",
         "brand-safe resale in strategic markets"
       ],
-      "footer": "PRESENT WHERE IT MATTERS. SOLVING WHAT OTHERS DON'T. KNOW THE PRODUCT'S VALUE — AND HOW NOT TO WASTE IT."
+      "footer": "PRESENT WHERE IT MATTERS. SOLVING WHAT OTHERS DON'T. KNOW THE PRODUCT'S VALUE — AND HOW NOT TO WASTE IT"
     }
   },
   "process": {
     "header": "SIMPLE. SECURE. BUILT FOR BRANDS.",
     "steps": {
       "clear_process": {
-        "title": "CLEAR PROCESS. NO SURPRISES.",
-        "description": "We stay in active contact with your team. You send available offers — we evaluate them together.",
-        "details": "After reviewing your stock, we come back with a precise, transparent proposal. If aligned, we request a proforma — which we pay upfront and without negotiation. Then we organize transport and get to work."
+        "title": "CLEAR PROCESS. NO SURPRISES",
+        "description": "We stay in active contact with your team. You send available offers — we evaluate them together",
+        "details": "After reviewing your stock, we come back with a precise, transparent proposal. If aligned, we request a proforma — which we pay upfront and without negotiation. Then we organize transport and get to work"
       },
       "full_visibility": {
         "title": "FULL VISIBILITY — AND REAL PARTNERSHIP",
         "description": "You'll always know:",
         "points": ["Where your stock goes", "How it's sold", "Who is involved"],
-        "partnership": "But we go further: We schedule monthly strategy check-ins to align on pricing, markets, and product flow. We're not a one-off solution — we're in this with you."
+        "partnership": "But we go further: We schedule monthly strategy check-ins to align on pricing, markets, and product flow. We're not a one-off solution — we're in this with you"
       },
       "payment_options": {
         "title": "FLAT BUYOUT OR SMART REV-SHARE",
-        "description": "Prefer clarity? Take the full upfront offer. Want more upside? Choose revenue share — backed by live reporting.",
+        "description": "Prefer clarity? Take the full upfront offer. Want more upside? Choose revenue share — backed by live reporting",
         "considerations": "Our offer always considers:",
         "points": [
           "Your resale restrictions",
           "Purchase & target pricing",
           "Any necessary product handling"
         ],
-        "footer": "Either way: you stay in control, we handle the rest."
+        "footer": "Either way: you stay in control, we handle the rest"
       }
     }
   },
   "partnership": {
-    "header": "WE DON'T DISAPPEAR AFTER PICKUP.",
-    "subheader": "WE STAY CLOSE. WE STAY ACCOUNTABLE. WE GROW RESALE WITH YOU.",
+    "header": "WE DON'T DISAPPEAR AFTER PICKUP",
+    "subheader": "WE STAY CLOSE. WE STAY ACCOUNTABLE. WE GROW RESALE WITH YOU",
     "benefits": {
       "active_partnership": {
         "title": "Active Partnership",
-        "description": "We maintain close, ongoing communication throughout the entire resale lifecycle."
+        "description": "We maintain close, ongoing communication throughout the entire resale lifecycle"
       },
       "full_accountability": {
         "title": "Full Accountability",
-        "description": "Complete transparency with detailed reporting and regular check-ins."
+        "description": "Complete transparency with detailed reporting and regular check-ins"
       },
       "long_term_growth": {
         "title": "Long-term Growth",
-        "description": "Building sustainable resale strategies that evolve with your business."
+        "description": "Building sustainable resale strategies that evolve with your business"
       }
     }
   },
   "standards": {
-    "header": "RESALE ALIGNED WITH YOUR STANDARDS.",
-    "intro": "You set the terms — we follow them.",
+    "header": "RESALE ALIGNED WITH YOUR STANDARDS",
+    "intro": "You set the terms — we follow them",
     "points": [
       "Market restrictions respected",
       "Brand rules documented",
       "ESG data delivered with every batch",
       "Ready to sign resale agreements — with full commitment"
     ],
-    "footer": "We're here for the long run. Not shortcuts."
+    "footer": "We're here for the long run. Not shortcuts"
   },
   "where_we_work": {
+    "eyebrow": "Sky is the limit",
     "header": "WHERE WE WORK — AND WIN",
+    "description": "Our global presence spans across continents, connecting strategic markets with sustainable resale solutions. From London to Lagos, from Tirana to Tbilisi—we've built a network that delivers real value everywhere.",
+    "overlay_text": "All continents",
     "regions": {
       "uk": {
         "title": "UK",
@@ -136,8 +139,8 @@
   "contact": {
     "header": "CONTACT US",
     "description": {
-      "partner_not_solver": "A PARTNER, NOT A PROBLEM SOLVER.",
-      "dont_need_fix": "YOU DON'T NEED TO FIX OVERSTOCK. YOU NEED TO DO SOMETHING BETTER WITH IT.",
+      "partner_not_solver": "A PARTNER, NOT A PROBLEM SOLVER",
+      "dont_need_fix": "You Don't Need To Fix Overstock. You Need To Do Something Better With It.",
       "phone_label": "PHONE",
       "email_label": "EMAIL"
     },
@@ -158,10 +161,10 @@
         "message_min_length": "Message must be at least 10 characters long"
       },
       "messages": {
-        "success": "Thank you! Your message has been sent successfully. We'll get back to you shortly.",
+        "success": "Thank you! Your message has been sent successfully. We'll get back to you shortly",
         "sending": "Sending message...",
-        "error": "An error occurred while sending your message. Please try again or contact us directly.",
-        "validation_error": "Please check the accuracy of the filled data."
+        "error": "An error occurred while sending your message. Please try again or contact us directly",
+        "validation_error": "Please check the accuracy of the filled data"
       }
     }
   },
@@ -171,65 +174,65 @@
       "anna": {
         "name": "Anna Kowalski",
         "role": "CEO & Founder",
-        "description": "Visionary leader with 15+ years in renewable energy and circular economy. Anna drives strategic partnerships and sustainable innovation across global markets."
+        "description": "Visionary leader with 15+ years in renewable energy and circular economy. Anna drives strategic partnerships and sustainable innovation across global markets"
       },
       "michael": {
         "name": "Michael Chen",
         "role": "Chief Technology Officer",
-        "description": "Tech innovator specializing in AI-driven supply chain optimization. Michael leads our digital transformation initiatives and data analytics platforms."
+        "description": "Tech innovator specializing in AI-driven supply chain optimization. Michael leads our digital transformation initiatives and data analytics platforms"
       },
       "sofia": {
         "name": "Sofia Rodriguez",
         "role": "Head of Operations",
-        "description": "Operations expert with deep expertise in logistics and quality control. Sofia ensures seamless execution of our resale performance strategies worldwide."
+        "description": "Operations expert with deep expertise in logistics and quality control. Sofia ensures seamless execution of our resale performance strategies worldwide"
       }
     }
   },
   "sellers": {
     "header": "FOR SELLERS",
-    "description": "Transform your overstock and returns into immediate revenue. We provide a seamless, transparent solution that protects your brand while maximizing value recovery.",
+    "description": "Transform your overstock and returns into immediate revenue. We provide a seamless, transparent solution that protects your brand while maximizing value recovery",
     "features": {
       "instant_cash_flow": {
         "title": "INSTANT CASH FLOW",
-        "description": "Get paid upfront for your inventory. No waiting, no uncertainty—immediate capital injection for your business."
+        "description": "Get paid upfront for your inventory. No waiting, no uncertainty—immediate capital injection for your business"
       },
       "zero_risk_disposal": {
         "title": "ZERO-RISK DISPOSAL",
-        "description": "Complete inventory clearance with full chain of custody. Your products are handled professionally from pickup to final sale."
+        "description": "Complete inventory clearance with full chain of custody. Your products are handled professionally from pickup to final sale"
       },
       "brand_protection": {
         "title": "BRAND PROTECTION",
-        "description": "Controlled resale channels that maintain your brand integrity. No grey market leakage or unauthorized selling."
+        "description": "Controlled resale channels that maintain your brand integrity. No grey market leakage or unauthorized selling"
       },
       "transparent_reporting": {
         "title": "TRANSPARENT REPORTING",
-        "description": "Full visibility into the resale process. Track your inventory journey with detailed performance analytics."
+        "description": "Full visibility into the resale process. Track your inventory journey with detailed performance analytics"
       }
     },
     "cta": {
       "title": "READY TO TRANSFORM OVERSTOCK?",
-      "description": "Join leading brands who've discovered the power of strategic resale partnerships."
+      "description": "Join leading brands who've discovered the power of strategic resale partnerships"
     }
   },
   "buyers": {
     "header": "FOR BUYERS",
-    "description": "Access premium inventory at competitive prices through our curated marketplace. We deliver quality products with full traceability and reliable supply chains.",
+    "description": "Access premium inventory at competitive prices through our curated marketplace. We deliver quality products with full traceability and reliable supply chains",
     "benefits": {
       "curated_quality": {
         "title": "CURATED QUALITY",
-        "description": "Hand-selected inventory from trusted brands. Every product is verified and graded to ensure consistent quality standards."
+        "description": "Hand-selected inventory from trusted brands. Every product is verified and graded to ensure consistent quality standards"
       },
       "competitive_pricing": {
         "title": "COMPETITIVE PRICING",
-        "description": "Access wholesale pricing on premium products. Better margins through our direct brand relationships."
+        "description": "Access wholesale pricing on premium products. Better margins through our direct brand relationships"
       },
       "reliable_supply": {
         "title": "RELIABLE SUPPLY",
-        "description": "Consistent inventory flow across multiple product categories. Predictable sourcing for your business planning."
+        "description": "Consistent inventory flow across multiple product categories. Predictable sourcing for your business planning"
       },
       "logistics_support": {
         "title": "LOGISTICS SUPPORT",
-        "description": "End-to-end fulfillment services. From warehousing to last-mile delivery across our global network."
+        "description": "End-to-end fulfillment services. From warehousing to last-mile delivery across our global network"
       }
     },
     "stats": {
@@ -242,7 +245,7 @@
     },
     "cta": {
       "title": "BECOME A TRUSTED BUYER",
-      "description": "Join our network of verified buyers and access exclusive inventory opportunities."
+      "description": "Join our network of verified buyers and access exclusive inventory opportunities"
     }
   },
   "navigation": {
@@ -256,34 +259,31 @@
   },
   "seo": {
     "title": "RenewStock - The Circular Partner You Didn't Know You Needed",
-    "description": "Transform overstock and returns into performance assets. RenewStock delivers real resale performance with end-to-end control, no market leakage, and elevated circularity.",
+    "description": "Transform overstock and returns into performance assets. RenewStock delivers real resale performance with end-to-end control, no market leakage, and elevated circularity",
     "keywords": "circular economy, overstock management, returns processing, sustainable resale, inventory optimization, waste reduction",
     "og": {
       "title": "RenewStock - Transforming Overstock Into Performance Assets",
-      "description": "The circular partner you didn't know you needed. We pay upfront and deliver real resale performance with complete transparency and control.",
+      "description": "The circular partner you didn't know you needed. We pay upfront and deliver real resale performance with complete transparency and control",
       "image": "/logo/animated-logo.gif"
     },
     "twitter": {
       "title": "RenewStock - The Circular Partner You Need",
-      "description": "Transform overstock and returns into performance assets. Real resale performance with end-to-end control and elevated circularity."
+      "description": "Transform overstock and returns into performance assets. Real resale performance with end-to-end control and elevated circularity"
     }
   },
   "image_cards": {
     "cards": {
       "sellers": {
         "title": "Sellers: Maximize Revenue",
-        "description": "Transform excess inventory into new revenue streams with complete control.",
-        "cta": "Start Selling"
+        "description": "Transform excess inventory into new revenue streams with complete control"
       },
       "buyers": {
         "title": "Buyers: Premium Access",
-        "description": "Discover curated inventory from established brands at competitive pricing.",
-        "cta": "Browse Inventory"
+        "description": "Discover curated inventory from established brands at competitive pricing"
       },
       "distribution": {
         "title": "Global Distribution",
-        "description": "Connect with verified partners worldwide through our trusted platform.",
-        "cta": "Learn More"
+        "description": "Connect with verified partners worldwide through our trusted platform"
       }
     }
   },
@@ -309,9 +309,8 @@
   },
   "hero_card": {
     "title": "Transform Your Inventory Management",
-    "description": "Join thousands of satisfied partners who trust our platform for intelligent inventory distribution.",
+    "description": "Join thousands of satisfied partners who trust our platform for intelligent inventory distribution",
     "cta_primary": "Get Started Today",
-    "cta_secondary": "Schedule a Demo",
     "stats": {
       "listings": {
         "value": "7K+",
@@ -325,37 +324,6 @@
         "value": "4.5K+",
         "label": "Brands Listed"
       }
-    }
-  },
-  "testimonials": {
-    "eyebrow": "TESTIMONIALS",
-    "header": "Trusted by Industry Leaders",
-    "description": "See what our partners have to say about their experience with our platform",
-    "items": [
-      {
-        "quote": "Working with this platform has transformed how we manage excess inventory. The discretion and control over distribution channels is exactly what we needed.",
-        "author": "Sarah Chen",
-        "position": "VP of Operations",
-        "company": "Global Fashion Brand"
-      },
-      {
-        "quote": "The transparency and efficiency of the process exceeded our expectations. We were able to move inventory quickly while maintaining our brand integrity.",
-        "author": "Michael Rodriguez",
-        "position": "Supply Chain Director",
-        "company": "Leading Electronics Retailer"
-      },
-      {
-        "quote": "Outstanding service and results. The platform gave us access to premium inventory we couldn't find elsewhere, all while ensuring complete confidentiality.",
-        "author": "Emma Thompson",
-        "position": "Head of Procurement",
-        "company": "International Distributor"
-      }
-    ],
-    "cta": {
-      "header": "Join hundreds of satisfied partners",
-      "description": "Experience the difference of working with a trusted, intelligent inventory distribution platform",
-      "primary": "Get Started Today",
-      "secondary": "Schedule a Demo"
     }
   },
   "featured_inventory": {
@@ -375,11 +343,7 @@
         "title": "Modern Furniture Collection",
         "description": "Contemporary furniture sets combining style and functionality. Perfect for home goods retailers expanding their catalog with designer pieces."
       }
-    ],
-    "cta": {
-      "view_details": "View Details",
-      "browse_all": "Browse All Inventory"
-    }
+    ]
   },
   "inventory_solutions": {
     "eyebrow": "SELLERS",

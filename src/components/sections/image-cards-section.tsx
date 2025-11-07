@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H3, P } from '@/components/ui/typography';
-import { Button } from '@/components/ui/button';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,31 +67,21 @@ export const ImageCardsSection: React.FC = () => {
       image: '/images/stock-9.jpg',
       titleKey: 'image_cards.cards.sellers.title',
       descriptionKey: 'image_cards.cards.sellers.description',
-      ctaKey: 'image_cards.cards.sellers.cta',
       imagePosition: 'center',
     },
     {
       image: '/images/stock-5.jpg',
       titleKey: 'image_cards.cards.buyers.title',
       descriptionKey: 'image_cards.cards.buyers.description',
-      ctaKey: 'image_cards.cards.buyers.cta',
       imagePosition: 'top',
     },
     {
       image: '/images/stock-10.jpg',
       titleKey: 'image_cards.cards.distribution.title',
       descriptionKey: 'image_cards.cards.distribution.description',
-      ctaKey: 'image_cards.cards.distribution.cta',
       imagePosition: 'center',
     },
   ];
-
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section
@@ -133,13 +122,6 @@ export const ImageCardsSection: React.FC = () => {
                 <P className='text-white/90 text-base leading-relaxed mb-4 mt-0!'>
                   {t(card.descriptionKey)}
                 </P>
-                <Button
-                  onClick={scrollToContact}
-                  size='sm'
-                  className='bg-white/95 text-purple-700 hover:bg-white font-semibold px-6 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 w-fit backdrop-blur-sm'
-                >
-                  {t(card.ctaKey)}
-                </Button>
               </div>
             </div>
           ))}

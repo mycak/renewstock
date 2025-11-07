@@ -1,15 +1,13 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cleanupSplitTextAria } from '@/lib/gsap-utils';
-import Lottie from 'lottie-react';
-import { H2, P, H3 } from '@/components/ui/typography';
-import { Separator } from '@/components/ui/separator';
-import worldMapAnimation from '../../../public/lottie/world-map.json';
+import { H2, P } from '@/components/ui/typography';
 
 // Register GSAP plugins
 gsap.registerPlugin(SplitText, ScrollTrigger);
@@ -17,25 +15,17 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 export const WhereWeWorkSection: React.FC = () => {
   const { t } = useTranslation('common');
   const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLHeadingElement>(null);
-  const regionsRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const textOverlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
     const header = headerRef.current;
-    const regions = regionsRef.current;
+    const imageContainer = imageContainerRef.current;
+    const textOverlay = textOverlayRef.current;
 
-    if (!section || !header || !regions) return;
-
-    // Get region elements
-    const regionElements = regions.querySelectorAll('.region-item');
-    const separator = section.querySelector('.separator');
-
-    // Set initial states to ensure visibility
-    gsap.set(regionElements, { autoAlpha: 1, y: 0 });
-    if (separator) {
-      gsap.set(separator, { scaleX: 1 });
-    }
+    if (!section || !header || !imageContainer || !textOverlay) return;
 
     // Create GSAP timeline with ScrollTrigger
     const tl = gsap.timeline({
@@ -43,175 +33,137 @@ export const WhereWeWorkSection: React.FC = () => {
         trigger: section,
         start: 'top 70%',
         end: 'bottom 30%',
-        toggleActions: 'play none none none',
+        toggleActions: 'play none none reverse',
       },
     });
 
-    // Split header text - words only
-    const headerSplit = SplitText.create(header, {
-      type: 'words',
+    // Animate eyebrow and header
+    const eyebrow = header.querySelector('.eyebrow-text');
+    const headerTitle = header.querySelector('.header-title');
+
+    if (eyebrow) {
+      tl.from(eyebrow, {
+        duration: 0.6,
+        y: 30,
+        opacity: 0,
+        ease: 'power2.out',
+      });
+    }
+
+    if (headerTitle) {
+      const headerSplit = SplitText.create(headerTitle, {
+        type: 'words',
+        wordsClass: 'split-word',
+        tag: 'span',
+      });
+
+      cleanupSplitTextAria(headerTitle as HTMLElement, headerSplit);
+
+      tl.from(
+        headerSplit.words,
+        {
+          duration: 0.6,
+          y: 100,
+          opacity: 0,
+          stagger: 0.05,
+          ease: 'power2.out',
+        },
+        '-=0.3'
+      );
+    }
+
+    // Animate image container with scale and fade
+    tl.from(
+      imageContainer,
+      {
+        duration: 1.2,
+        scale: 0.8,
+        opacity: 0,
+        ease: 'power2.out',
+      },
+      '-=0.4'
+    );
+
+    // Animate text overlay
+    const overlaySplit = SplitText.create(textOverlay, {
+      type: 'chars,words',
+      charsClass: 'split-char',
       wordsClass: 'split-word',
       tag: 'span',
     });
 
-    // Remove any ARIA attributes that SplitText might have added
-    cleanupSplitTextAria(header as HTMLElement, headerSplit);
+    cleanupSplitTextAria(textOverlay as HTMLElement, overlaySplit);
 
-    // Animate header words
-    tl.from(headerSplit.words, {
-      duration: 0.63,
-      y: 100,
-      autoAlpha: 0,
-      stagger: 0.063,
-      ease: 'power2.out',
-    });
-
-    // Animate separator after header
-    if (separator) {
-      tl.from(
-        separator,
-        {
-          duration: 0.54,
-          scaleX: 0,
-          transformOrigin: 'center',
-          ease: 'power2.out',
-        },
-        '-=0.18'
-      );
-    }
-
-    // Animate regions with opacity fade-in
-    regionElements.forEach((element) => {
-      // Animate region appearance
-      tl.from(
-        element,
-        {
-          duration: 0.63,
-          autoAlpha: 0,
-          y: 30,
-          ease: 'power2.out',
-        },
-        `-=${0.54}`
-      ); // Overlap with previous animation
-
-      // Animate underline after region appears
-      const underline = element.querySelector('.region-underline');
-      if (underline) {
-        tl.from(
-          underline,
-          {
-            duration: 0.63,
-            scaleX: 0,
-            transformOrigin: 'left',
-            ease: 'power2.out',
-          },
-          '-=0.36'
-        ); // Start slightly before region animation ends
-      }
-    });
+    tl.from(
+      overlaySplit.chars,
+      {
+        duration: 0.8,
+        opacity: 0,
+        scale: 0,
+        y: 80,
+        rotationX: -90,
+        transformOrigin: '0% 50% -50',
+        stagger: 0.02,
+        ease: 'back.out(1.7)',
+      },
+      '-=0.6'
+    );
 
     // Cleanup function
     return () => {
-      headerSplit?.revert();
       ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars.trigger === section) {
+        if (trigger.trigger === section) {
           trigger.kill();
         }
       });
     };
   }, []);
 
-  const regions = [
-    {
-      key: 'where_we_work.regions.uk',
-      title: 'where_we_work.regions.uk.title',
-      description: 'where_we_work.regions.uk.description',
-    },
-    {
-      key: 'where_we_work.regions.africa',
-      title: 'where_we_work.regions.africa.title',
-      description: 'where_we_work.regions.africa.description',
-    },
-    {
-      key: 'where_we_work.regions.balkans',
-      title: 'where_we_work.regions.balkans.title',
-      description: 'where_we_work.regions.balkans.description',
-    },
-    {
-      key: 'where_we_work.regions.mena',
-      title: 'where_we_work.regions.mena.title',
-      description: 'where_we_work.regions.mena.description',
-    },
-    {
-      key: 'where_we_work.regions.eastern_europe',
-      title: 'where_we_work.regions.eastern_europe.title',
-      description: 'where_we_work.regions.eastern_europe.description',
-    },
-  ];
-
   return (
-    <section ref={sectionRef} className='relative py-20 px-4 overflow-hidden'>
-      {/* Background Layer */}
-      <div className='absolute inset-0 bg-gradient-to-b from-purple-50/40 via-purple-50/20 to-white'></div>
-
-      {/* Lottie Background with Edge Fade Effect */}
-      <div className='absolute inset-0 flex items-center justify-center'>
-        <div className='relative w-4/5 md:w-[100vw] lg:w-[80vw] max-w-[1300px] h-full'>
-          <Lottie
-            animationData={worldMapAnimation}
-            loop={true}
-            autoplay={true}
-            className='w-full h-full object-contain opacity-20'
-          />
-          {/* Left edge fade */}
-          <div className='absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-transparent via-transparent to-transparent'></div>
-          {/* Right edge fade */}
-          <div className='absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-transparent via-transparent to-transparent'></div>
-          {/* Top edge fade */}
-          <div className='absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-transparent via-transparent to-transparent'></div>
-          {/* Bottom edge fade */}
-          <div className='absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-transparent via-transparent to-transparent'></div>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className='relative z-10 max-w-6xl mx-auto text-center'>
+    <section
+      ref={sectionRef}
+      className='py-20 px-4 bg-gradient-to-b from-gray-50 to-white'
+    >
+      <div className='max-w-7xl mx-auto'>
         {/* Header */}
-        <H2
-          ref={headerRef}
-          className='font-black text-3xl md:text-3xl tracking-tight border-none'
-        >
-          {t('where_we_work.header')}
-        </H2>
+        <div ref={headerRef} className='text-center mb-16'>
+          <P className='eyebrow-text text-sm font-semibold tracking-wider text-purple-600 uppercase mb-4'>
+            {t('where_we_work.eyebrow')}
+          </P>
+          <H2 className='header-title font-black text-4xl md:text-5xl lg:text-6xl mb-6'>
+            {t('where_we_work.header')}
+          </H2>
+          <P className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto'>
+            {t('where_we_work.description')}
+          </P>
+        </div>
 
-        {/* Separator */}
-        <Separator className='separator w-24 mx-auto mb-12 h-1 bg-gray-800' />
-
-        {/* Regions Grid */}
+        {/* Image Container with Text Overlay */}
         <div
-          ref={regionsRef}
-          className='grid gap-6 grid-cols-1 md:grid-cols-6 max-w-6xl mx-auto'
+          ref={imageContainerRef}
+          className='relative w-full max-w-5xl mx-auto h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl'
         >
-          {regions.map((region, index) => (
-            <div
-              key={index}
-              className={`region-item text-center rounded-lg p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl col-span-1 md:col-span-2 bg-gradient-to-br from-purple-50/40 to-violet-100/60 border-2 border-purple-400 shadow-lg shadow-purple-200/50 ${
-                index === 3
-                  ? 'md:[grid-column-start:2]'
-                  : index === 4
-                  ? 'md:[grid-column-start:4]'
-                  : ''
-              }`}
-            >
-              <H3 className='font-bold text-xl md:text-2xl mb-2 text-purple-900 relative inline-block border-none'>
-                {t(region.title)}
-                <div className='region-underline absolute bottom-0 left-[-3%] right-[-3%] h-[2px] bg-gradient-to-r from-purple-500 via-violet-500 to-purple-500'></div>
-              </H3>
-              <P className='text-purple-800 leading-relaxed mt-0!'>
-                {t(region.description)}
-              </P>
-            </div>
-          ))}
+          {/* World Map Image */}
+          <Image
+            src='/images/worldmap.jpg'
+            alt='World Map'
+            fill
+            className='object-cover'
+            sizes='(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 1200px'
+            priority
+          />
+
+          {/* Blur Effect on Edges - Smooth gradients */}
+          <div className='absolute inset-0 pointer-events-none'>
+            {/* Top blur */}
+            <div className='absolute top-0 left-0 right-0 h-24 md:h-32 lg:h-40 bg-gradient-to-b from-gray-50 via-gray-50/60 to-transparent'></div>
+            {/* Bottom blur */}
+            <div className='absolute bottom-0 left-0 right-0 h-24 md:h-32 lg:h-40 bg-gradient-to-t from-gray-50 via-gray-50/60 to-transparent'></div>
+            {/* Left blur */}
+            <div className='absolute top-0 left-0 bottom-0 w-20 md:w-32 lg:w-40 bg-gradient-to-r from-gray-50 via-gray-50/60 to-transparent'></div>
+            {/* Right blur */}
+            <div className='absolute top-0 right-0 bottom-0 w-20 md:w-32 lg:w-40 bg-gradient-to-l from-gray-50 via-gray-50/60 to-transparent'></div>
+          </div>
         </div>
       </div>
     </section>

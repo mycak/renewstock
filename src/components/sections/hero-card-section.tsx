@@ -101,14 +101,6 @@ export const HeroCardSection: React.FC = () => {
                 >
                   {t('hero_card.cta_primary')}
                 </Button>
-                <Button
-                  onClick={scrollToContact}
-                  size='lg'
-                  variant='outline'
-                  className='bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold px-8 py-3 text-base rounded-xl shadow-2xl backdrop-blur-sm transition-all duration-300 hover:scale-105'
-                >
-                  {t('hero_card.cta_secondary')}
-                </Button>
               </div>
 
               {/* Stats Row */}

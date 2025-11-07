@@ -20,8 +20,8 @@
     "disclaimer": {
       "line1_start": "*TO NIE ",
       "line1_highlight": "DOM LIKWIDACYJNY",
-      "line1_end": ".",
-      "line2": "TO SILNIK PRZYCHODÓW."
+      "line1_end": "",
+      "line2": "TO SILNIK PRZYCHODÓW"
     }
   },
   "defines_us": {
@@ -37,27 +37,27 @@
   "brand_story": {
     "header": "DZIAŁALIŚMY W CIENIU. TERAZ USTALAMY WARUNKI.",
     "story": {
-      "past": "Przez lata działaliśmy za kulisami: cichy partner sourcingowy, dyskretny dystrybutor, niewidzialny rozwiązywacz problemów.",
-      "now": "TERAZ? ZBUDOWALIŚMY WŁASNĄ INFRASTRUKTURĘ, KANAŁY I STRATEGIĘ. I JESTEŚMY TUTAJ, ABY SKALOWAĆ SIĘ Z TOBĄ — NA TWOICH WARUNKACH."
+      "past": "Przez lata działaliśmy za kulisami: cichy partner sourcingowy, dyskretny dystrybutor, niewidzialny rozwiązywacz problemów",
+      "now": "TERAZ? ZBUDOWALIŚMY WŁASNĄ INFRASTRUKTURĘ, KANAŁY I STRATEGIĘ. I JESTEŚMY TUTAJ, ABY SKALOWAĆ SIĘ Z TOBĄ — NA TWOICH WARUNKACH"
     },
     "opportunity": {
-      "header": "ZWROTY. NADWYŻKI. DEADSTOCK. TO NIE PROBLEM. TO SZANSA.",
+      "header": "ZWROTY. NADWYŻKI. DEADSTOCK. TO NIE PROBLEM. TO SZANSA",
       "tagline": "Z RENEWSTOCK, TWÓJ ZALEGAJĄCY TOWAR STAJE SIĘ:",
       "benefits": [
         "przepływem gotówki",
         "wartością ESG opartą na danych",
         "bezpieczną dla marki odsprzedażą na strategicznych rynkach"
       ],
-      "footer": "OBECNI TAM, GDZIE TO MA ZNACZENIE. ROZWIĄZUJEMY TO, CZEGO INNI NIE ROBIĄ. ZNAMY WARTOŚĆ PRODUKTU — I JAK JEJ NIE MARNOWAĆ."
+      "footer": "OBECNI TAM, GDZIE TO MA ZNACZENIE. ROZWIĄZUJEMY TO, CZEGO INNI NIE ROBIĄ. ZNAMY WARTOŚĆ PRODUKTU — I JAK JEJ NIE MARNOWAĆ"
     }
   },
   "process": {
     "header": "PROSTE. BEZPIECZNE. STWORZONE DLA MAREK.",
     "steps": {
       "clear_process": {
-        "title": "PRZEJRZYSTY PROCES. BEZ NIESPODZIANEK.",
-        "description": "Pozostajemy w aktywnym kontakcie z Twoim zespołem. Wysyłasz dostępne oferty — oceniamy je razem.",
-        "details": "Po przejrzeniu Twojego towaru, wracamy z precyzyjną, przejrzystą propozycją. Jeśli wszystko się zgadza, prosimy o proformę — którą płacimy z góry i bez negocjacji. Następnie organizujemy transport i zabieramy się do pracy."
+        "title": "PRZEJRZYSTY PROCES. BEZ NIESPODZIANEK",
+        "description": "Pozostajemy w aktywnym kontakcie z Twoim zespołem. Wysyłasz dostępne oferty — oceniamy je razem",
+        "details": "Po przejrzeniu Twojego towaru, wracamy z precyzyjną, przejrzystą propozycją. Jeśli wszystko się zgadza, prosimy o proformę — którą płacimy z góry i bez negocjacji. Następnie organizujemy transport i zabieramy się do pracy"
       },
       "full_visibility": {
         "title": "PEŁNA WIDOCZNOŚĆ — I PRAWDZIWE PARTNERSTWO",
@@ -67,52 +67,55 @@
           "Jak jest sprzedawany",
           "Kto jest zaangażowany"
         ],
-        "partnership": "Ale idziemy dalej: Planujemy comiesięczne spotkania strategiczne, aby uzgodnić ceny, rynki i przepływ produktów. Nie jesteśmy jednorazowym rozwiązaniem — jesteśmy w tym z Tobą."
+        "partnership": "Ale idziemy dalej: Planujemy comiesięczne spotkania strategiczne, aby uzgodnić ceny, rynki i przepływ produktów. Nie jesteśmy jednorazowym rozwiązaniem — jesteśmy w tym z Tobą"
       },
       "payment_options": {
         "title": "WYKUP CAŁKOWITY LUB INTELIGENTNY PODZIAŁ PRZYCHODÓW",
-        "description": "Wolisz jasność? Weź pełną ofertę z góry. Chcesz więcej? Wybierz podział przychodów — wspierany raportowaniem na żywo.",
+        "description": "Wolisz jasność? Weź pełną ofertę z góry. Chcesz więcej? Wybierz podział przychodów — wspierany raportowaniem na żywo",
         "considerations": "Nasza oferta zawsze uwzględnia:",
         "points": [
           "Twoje ograniczenia odsprzedaży",
           "Ceny zakupu i docelowe",
           "Wszelką niezbędną obsługę produktu"
         ],
-        "footer": "Tak czy inaczej: Ty zachowujesz kontrolę, my zajmujemy się resztą."
+        "footer": "Tak czy inaczej: Ty zachowujesz kontrolę, my zajmujemy się resztą"
       }
     }
   },
   "partnership": {
-    "header": "NIE ZNIKAMY PO ODBIORZE.",
-    "subheader": "POZOSTAJEMY BLISKO. POZOSTAJEMY ODPOWIEDZIALNI. ROZWIJAMY ODSPRZEDAŻ Z TOBĄ.",
+    "header": "NIE ZNIKAMY PO ODBIORZE",
+    "subheader": "POZOSTAJEMY BLISKO. POZOSTAJEMY ODPOWIEDZIALNI. ROZWIJAMY ODSPRZEDAŻ Z TOBĄ",
     "benefits": {
       "active_partnership": {
         "title": "Aktywne Partnerstwo",
-        "description": "Utrzymujemy bliską, ciągłą komunikację przez cały cykl życia odsprzedaży."
+        "description": "Utrzymujemy bliską, ciągłą komunikację przez cały cykl życia odsprzedaży"
       },
       "full_accountability": {
         "title": "Pełna Odpowiedzialność",
-        "description": "Całkowita transparentność ze szczegółowymi raportami i regularnymi spotkaniami kontrolnymi."
+        "description": "Całkowita transparentność ze szczegółowymi raportami i regularnymi spotkaniami kontrolnymi"
       },
       "long_term_growth": {
         "title": "Długoterminowy Rozwój",
-        "description": "Budowanie zrównoważonych strategii odsprzedaży, które ewoluują wraz z Twoim biznesem."
+        "description": "Budowanie zrównoważonych strategii odsprzedaży, które ewoluują wraz z Twoim biznesem"
       }
     }
   },
   "standards": {
-    "header": "ODSPRZEDAŻ ZGODNA Z TWOIMI STANDARDAMI.",
-    "intro": "Ty ustalasz warunki — my ich przestrzegamy.",
+    "header": "ODSPRZEDAŻ ZGODNA Z TWOIMI STANDARDAMI",
+    "intro": "Ty ustalasz warunki — my ich przestrzegamy",
     "points": [
       "Ograniczenia rynkowe są respektowane",
       "Zasady marki są udokumentowane",
       "Dane ESG dostarczane z każdą partią",
       "Gotowi do podpisania umów odsprzedaży — z pełnym zaangażowaniem"
     ],
-    "footer": "Jesteśmy tu na długo. Nie na skróty."
+    "footer": "Jesteśmy tu na długo. Nie na skróty"
   },
   "where_we_work": {
+    "eyebrow": "Niebo to limit",
     "header": "GDZIE DZIAŁAMY — I WYGRYWAMY",
+    "description": "Nasza globalna obecność rozciąga się na wszystkie kontynenty, łącząc strategiczne rynki ze zrównoważonymi rozwiązaniami odsprzedaży. Od Londynu po Lagos, od Tirany po Tbilisi—zbudowaliśmy sieć, która dostarcza prawdziwą wartość wszędzie",
+    "overlay_text": "Wszystkie kontynenty",
     "regions": {
       "uk": {
         "title": "Wielka Brytania",
@@ -139,8 +142,8 @@
   "contact": {
     "header": "SKONTAKTUJ SIĘ Z NAMI",
     "description": {
-      "partner_not_solver": "PARTNER, A NIE ROZWIĄZYWACZ PROBLEMÓW.",
-      "dont_need_fix": "NIE MUSISZ NAPRAWIAĆ NADWYŻEK. MUSISZ ZROBIĆ Z NIMI COŚ LEPSZEGO.",
+      "partner_not_solver": "PARTNER, A NIE ROZWIĄZYWACZ PROBLEMÓW",
+      "dont_need_fix": "NIE MUSISZ NAPRAWIAĆ NADWYŻEK. MUSISZ ZROBIĆ Z NIMI COŚ LEPSZEGO",
       "phone_label": "TELEFON",
       "email_label": "EMAIL"
     },
@@ -161,10 +164,10 @@
         "message_min_length": "Wiadomość musi mieć co najmniej 10 znaków"
       },
       "messages": {
-        "success": "Dziękujemy! Wiadomość została wysłana pomyślnie. Skontaktujemy się z Tobą wkrótce.",
+        "success": "Dziękujemy! Wiadomość została wysłana pomyślnie. Skontaktujemy się z Tobą wkrótce",
         "sending": "Wysyłanie wiadomości...",
-        "error": "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie lub skontaktuj się z nami bezpośrednio.",
-        "validation_error": "Sprawdź poprawność wypełnionych danych."
+        "error": "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie lub skontaktuj się z nami bezpośrednio",
+        "validation_error": "Sprawdź poprawność wypełnionych danych"
       }
     }
   },
@@ -174,65 +177,65 @@
       "anna": {
         "name": "Anna Kowalski",
         "role": "Dyrektor Generalna i Założycielka",
-        "description": "Wizjonerska liderka z ponad 15-letnim doświadczeniem w energetyce odnawialnej i gospodarce cyrkularnej. Anna kieruje strategicznymi partnerstwami i zrównoważonymi innowacjami na rynkach globalnych."
+        "description": "Wizjonerska liderka z ponad 15-letnim doświadczeniem w energetyce odnawialnej i gospodarce cyrkularnej. Anna kieruje strategicznymi partnerstwami i zrównoważonymi innowacjami na rynkach globalnych"
       },
       "michael": {
         "name": "Michael Chen",
         "role": "Dyrektor ds. Technologii",
-        "description": "Innowator technologiczny specjalizujący się w optymalizacji łańcucha dostaw opartej na AI. Michael prowadzi nasze inicjatywy transformacji cyfrowej i platformy analityki danych."
+        "description": "Innowator technologiczny specjalizujący się w optymalizacji łańcucha dostaw opartej na AI. Michael prowadzi nasze inicjatywy transformacji cyfrowej i platformy analityki danych"
       },
       "sofia": {
         "name": "Sofia Rodriguez",
         "role": "Dyrektor ds. Operacji",
-        "description": "Ekspertka ds. operacji z głęboką wiedzą w zakresie logistyki i kontroli jakości. Sofia zapewnia bezproblemową realizację naszych strategii wydajności odsprzedaży na całym świecie."
+        "description": "Ekspertka ds. operacji z głęboką wiedzą w zakresie logistyki i kontroli jakości. Sofia zapewnia bezproblemową realizację naszych strategii wydajności odsprzedaży na całym świecie"
       }
     }
   },
   "sellers": {
     "header": "DLA SPRZEDAWCÓW",
-    "description": "Przekształć swoje nadwyżki i zwroty w natychmiastowe przychody. Zapewniamy bezproblemowe, transparentne rozwiązanie, które chroni Twoją markę, maksymalizując odzyskiwanie wartości.",
+    "description": "Przekształć swoje nadwyżki i zwroty w natychmiastowe przychody. Zapewniamy bezproblemowe, transparentne rozwiązanie, które chroni Twoją markę, maksymalizując odzyskiwanie wartości",
     "features": {
       "instant_cash_flow": {
         "title": "NATYCHMIASTOWY PRZEPŁYW GOTÓWKI",
-        "description": "Otrzymaj wypłatę z góry za swoje zapasy. Bez czekania, bez niepewności—natychmiastowy zastrzyk kapitału dla Twojego biznesu."
+        "description": "Otrzymaj wypłatę z góry za swoje zapasy. Bez czekania, bez niepewności—natychmiastowy zastrzyk kapitału dla Twojego biznesu"
       },
       "zero_risk_disposal": {
         "title": "UTYLIZACJA BEZ RYZYKA",
-        "description": "Kompletne oczyszczanie magazynu z pełnym łańcuchem nadzoru. Twoje produkty są obsługiwane profesjonalnie od odbioru do końcowej sprzedaży."
+        "description": "Kompletne oczyszczanie magazynu z pełnym łańcuchem nadzoru. Twoje produkty są obsługiwane profesjonalnie od odbioru do końcowej sprzedaży"
       },
       "brand_protection": {
         "title": "OCHRONA MARKI",
-        "description": "Kontrolowane kanały odsprzedaży, które utrzymują integralność Twojej marki. Brak przecieków na szary rynek lub nieautoryzowanej sprzedaży."
+        "description": "Kontrolowane kanały odsprzedaży, które utrzymują integralność Twojej marki. Brak przecieków na szary rynek lub nieautoryzowanej sprzedaży"
       },
       "transparent_reporting": {
         "title": "TRANSPARENTNE RAPORTOWANIE",
-        "description": "Pełna widoczność procesu odsprzedaży. Śledź podróż swoich zapasów z szczegółową analityką wydajności."
+        "description": "Pełna widoczność procesu odsprzedaży. Śledź podróż swoich zapasów z szczegółową analityką wydajności"
       }
     },
     "cta": {
       "title": "GOTOWY NA PRZEKSZTAŁCENIE NADWYŻEK?",
-      "description": "Dołącz do wiodących marek, które odkryły moc strategicznych partnerstw w odsprzedaży."
+      "description": "Dołącz do wiodących marek, które odkryły moc strategicznych partnerstw w odsprzedaży"
     }
   },
   "buyers": {
     "header": "DLA KUPUJĄCYCH",
-    "description": "Uzyskaj dostęp do premium zapasów w konkurencyjnych cenach przez nasz wyselekcjonowany marketplace. Dostarczamy wysokiej jakości produkty z pełną identyfikowalnością i niezawodnymi łańcuchami dostaw.",
+    "description": "Uzyskaj dostęp do premium zapasów w konkurencyjnych cenach przez nasz wyselekcjonowany marketplace. Dostarczamy wysokiej jakości produkty z pełną identyfikowalnością i niezawodnymi łańcuchami dostaw",
     "benefits": {
       "curated_quality": {
         "title": "WYSELEKCJONOWANA JAKOŚĆ",
-        "description": "Ręcznie wybrane zapasy od zaufanych marek. Każdy produkt jest weryfikowany i oceniany, aby zapewnić stałe standardy jakości."
+        "description": "Ręcznie wybrane zapasy od zaufanych marek. Każdy produkt jest weryfikowany i oceniany, aby zapewnić stałe standardy jakości"
       },
       "competitive_pricing": {
         "title": "KONKURENCYJNE CENY",
-        "description": "Dostęp do cen hurtowych na produkty premium. Lepsze marże dzięki naszym bezpośrednim relacjom z markami."
+        "description": "Dostęp do cen hurtowych na produkty premium. Lepsze marże dzięki naszym bezpośrednim relacjom z markami"
       },
       "reliable_supply": {
         "title": "NIEZAWODNE DOSTAWY",
-        "description": "Stały przepływ zapasów w wielu kategoriach produktów. Przewidywalne sourcing dla planowania Twojego biznesu."
+        "description": "Stały przepływ zapasów w wielu kategoriach produktów. Przewidywalne sourcing dla planowania Twojego biznesu"
       },
       "logistics_support": {
         "title": "WSPARCIE LOGISTYCZNE",
-        "description": "Kompleksowe usługi realizacji. Od magazynowania po dostawę ostatniej mili w naszej globalnej sieci."
+        "description": "Kompleksowe usługi realizacji. Od magazynowania po dostawę ostatniej mili w naszej globalnej sieci"
       }
     },
     "stats": {
@@ -245,7 +248,7 @@
     },
     "cta": {
       "title": "ZOSTAŃ ZAUFANYM KUPUJĄCYM",
-      "description": "Dołącz do naszej sieci zweryfikowanych kupujących i uzyskaj dostęp do ekskluzywnych możliwości magazynowych."
+      "description": "Dołącz do naszej sieci zweryfikowanych kupujących i uzyskaj dostęp do ekskluzywnych możliwości magazynowych"
     }
   },
   "navigation": {
@@ -259,34 +262,31 @@
   },
   "seo": {
     "title": "RenewStock - Partner w Obiegu Którego Potrzebowałeś",
-    "description": "Przekształć nadwyżki i zwroty w aktywa zwiększające wydajność. RenewStock zapewnia rzeczywistą wydajność odsprzedaży z pełną kontrolą i przejrzystością.",
+    "description": "Przekształć nadwyżki i zwroty w aktywa zwiększające wydajność. RenewStock zapewnia rzeczywistą wydajność odsprzedaży z pełną kontrolą i przejrzystością",
     "keywords": "gospodarka obiegowa, zarządzanie nadwyżkami, przetwarzanie zwrotów, zrównoważona odsprzedaż, optymalizacja magazynu, redukcja odpadów",
     "og": {
       "title": "RenewStock - Przekształcamy Nadwyżki w Aktywa Wydajnościowe",
-      "description": "Partner w obiegu którego potrzebowałeś. Płacimy z góry i zapewniamy rzeczywistą wydajność odsprzedaży z pełną transparentnością i kontrolą.",
+      "description": "Partner w obiegu którego potrzebowałeś. Płacimy z góry i zapewniamy rzeczywistą wydajność odsprzedaży z pełną transparentnością i kontrolą",
       "image": "/logo/animated-logo.gif"
     },
     "twitter": {
       "title": "RenewStock - Partner w Obiegu Którego Potrzebujesz",
-      "description": "Przekształć nadwyżki i zwroty w aktywa wydajnościowe. Rzeczywista wydajność odsprzedaży z pełną kontrolą i podwyższoną cyrkularnością."
+      "description": "Przekształć nadwyżki i zwroty w aktywa wydajnościowe. Rzeczywista wydajność odsprzedaży z pełną kontrolą i podwyższoną cyrkularnością"
     }
   },
   "image_cards": {
     "cards": {
       "sellers": {
         "title": "Sprzedawcy: Maksymalizuj Przychody",
-        "description": "Przekształć nadmiarowe zapasy w nowe strumienie przychodów z pełną kontrolą.",
-        "cta": "Zacznij Sprzedawać"
+        "description": "Przekształć nadmiarowe zapasy w nowe strumienie przychodów z pełną kontrolą"
       },
       "buyers": {
         "title": "Kupujący: Premium Dostęp",
-        "description": "Odkryj wyselekcjonowane zapasy od uznanych marek w konkurencyjnych cenach.",
-        "cta": "Przeglądaj Magazyn"
+        "description": "Odkryj wyselekcjonowane zapasy od uznanych marek w konkurencyjnych cenach"
       },
       "distribution": {
         "title": "Globalna Dystrybucja",
-        "description": "Połącz się z zweryfikowanymi partnerami na całym świecie poprzez naszą zaufaną platformę.",
-        "cta": "Dowiedz się Więcej"
+        "description": "Połącz się z zweryfikowanymi partnerami na całym świecie poprzez naszą zaufaną platformę"
       }
     }
   },
@@ -312,9 +312,8 @@
   },
   "hero_card": {
     "title": "Przekształć Swoje Zarządzanie Zapasami",
-    "description": "Dołącz do tysięcy zadowolonych partnerów, którzy ufają naszej platformie w inteligentnej dystrybucji zapasów.",
+    "description": "Dołącz do tysięcy zadowolonych partnerów, którzy ufają naszej platformie w inteligentnej dystrybucji zapasów",
     "cta_primary": "Zacznij Dzisiaj",
-    "cta_secondary": "Umów Demo",
     "stats": {
       "listings": {
         "value": "7K+",
@@ -328,37 +327,6 @@
         "value": "4.5K+",
         "label": "Wymienione Marki"
       }
-    }
-  },
-  "testimonials": {
-    "eyebrow": "OPINIE",
-    "header": "Zaufany przez Liderów Branży",
-    "description": "Zobacz, co nasi partnerzy mają do powiedzenia o swoim doświadczeniu z naszą platformą",
-    "items": [
-      {
-        "quote": "Współpraca z tą platformą przekształciła sposób, w jaki zarządzamy nadmiarowymi zapasami. Dyskrecja i kontrola nad kanałami dystrybucji to dokładnie to, czego potrzebowaliśmy.",
-        "author": "Sarah Chen",
-        "position": "VP ds. Operacji",
-        "company": "Globalna Marka Modowa"
-      },
-      {
-        "quote": "Przejrzystość i efektywność procesu przekroczyła nasze oczekiwania. Udało nam się szybko przenieść zapasy przy jednoczesnym zachowaniu integralności naszej marki.",
-        "author": "Michael Rodriguez",
-        "position": "Dyrektor ds. Łańcucha Dostaw",
-        "company": "Wiodący Detalista Elektroniki"
-      },
-      {
-        "quote": "Wybitna obsługa i rezultaty. Platforma dała nam dostęp do zapasów premium, których nie mogliśmy znaleźć gdzie indziej, a wszystko to przy zapewnieniu pełnej poufności.",
-        "author": "Emma Thompson",
-        "position": "Kierownik ds. Zakupów",
-        "company": "Międzynarodowy Dystrybutor"
-      }
-    ],
-    "cta": {
-      "header": "Dołącz do setek zadowolonych partnerów",
-      "description": "Doświadcz różnicy pracy z zaufaną, inteligentną platformą dystrybucji zapasów",
-      "primary": "Zacznij Dzisiaj",
-      "secondary": "Umów Demo"
     }
   },
   "featured_inventory": {
@@ -378,11 +346,7 @@
         "title": "Nowoczesna Kolekcja Mebli",
         "description": "Współczesne zestawy mebli łączące styl i funkcjonalność. Idealne dla detalistów artykułów domowych poszerzających swój katalog o designerskie elementy."
       }
-    ],
-    "cta": {
-      "view_details": "Zobacz Szczegóły",
-      "browse_all": "Przeglądaj Wszystkie Zapasy"
-    }
+    ]
   },
   "inventory_solutions": {
     "eyebrow": "SPRZEDAWCY",

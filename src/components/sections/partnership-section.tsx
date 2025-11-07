@@ -64,13 +64,12 @@ export const PartnershipSection: React.FC = () => {
           {/* Content - Left Side */}
           <div ref={contentRef} className='space-y-6'>
             <div className='space-y-4'>
-              <H2 className='font-black text-3xl md:text-4xl lg:text-5xl leading-tight text-gray-900'>
-                {t('partnership.header')}
-              </H2>
-
-              <P className='text-xl md:text-2xl lg:text-3xl font-bold text-purple-700 leading-relaxed'>
+              <P className='text-sm font-semibold tracking-wider text-purple-600 uppercase mb-4'>
                 {t('partnership.subheader')}
               </P>
+              <H2 className='font-black text-4xl md:text-4xl lg:text-5xl mb-6'>
+                {t('partnership.header')}
+              </H2>
             </div>
 
             <div className='bg-white p-6 md:p-8 rounded-lg shadow-md border-l-4 border-purple-600'>

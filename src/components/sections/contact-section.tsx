@@ -10,7 +10,6 @@ import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cleanupSplitTextAria } from '@/lib/gsap-utils';
 import { H2, P } from '@/components/ui/typography';
-import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -59,7 +58,6 @@ export const ContactSection: React.FC = () => {
   const descriptionRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const contactHeaderRef = useRef<HTMLHeadingElement>(null);
-  const contactSeparatorRef = useRef<HTMLDivElement>(null);
 
   // Form setup
   const form = useForm<ContactFormValues>({
@@ -107,7 +105,6 @@ export const ContactSection: React.FC = () => {
     const description = descriptionRef.current;
     const form = formRef.current;
     const contactHeader = contactHeaderRef.current;
-    const contactSeparator = contactSeparatorRef.current;
 
     if (!section || !description) return;
 
@@ -139,20 +136,6 @@ export const ContactSection: React.FC = () => {
         stagger: 0.072,
         ease: 'power2.out',
       });
-    }
-
-    // Animate separator after header
-    if (contactSeparator) {
-      tl.from(
-        contactSeparator,
-        {
-          duration: 0.54,
-          scaleX: 0,
-          transformOrigin: 'center',
-          ease: 'power2.out',
-        },
-        '-=0.18'
-      );
     }
 
     // Get all text elements for aggressive animation
@@ -250,30 +233,16 @@ export const ContactSection: React.FC = () => {
     >
       <div className='max-w-6xl mx-auto text-center'>
         {/* Header */}
-        <H2
-          ref={contactHeaderRef}
-          className='font-black text-3xl md:text-3xl tracking-tight border-none'
-        >
-          {t('contact.header')}
-        </H2>
-
-        {/* Separator */}
-        <Separator
-          ref={contactSeparatorRef}
-          className='w-24 mx-auto mb-12 h-1 bg-black'
-        />
-
-        {/* Description Module */}
-        <div ref={descriptionRef} className='space-y-8 md:space-y-12'>
-          {/* Size 2: A PARTNER, NOT A PROBLEM SOLVER. */}
-          <P className='contact-text font-bold text-xl md:text-2xl lg:text-3xl text-center tracking-tight mb-0'>
+        <div ref={contactHeaderRef} className='mb-16'>
+          <P className='text-sm font-semibold tracking-wider text-purple-600 uppercase mb-4'>
             {t('contact.description.partner_not_solver')}
           </P>
-
-          {/* Size 3: YOU DON'T NEED TO FIX OVERSTOCK... - EXTRA BOLD - Smaller spacing */}
+          <H2 className='font-black text-4xl md:text-5xl lg:text-6xl mb-6'>
+            {t('contact.header')}
+          </H2>
           <P
-            className='contact-text font-black text-sm md:text-4xl lg:text-4xl xl:text-5xl text-center leading-tighter tracking-tighter w-4/5 mx-auto mb-6'
-            style={{ fontWeight: 900, lineHeight: '1.1' }}
+            ref={descriptionRef}
+            className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto'
           >
             {t('contact.description.dont_need_fix')}
           </P>
@@ -366,9 +335,8 @@ export const ContactSection: React.FC = () => {
                 />{' '}
                 <Button
                   type='submit'
-                  variant='outline'
                   disabled={formStatus === 'loading'}
-                  className='cursor-pointer w-full border border-black text-black underline decoration-purple-600 decoration-2 underline-offset-4 hover:decoration-4 font-semibold py-3 px-6 text-lg transition-all duration-[270ms] ease-out disabled:opacity-50 disabled:cursor-not-allowed'
+                  className='w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed'
                 >
                   {formStatus === 'loading'
                     ? t('contact.form.messages.sending')
