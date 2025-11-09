@@ -115,13 +115,13 @@ export const WhereWeWorkSection: React.FC = () => {
       <div className='max-w-7xl mx-auto'>
         {/* Header */}
         <div ref={headerRef} className='text-center mb-16'>
-          <P className='eyebrow-text text-sm font-semibold tracking-wider text-purple-500 uppercase mb-4'>
+          <P className='eyebrow-text text-sm font-semibold tracking-wider text-purple-500 uppercase md:mb-4'>
             {t('where_we_work.eyebrow')}
           </P>
-          <H2 className='header-title font-black text-4xl md:text-5xl lg:text-6xl mb-6'>
+          <H2 className='header-title font-black text-4xl md:text-5xl lg:text-6xl md:mb-6'>
             {t('where_we_work.header')}
           </H2>
-          <P className='description-text text-lg md:text-xl text-gray-600 max-w-3xl mx-auto'>
+          <P className='description-text text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mt-4!'>
             {t('where_we_work.description')}
           </P>
         </div>
@@ -129,7 +129,7 @@ export const WhereWeWorkSection: React.FC = () => {
         {/* Image Container with Text Overlay */}
         <div
           ref={imageContainerRef}
-          className='relative w-full max-w-5xl mx-auto h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl'
+          className='relative w-full max-w-5xl mx-auto h-[250px] sm:h-[350px] md:h-[450px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl'
         >
           {/* World Map Image */}
           <Image
@@ -144,9 +144,9 @@ export const WhereWeWorkSection: React.FC = () => {
           {/* Blur Effect on Edges - Reduced horizontal blur on mobile */}
           <div className='absolute inset-0 pointer-events-none'>
             {/* Top blur */}
-            <div className='absolute top-0 left-0 right-0 h-24 md:h-32 lg:h-40 bg-gradient-to-b from-gray-50 via-gray-50/60 to-transparent'></div>
+            <div className='absolute top-0 left-0 right-0 h-12 md:h-32 lg:h-40 bg-gradient-to-b from-gray-50 via-gray-50/60 to-transparent'></div>
             {/* Bottom blur */}
-            <div className='absolute bottom-0 left-0 right-0 h-24 md:h-32 lg:h-40 bg-gradient-to-t from-gray-50 via-gray-50/60 to-transparent'></div>
+            <div className='absolute bottom-0 left-0 right-0 h-12 md:h-32 lg:h-40 bg-gradient-to-t from-gray-50 via-gray-50/60 to-transparent'></div>
             {/* Left blur - Reduced on mobile */}
             <div className='absolute top-0 left-0 bottom-0 w-8 md:w-20 lg:w-40 bg-gradient-to-r from-gray-50 via-gray-50/60 to-transparent'></div>
             {/* Right blur - Reduced on mobile */}

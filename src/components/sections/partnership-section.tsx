@@ -64,7 +64,7 @@ export const PartnershipSection: React.FC = () => {
           {/* Content - Left Side */}
           <div ref={contentRef} className='space-y-6'>
             <div className='space-y-4'>
-              <P className='text-sm font-semibold tracking-wider text-purple-500 uppercase mb-4'>
+              <P className='text-sm font-semibold tracking-wider text-purple-500 uppercase mb-0! md:mb-4'>
                 {t('partnership.subheader')}
               </P>
               <H2 className='font-black text-4xl md:text-4xl lg:text-5xl mb-6'>

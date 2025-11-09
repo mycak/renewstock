@@ -234,15 +234,15 @@ export const ContactSection: React.FC = () => {
       <div className='max-w-6xl mx-auto text-center'>
         {/* Header */}
         <div ref={contactHeaderRef} className='mb-16'>
-          <P className='text-sm font-semibold tracking-wider text-purple-500 uppercase mb-4'>
+          <P className='text-sm font-semibold tracking-wider text-purple-500 uppercase md:mb-4'>
             {t('contact.description.partner_not_solver')}
           </P>
-          <H2 className='font-black text-4xl md:text-5xl lg:text-6xl mb-6'>
+          <H2 className='font-black text-4xl md:text-5xl lg:text-6xl md:mb-6'>
             {t('contact.header')}
           </H2>
           <P
             ref={descriptionRef}
-            className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto'
+            className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mt-4!'
           >
             {t('contact.description.dont_need_fix')}
           </P>

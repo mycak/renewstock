@@ -14,6 +14,9 @@ export const ImageCardsSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
 
+  const isMobile =
+    typeof window !== 'undefined' ? window.innerWidth <= 768 : false;
+
   useEffect(() => {
     const section = sectionRef.current;
     const cards = cardsRef.current;
@@ -38,8 +41,17 @@ export const ImageCardsSection: React.FC = () => {
 
     // Animate each card from different horizontal directions with smoother motion
     cardElements.forEach((card, index) => {
-      const direction = index === 0 ? -80 : index === 1 ? 0 : 80; // left, center, right - reduced distance
-      const yOffset = index === 1 ? 30 : 15; // center card moves slightly more vertical
+      const direction =
+        index === 0
+          ? isMobile
+            ? -320
+            : -80
+          : index === 1
+          ? 0
+          : isMobile
+          ? 320
+          : 80; // left, center, right - reduced distance
+      const yOffset = index === 1 ? 60 : 30; // center card moves slightly more vertical
 
       tl.from(
         card,
@@ -47,7 +59,7 @@ export const ImageCardsSection: React.FC = () => {
           x: direction,
           y: yOffset,
           opacity: 0,
-          duration: 1,
+          duration: 0.6,
           ease: 'power3.out',
           clearProps: 'all',
         },
@@ -60,7 +72,7 @@ export const ImageCardsSection: React.FC = () => {
         if (trigger.trigger === section) trigger.kill();
       });
     };
-  }, []);
+  }, [isMobile]);
 
   const cards = [
     {
