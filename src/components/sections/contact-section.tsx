@@ -103,7 +103,7 @@ export const ContactSection: React.FC = () => {
   useEffect(() => {
     const section = sectionRef.current;
     const description = descriptionRef.current;
-    const form = formRef.current;
+    const formElement = formRef.current;
     const contactHeader = contactHeaderRef.current;
 
     if (!section || !description) return;
@@ -118,15 +118,17 @@ export const ContactSection: React.FC = () => {
       },
     });
 
-    // Animate contact header and separator first
+    const splitInstances: ReturnType<typeof SplitText.create>[] = [];
+
+    // Animate contact header
     if (contactHeader) {
       const headerSplit = SplitText.create(contactHeader, {
         type: 'words',
         wordsClass: 'split-word',
         tag: 'span',
       });
+      splitInstances.push(headerSplit);
 
-      // Remove any ARIA attributes that SplitText might have added
       cleanupSplitTextAria(contactHeader as HTMLElement, headerSplit);
 
       tl.from(headerSplit.words, {
@@ -138,66 +140,38 @@ export const ContactSection: React.FC = () => {
       });
     }
 
-    // Get all text elements for aggressive animation
-    const textElements = description.querySelectorAll('.contact-text');
-
-    // Collect all words from all elements first
-    const allWords: Element[] = [];
-    const splitInstances: ReturnType<typeof SplitText.create>[] = [];
-
-    textElements.forEach((element) => {
-      const split = SplitText.create(element, {
+    // Animate description text
+    if (description) {
+      const descriptionSplit = SplitText.create(description, {
         type: 'words',
         wordsClass: 'split-word',
-        reduceWhiteSpace: false,
-        // Disable ARIA attributes to prevent accessibility issues
-        tag: 'span', // Ensure words are wrapped in spans, not divs
+        tag: 'span',
       });
-      splitInstances.push(split);
-      allWords.push(...split.words);
+      splitInstances.push(descriptionSplit);
 
-      // Remove any ARIA attributes that SplitText might have added
-      cleanupSplitTextAria(element as HTMLElement, split);
+      cleanupSplitTextAria(description as HTMLElement, descriptionSplit);
 
-      // Apply highlight background to highlighted links after split
-      const highlightedLinks = element.querySelectorAll('.highlighted-link');
-      highlightedLinks.forEach((link) => {
-        // Find the split words that belong to this link
-        const linkWords = split.words.filter(
-          (word: Element) =>
-            link.contains(word) || word.closest('.highlighted-link') === link
-        );
+      // Shuffle the words array for random order animation
+      const shuffledWords = [...descriptionSplit.words].sort(
+        () => Math.random() - 0.5
+      );
 
-        linkWords.forEach((word: Element) => {
-          gsap.set(word, {
-            background: 'linear-gradient(135deg, #c084fc, #a855f7, #d8b4fe)',
-            color: '#1f2937',
-            padding: '4px 8px',
-            borderRadius: '4px',
-            display: 'inline-block',
-          });
-        });
+      // Animate all words in random order
+      tl.from(shuffledWords, {
+        duration: 0.72,
+        y: () => (Math.random() > 0.5 ? -120 : 120),
+        opacity: 0,
+        stagger: 0.054,
+        ease: 'power3.out',
+        rotation: () => (Math.random() - 0.5) * 20,
       });
-    });
-
-    // Shuffle the words array for random order animation
-    const shuffledWords = [...allWords].sort(() => Math.random() - 0.5);
-
-    // Animate all words in random order
-    tl.from(shuffledWords, {
-      duration: 0.72,
-      y: () => (Math.random() > 0.5 ? -120 : 120), // Random top or bottom
-      opacity: 0,
-      stagger: 0.054, // Faster stagger since we have more elements
-      ease: 'power3.out',
-      rotation: () => (Math.random() - 0.5) * 20, // Random rotation -10 to +10
-    });
+    }
 
     // Animate Form with separate ScrollTrigger
-    if (form) {
+    if (formElement) {
       // Form animation - appears later with bigger delay
       gsap.fromTo(
-        form,
+        formElement,
         {
           opacity: 0,
           y: 50,
@@ -209,7 +183,7 @@ export const ContactSection: React.FC = () => {
           ease: 'power2.out',
           delay: 0.45, // Add delay for later appearance
           scrollTrigger: {
-            trigger: form,
+            trigger: formElement,
             start: 'top 85%', // Trigger when form is closer to viewport
             toggleActions: 'play none none reverse',
           },

@@ -4,7 +4,6 @@ import { HeroSection } from '@/components/sections/hero-section';
 import { PartnershipSection } from '@/components/sections/partnership-section';
 import { WhereWeWorkSection } from '@/components/sections/where-we-work-section';
 import { InventorySolutionsSection } from '@/components/sections/inventory-solutions-section';
-// import { TrustedPlatformSection } from '@/components/sections/trusted-platform-section';
 import { FeaturedInventorySection } from '@/components/sections/featured-inventory-section';
 import { ImageCardsSection } from '@/components/sections/image-cards-section';
 import { HeroCardSection } from '@/components/sections/hero-card-section';
@@ -27,7 +26,6 @@ export default function Home() {
         <InventorySolutionsSection />
         <HeroCardSection />
         <FeaturedInventorySection />
-        {/* <TrustedPlatformSection /> */}
         <PartnershipSection />
         <ImageCardsSection />
         <WhereWeWorkSection />

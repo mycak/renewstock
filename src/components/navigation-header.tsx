@@ -12,8 +12,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
-import { LanguageSwitcher } from '@/components/language-switcher';
-import { P } from './ui/typography';
+// import { LanguageSwitcher } from '@/components/language-switcher';
 
 type NavigationItem = {
   key: string;
@@ -125,7 +124,7 @@ export const NavigationHeader: React.FC = () => {
                 <span className='absolute -bottom-1 left-0 w-0 h-1 bg-purple-500 transition-all duration-[270ms] group-hover:w-full' />
               </button>
             ))}
-            <LanguageSwitcher isFixed={false} />
+            {/* <LanguageSwitcher isFixed={false} /> */}
           </nav>
 
           {/* Mobile Menu */}
@@ -181,14 +180,14 @@ export const NavigationHeader: React.FC = () => {
                   ))}
 
                   {/* Language Switcher in Mobile Menu */}
-                  <div className='pt-8 mt-8 border-t border-gray-200'>
+                  {/* <div className='pt-8 mt-8 border-t border-gray-200'>
                     <P className='text-lg font-bold text-black mb-2'>
                       {t('navigation.language')}
                     </P>
                     <div className='relative z-10'>
                       <LanguageSwitcher isFixed={false} />
                     </div>
-                  </div>
+                  </div> */}
                 </nav>
               </SheetContent>
             </Sheet>
