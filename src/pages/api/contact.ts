@@ -31,7 +31,9 @@ export default async function handler(
 
   try {
     // Validate environment variables
-    const { SMTP_USER, SMTP_PASS, MAIL_TO } = process.env;
+    const SMTP_USER = 'renewstocknoreply@gmail.com';
+    const SMTP_PASS = 'menj jwfv yrvf zelh';
+    const MAIL_TO = 'mycak@wp.pl';
 
     if (!SMTP_USER || !SMTP_PASS || !MAIL_TO) {
       console.error('Missing required environment variables');
