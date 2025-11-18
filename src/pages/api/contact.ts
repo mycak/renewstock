@@ -1,3 +1,4 @@
+import { CONTACT } from '@/shared/constants';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 import { z } from 'zod';
@@ -33,9 +34,8 @@ export default async function handler(
     // Validate environment variables
     const SMTP_USER = 'renewstocknoreply@gmail.com';
     const SMTP_PASS = 'menj jwfv yrvf zelh';
-    const MAIL_TO = 'mycak@wp.pl';
 
-    if (!SMTP_USER || !SMTP_PASS || !MAIL_TO) {
+    if (!SMTP_USER || !SMTP_PASS) {
       console.error('Missing required environment variables');
       return res.status(500).json({
         success: false,
@@ -74,7 +74,7 @@ export default async function handler(
     // Email content
     const mailOptions = {
       from: SMTP_USER,
-      to: MAIL_TO,
+      to: CONTACT.EMAIL.ADDRESS,
       replyTo: email,
       subject: `Nowa wiadomość od ${email} - Formularz kontaktowy RenewStock`,
       html: `
