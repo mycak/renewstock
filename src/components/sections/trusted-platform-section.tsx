@@ -111,7 +111,7 @@ export const TrustedPlatformSection: React.FC = () => {
     <section
       id='trusted-platform'
       ref={sectionRef}
-      className='py-24 px-4 bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 relative overflow-hidden'
+      className='py-24 px-4 bg-gradient-to-br from-purple-400 to-purple-500 relative overflow-hidden'
     >
       {/* Background Pattern */}
       <div className='absolute inset-0 opacity-10'>
@@ -133,7 +133,7 @@ export const TrustedPlatformSection: React.FC = () => {
         >
           {stats.map((stat, index) => (
             <div key={index} className='stat-card text-center'>
-              <div className='bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 h-full flex flex-col'>
+              <div className='bg-purple-600/70 backdrop-blur-sm rounded-2xl p-8 hover:bg-purple-600 transition-all duration-300 h-full flex flex-col'>
                 <H3 className='stat-number font-black text-5xl md:text-6xl lg:text-7xl text-white mb-4 border-none'>
                   {t(stat.valueKey)}
                 </H3>

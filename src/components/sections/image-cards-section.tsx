@@ -123,8 +123,14 @@ export const ImageCardsSection: React.FC = () => {
                 />
               </div>
 
-              {/* Gradient Overlay - softer, more elegant */}
-              <div className='absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/40 to-purple-950/90' />
+              {/* Gradient Overlay - starts at 30% height for clearer top */}
+              <div
+                className='absolute inset-0 pointer-events-none'
+                style={{
+                  background:
+                    'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(88,28,135,0.4) 80%, rgba(88,28,135,0.4) 100%)',
+                }}
+              />
 
               {/* Content */}
               <div className='absolute inset-0 flex flex-col justify-end p-6'>

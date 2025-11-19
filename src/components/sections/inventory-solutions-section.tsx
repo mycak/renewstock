@@ -132,7 +132,7 @@ export const InventorySolutionsSection: React.FC = () => {
     <section
       id='inventory-solutions'
       ref={sectionRef}
-      className='py-20 px-4 bg-gradient-to-br from-purple-50/50 via-purple-100/30 to-purple-50/50 overflow-hidden'
+      className='py-20 px-4 bg-gradient-to-br from-purple-50/50 via-purple-100/30 to-purple-50/50'
     >
       <div className='max-w-7xl mx-auto'>
         {/* Section Header */}
@@ -146,9 +146,9 @@ export const InventorySolutionsSection: React.FC = () => {
         </div>
 
         {/* Desktop: Side-by-side layout */}
-        <div className='hidden lg:grid grid-cols-[60%_40%] gap-16 items-stretch'>
+        <div className='hidden md:grid md:grid-cols-[2fr_3fr] gap-8 lg:gap-8 xl:gap-12 lg:grid-cols-2 xl:grid-cols-[3fr_2fr] items-stretch'>
           {/* Left Image */}
-          <div ref={imageRef}>
+          <div ref={imageRef} className='min-w-0'>
             <div className='relative rounded-2xl overflow-hidden bg-gray-200 shadow-xl h-full'>
               <div className='relative h-[600px]'>
                 <Image
@@ -166,15 +166,15 @@ export const InventorySolutionsSection: React.FC = () => {
           </div>
 
           {/* Right Content - Single Text Card */}
-          <div ref={contentRef} className='flex'>
-            <div className='bg-white p-8 rounded-xl shadow-md flex flex-col justify-center h-full'>
+          <div ref={contentRef} className='flex min-w-0'>
+            <div className='bg-white p-8 rounded-xl shadow-md flex flex-col justify-center h-full w-full min-w-0 break-words'>
               <H3 className='font-bold text-2xl text-gray-900 mb-4 border-none'>
                 {t('inventory_solutions.solutions.0.title')}
               </H3>
               <P className='text-gray-700 leading-relaxed text-base mb-6 mt-0!'>
                 {t('inventory_solutions.solutions.0.description')}
               </P>
-              <div className='border-t pt-6'>
+              <div className='pt-6'>
                 <H3 className='font-semibold text-xl text-gray-900 mb-3 border-none'>
                   {t('inventory_solutions.solutions.0.content.heading')}
                 </H3>
@@ -185,7 +185,7 @@ export const InventorySolutionsSection: React.FC = () => {
                 {/* Icons row at bottom */}
                 <div className='flex justify-center gap-6 pt-4'>
                   {/* Icon 1 - Shield with checkmark */}
-                  <div className='w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300'>
+                  <div className='w-16 h-16 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300'>
                     <svg
                       className='w-8 h-8 text-white'
                       fill='none'
@@ -203,7 +203,7 @@ export const InventorySolutionsSection: React.FC = () => {
                   </div>
 
                   {/* Icon 2 - Trending up */}
-                  <div className='w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300'>
+                  <div className='w-16 h-16 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300'>
                     <svg
                       className='w-8 h-8 text-white'
                       fill='none'
@@ -221,7 +221,7 @@ export const InventorySolutionsSection: React.FC = () => {
                   </div>
 
                   {/* Icon 3 - Globe */}
-                  <div className='w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300'>
+                  <div className='w-16 h-16 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300'>
                     <svg
                       className='w-8 h-8 text-white'
                       fill='none'
@@ -244,7 +244,7 @@ export const InventorySolutionsSection: React.FC = () => {
         </div>
 
         {/* Mobile: Single Card */}
-        <div className='lg:hidden'>
+        <div className='md:hidden'>
           <div
             ref={mobileCardRef}
             className='relative rounded-2xl overflow-hidden bg-white shadow-lg'

@@ -11,7 +11,11 @@ export const FOOTER_COMPANY = {
     FULL: 'Łowiecka 6, 26-110 Skarżysko-Kamienna',
   },
   TAX_ID: {
-    LABEL: 'NIP',
+    LABEL: 'VAT',
     NUMBER: '6631889090',
+  },
+  KRS: {
+    LABEL: 'KRS',
+    NUMBER: '0001096142',
   },
 } as const;

@@ -96,7 +96,7 @@ export const DefinesUsSection: React.FC = () => {
       const firstSplitWord = split.words[0];
       if (firstSplitWord) {
         gsap.set(firstSplitWord, {
-          background: 'linear-gradient(135deg, #c084fc, #a855f7, #d8b4fe)',
+          background: 'linear-gradient(135deg, #e9d5ff, #d8b4fe, #f3e8ff)',
           color: '#1f2937',
           padding: '4px 8px',
           borderRadius: '4px',

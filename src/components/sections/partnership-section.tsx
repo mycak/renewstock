@@ -72,10 +72,10 @@ export const PartnershipSection: React.FC = () => {
               </H2>
             </div>
 
-            <div className='bg-white p-6 md:p-8 rounded-lg shadow-md border-l-4 border-purple-600'>
+            <div className='bg-white p-6 md:p-8 rounded-lg shadow-md'>
               <div className='space-y-4'>
                 <div className='flex items-start gap-4'>
-                  <div className='flex-shrink-0 w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center'>
+                  <div className='flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full flex items-center justify-center'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -101,7 +101,7 @@ export const PartnershipSection: React.FC = () => {
                 </div>
 
                 <div className='flex items-start gap-4'>
-                  <div className='flex-shrink-0 w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center'>
+                  <div className='flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full flex items-center justify-center'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -129,7 +129,7 @@ export const PartnershipSection: React.FC = () => {
                 </div>
 
                 <div className='flex items-start gap-4'>
-                  <div className='flex-shrink-0 w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center'>
+                  <div className='flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full flex items-center justify-center'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'

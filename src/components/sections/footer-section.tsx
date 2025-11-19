@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FOOTER_COMPANY } from '@/shared/footer-constants';
-import { CONTACT } from '@/shared/constants';
 import { P } from '@/components/ui/typography';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -53,9 +52,9 @@ export const FooterSection: React.FC = () => {
       <div className='max-w-7xl mx-auto'>
         <div
           ref={contentRef}
-          className='grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left'
+          className='grid grid-cols-1 gap-8 text-center justify-items-center'
         >
-          {/* Company Information */}
+          {/* Company Information Only */}
           <div className='footer-column'>
             <P className='font-semibold text-stone-900 mb-2 mt-0!'>
               {FOOTER_COMPANY.NAME}
@@ -66,35 +65,8 @@ export const FooterSection: React.FC = () => {
               {FOOTER_COMPANY.ADDRESS.POSTAL_CODE} {FOOTER_COMPANY.ADDRESS.CITY}
               <br />
               {FOOTER_COMPANY.TAX_ID.LABEL}: {FOOTER_COMPANY.TAX_ID.NUMBER}
-            </P>
-          </div>
-
-          {/* Contact Information */}
-          <div className='footer-column'>
-            <P className='font-semibold text-stone-900 mb-2 mt-0!'>Contact</P>
-            <P className='text-sm text-stone-600 leading-relaxed mt-0!'>
-              <a
-                href={CONTACT.EMAIL.HREF}
-                className='hover:text-purple-500 transition-colors duration-200'
-              >
-                {CONTACT.EMAIL.ADDRESS}
-              </a>
               <br />
-              <a
-                href={CONTACT.PHONE.HREF}
-                className='hover:text-purple-500 transition-colors duration-200'
-              >
-                {CONTACT.PHONE.DISPLAY}
-              </a>
-            </P>
-          </div>
-
-          {/* Copyright */}
-          <div className='footer-column flex items-center justify-center md:justify-end'>
-            <P className='text-sm text-stone-500 mt-0!'>
-              © {new Date().getFullYear()} {FOOTER_COMPANY.NAME}
-              <br />
-              <span className='text-xs'>All rights reserved</span>
+              {FOOTER_COMPANY.KRS.LABEL}: {FOOTER_COMPANY.KRS.NUMBER}
             </P>
           </div>
         </div>
