@@ -137,7 +137,7 @@ export const InventorySolutionsSection: React.FC = () => {
       <div className='max-w-7xl mx-auto'>
         {/* Section Header */}
         <div ref={headerRef} className='mb-12 text-center'>
-          <P className='eyebrow-text text-sm font-semibold tracking-wider text-[#7E5BB5] uppercase md:mb-4'>
+          <P className='eyebrow-text text-sm font-semibold tracking-wider text-[#5A3D85] uppercase md:mb-4'>
             {t('inventory_solutions.eyebrow')}
           </P>
           <H2 className='header-title font-black text-4xl md:text-5xl lg:text-6xl mb-6'>

@@ -106,7 +106,7 @@ export const NavigationHeader: React.FC = () => {
           <div className='flex-shrink-0'>
             <button
               onClick={() => handleNavClick('hero')}
-              className='text-2xl md:text-3xl lg:text-4xl font-black text-black hover:text-[#7E5BB5]transition-colors duration-[270ms]'
+              className='text-2xl md:text-3xl lg:text-4xl font-black text-black hover:text-[#7E5BB5] transition-colors duration-[270ms]'
             >
               RENEWSTOCK
             </button>
@@ -118,7 +118,7 @@ export const NavigationHeader: React.FC = () => {
               <button
                 key={item.key}
                 onClick={() => handleNavClick(item.sectionId || item.key)}
-                className='text-black hover:text-[#7E5BB5]font-semibold transition-colors duration-[270ms] relative group'
+                className='text-black hover:text-[#7E5BB5] font-semibold transition-colors duration-[270ms] relative group'
               >
                 {item.label}
                 <span className='absolute -bottom-1 left-0 w-0 h-1 bg-[#7E5BB5]transition-all duration-[270ms] group-hover:w-full' />
@@ -134,7 +134,7 @@ export const NavigationHeader: React.FC = () => {
                 <Button
                   variant='ghost'
                   size='icon'
-                  className='text-black hover:text-[#7E5BB5]hover:bg-purple-50 transition-colors duration-[270ms] h-14 w-14'
+                  className='text-black hover:text-[#7E5BB5] hover:bg-purple-50 transition-colors duration-[270ms] h-14 w-14'
                 >
                   <Menu className='h-6! w-6!' strokeWidth={3} />
                   <span className='sr-only'>Open menu</span>
@@ -153,7 +153,7 @@ export const NavigationHeader: React.FC = () => {
                       variant='ghost'
                       size='icon'
                       onClick={() => setIsOpen(false)}
-                      className='text-black hover:text-[#7E5BB5]hover:bg-purple-50'
+                      className='text-black hover:text-[#7E5BB5] hover:bg-purple-50'
                     >
                       <X className='h-6 w-6' />
                     </Button>
@@ -166,7 +166,7 @@ export const NavigationHeader: React.FC = () => {
                     <button
                       key={item.key}
                       onClick={() => handleNavClick(item.sectionId || item.key)}
-                      className='text-left text-2xl md:text-3xl font-black text-black hover:text-[#7E5BB5]transition-all duration-[270ms] relative group w-max'
+                      className='text-left text-2xl md:text-3xl font-black text-black hover:text-[#7E5BB5] transition-all duration-[270ms] relative group w-max'
                       style={{
                         animationDelay: `${index * 0.1}s`,
                         animation: isOpen

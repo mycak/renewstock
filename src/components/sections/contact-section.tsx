@@ -208,7 +208,7 @@ export const ContactSection: React.FC = () => {
       <div className='max-w-6xl mx-auto text-center'>
         {/* Header */}
         <div ref={contactHeaderRef} className='mb-16'>
-          <P className='text-sm font-semibold tracking-wider text-[#7E5BB5] uppercase md:mb-4'>
+          <P className='text-sm font-semibold tracking-wider text-[#5A3D85] uppercase md:mb-4'>
             {t('contact.description.partner_not_solver')}
           </P>
           <H2 className='font-black text-4xl md:text-5xl lg:text-6xl md:mb-6'>
