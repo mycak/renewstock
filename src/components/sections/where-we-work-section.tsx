@@ -115,7 +115,7 @@ export const WhereWeWorkSection: React.FC = () => {
       <div className='max-w-7xl mx-auto'>
         {/* Header */}
         <div ref={headerRef} className='text-center mb-16'>
-          <P className='eyebrow-text text-sm font-semibold tracking-wider text-purple-500 uppercase md:mb-4'>
+          <P className='eyebrow-text text-sm font-semibold tracking-wider text-[#7E5BB5] uppercase md:mb-4'>
             {t('where_we_work.eyebrow')}
           </P>
           <H2 className='header-title font-black text-4xl md:text-5xl lg:text-6xl md:mb-6'>

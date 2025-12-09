@@ -64,6 +64,8 @@ export const FooterSection: React.FC = () => {
               <br />
               {FOOTER_COMPANY.ADDRESS.POSTAL_CODE} {FOOTER_COMPANY.ADDRESS.CITY}
               <br />
+              {FOOTER_COMPANY.ADDRESS.COUNTRY}
+              <br />
               {FOOTER_COMPANY.TAX_ID.LABEL}: {FOOTER_COMPANY.TAX_ID.NUMBER}
               <br />
               {FOOTER_COMPANY.KRS.LABEL}: {FOOTER_COMPANY.KRS.NUMBER}

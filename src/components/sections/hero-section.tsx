@@ -62,7 +62,7 @@ export const HeroSection: React.FC = () => {
 
         {/* Subheader */}
         <div className='space-y-6 w-4/5 md:max-w-3/5 mx-auto mt-4'>
-          <H2 className='font-bold leading-tight text-sm! sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl min-h-[3.4rem] border-b'>
+          <H2 className='font-bold leading-tight text-sm! sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl min-h-[3.4rem]'>
             <TypewriterText
               texts={
                 t('hero.subheader.words', { returnObjects: true }) as string[]
@@ -96,7 +96,7 @@ export const HeroSection: React.FC = () => {
                   chars='upperCase'
                   speed={0.7}
                   revealDelay={0.18}
-                  className='inline text-purple-500'
+                  className='inline text-[#7E5BB5]'
                   as='span'
                 />
                 <ScrambleText

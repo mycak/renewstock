@@ -8,11 +8,12 @@ export const FOOTER_COMPANY = {
     STREET: 'Łowiecka 6',
     POSTAL_CODE: '26-110',
     CITY: 'Skarżysko-Kamienna',
+    COUNTRY: 'Poland',
     FULL: 'Łowiecka 6, 26-110 Skarżysko-Kamienna',
   },
   TAX_ID: {
     LABEL: 'VAT',
-    NUMBER: '6631889090',
+    NUMBER: 'PL6631889090',
   },
   KRS: {
     LABEL: 'KRS',

@@ -137,7 +137,7 @@ export const InventorySolutionsSection: React.FC = () => {
       <div className='max-w-7xl mx-auto'>
         {/* Section Header */}
         <div ref={headerRef} className='mb-12 text-center'>
-          <P className='eyebrow-text text-sm font-semibold tracking-wider text-purple-500 uppercase md:mb-4'>
+          <P className='eyebrow-text text-sm font-semibold tracking-wider text-[#7E5BB5] uppercase md:mb-4'>
             {t('inventory_solutions.eyebrow')}
           </P>
           <H2 className='header-title font-black text-4xl md:text-5xl lg:text-6xl mb-6'>
@@ -185,7 +185,7 @@ export const InventorySolutionsSection: React.FC = () => {
                 {/* Icons row at bottom */}
                 <div className='flex justify-center gap-6 pt-4'>
                   {/* Icon 1 - Shield with checkmark */}
-                  <div className='w-16 h-16 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300'>
+                  <div className='w-16 h-16 bg-[#7E5BB5] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300'>
                     <svg
                       className='w-8 h-8 text-white'
                       fill='none'
@@ -203,7 +203,7 @@ export const InventorySolutionsSection: React.FC = () => {
                   </div>
 
                   {/* Icon 2 - Trending up */}
-                  <div className='w-16 h-16 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300'>
+                  <div className='w-16 h-16 bg-[#7E5BB5] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300'>
                     <svg
                       className='w-8 h-8 text-white'
                       fill='none'
@@ -221,7 +221,7 @@ export const InventorySolutionsSection: React.FC = () => {
                   </div>
 
                   {/* Icon 3 - Globe */}
-                  <div className='w-16 h-16 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300'>
+                  <div className='w-16 h-16 bg-[#7E5BB5] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300'>
                     <svg
                       className='w-8 h-8 text-white'
                       fill='none'
