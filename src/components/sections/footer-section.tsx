@@ -18,30 +18,28 @@ export const FooterSection: React.FC = () => {
 
     if (!footer || !content) return;
 
-    const columns = content.querySelectorAll('.footer-column');
+    const ctx = gsap.context(() => {
+      const columns = content.querySelectorAll('.footer-column');
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: footer,
-        start: 'top 90%',
-        end: 'bottom 60%',
-        toggleActions: 'play none none reverse',
-      },
-    });
-
-    tl.from(columns, {
-      y: 40,
-      opacity: 0,
-      stagger: 0.15,
-      duration: 0.8,
-      ease: 'power2.out',
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger === footer) trigger.kill();
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: footer,
+          start: 'top 90%',
+          end: 'bottom 60%',
+          toggleActions: 'play none none reverse',
+        },
       });
-    };
+
+      tl.from(columns, {
+        y: 40,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: 'power2.out',
+      });
+    }, footerRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (

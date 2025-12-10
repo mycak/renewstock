@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from '@tolgee/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H2, H3, P } from '@/components/ui/typography';
@@ -9,10 +9,12 @@ import { H2, H3, P } from '@/components/ui/typography';
 gsap.registerPlugin(ScrollTrigger);
 
 export const TrustedPlatformSection: React.FC = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslate();
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
+  const animationsRef = useRef<gsap.core.Timeline | null>(null);
+  const scrollTriggersRef = useRef<ScrollTrigger[]>([]);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -21,89 +23,100 @@ export const TrustedPlatformSection: React.FC = () => {
 
     if (!section || !header || !stats) return;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 70%',
-        end: 'bottom 30%',
-        toggleActions: 'play none none reverse',
-      },
-    });
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 70%',
+          end: 'bottom 30%',
+          toggleActions: 'play none none reverse',
+        },
+      });
 
-    tl.from(header, {
-      y: 40,
-      autoAlpha: 0,
-      duration: 0.8,
-      ease: 'power2.out',
-    });
+      animationsRef.current = tl;
+      if (tl.scrollTrigger) {
+        scrollTriggersRef.current.push(tl.scrollTrigger);
+      }
 
-    const statCards = stats.querySelectorAll('.stat-card');
-    tl.from(
-      statCards,
-      {
-        y: 60,
+      tl.from(header, {
+        y: 40,
         autoAlpha: 0,
-        scale: 0.9,
-        stagger: 0.2,
         duration: 0.8,
-        ease: 'back.out(1.2)',
-      },
-      '-=0.4'
-    );
+        ease: 'power2.out',
+      });
 
-    // Animate numbers counting up
-    statCards.forEach((card) => {
-      const numberElement = card.querySelector('.stat-number');
-      if (numberElement) {
-        const finalValue = numberElement.textContent || '';
+      const statCards = stats.querySelectorAll('.stat-card');
+      tl.from(
+        statCards,
+        {
+          y: 60,
+          autoAlpha: 0,
+          scale: 0.9,
+          stagger: 0.2,
+          duration: 0.8,
+          ease: 'back.out(1.2)',
+        },
+        '-=0.4'
+      );
 
-        gsap.from(numberElement, {
-          textContent: 0,
-          duration: 2,
-          ease: 'power1.out',
-          snap: { textContent: 1 },
-          scrollTrigger: {
+      statCards.forEach((card) => {
+        const numberElement = card.querySelector('.stat-number');
+        if (numberElement) {
+          const finalValue = numberElement.textContent || '';
+
+          const st = ScrollTrigger.create({
             trigger: card,
             start: 'top 80%',
-          },
-          onUpdate: function () {
-            const currentValue = Math.floor(
-              parseFloat(this.targets()[0].textContent)
-            );
-            if (finalValue.includes('K')) {
-              this.targets()[0].textContent = currentValue + 'K+';
-            } else if (finalValue.includes('B')) {
-              this.targets()[0].textContent = '$' + currentValue + 'B+';
-            } else {
-              this.targets()[0].textContent = currentValue + '+';
-            }
-          },
-        });
-      }
-    });
+            onEnter: () => {
+              gsap.from(numberElement, {
+                textContent: 0,
+                duration: 2,
+                ease: 'power1.out',
+                snap: { textContent: 1 },
+                onUpdate: function () {
+                  const currentValue = Math.floor(
+                    parseFloat(this.targets()[0].textContent)
+                  );
+                  if (finalValue.includes('K')) {
+                    this.targets()[0].textContent = currentValue + 'K+';
+                  } else if (finalValue.includes('B')) {
+                    this.targets()[0].textContent = '$' + currentValue + 'B+';
+                  } else {
+                    this.targets()[0].textContent = currentValue + '+';
+                  }
+                },
+              });
+            },
+            once: true,
+          });
+          scrollTriggersRef.current.push(st);
+        }
+      });
+    }, section);
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger === section) trigger.kill();
-      });
+      ctx.revert();
+      scrollTriggersRef.current.forEach((st) => st.kill());
+      scrollTriggersRef.current = [];
+      animationsRef.current = null;
     };
   }, []);
 
   const stats = [
     {
-      valueKey: 'trusted_platform.stats.listings.value',
-      labelKey: 'trusted_platform.stats.listings.label',
-      descriptionKey: 'trusted_platform.stats.listings.description',
+      value: t('trusted_platform.stats.listings.value'),
+      label: t('trusted_platform.stats.listings.label'),
+      description: t('trusted_platform.stats.listings.description'),
     },
     {
-      valueKey: 'trusted_platform.stats.msrp.value',
-      labelKey: 'trusted_platform.stats.msrp.label',
-      descriptionKey: 'trusted_platform.stats.msrp.description',
+      value: t('trusted_platform.stats.msrp.value'),
+      label: t('trusted_platform.stats.msrp.label'),
+      description: t('trusted_platform.stats.msrp.description'),
     },
     {
-      valueKey: 'trusted_platform.stats.brands.value',
-      labelKey: 'trusted_platform.stats.brands.label',
-      descriptionKey: 'trusted_platform.stats.brands.description',
+      value: t('trusted_platform.stats.brands.value'),
+      label: t('trusted_platform.stats.brands.label'),
+      description: t('trusted_platform.stats.brands.description'),
     },
   ];
 
@@ -135,13 +148,13 @@ export const TrustedPlatformSection: React.FC = () => {
             <div key={index} className='stat-card text-center'>
               <div className='bg-[#6a4a9e]/70 backdrop-blur-sm rounded-2xl p-8 hover:bg-[#6a4a9e] transition-all duration-300 h-full flex flex-col'>
                 <H3 className='stat-number font-black text-5xl md:text-6xl lg:text-7xl text-white mb-4 border-none'>
-                  {t(stat.valueKey)}
+                  {stat.value}
                 </H3>
                 <P className='text-xl md:text-2xl font-bold text-white/90 mb-3 mt-0!'>
-                  {t(stat.labelKey)}
+                  {stat.label}
                 </P>
-                <P className='text-sm md:text-base text-white/70 leading-relaxed mt-0! min-h-[3rem]'>
-                  {t(stat.descriptionKey)}
+                <P className='text-sm md:text-base text-white/70 leading-relaxed mt-0! min-h-12'>
+                  {stat.description}
                 </P>
               </div>
             </div>

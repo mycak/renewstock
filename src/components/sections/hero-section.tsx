@@ -2,13 +2,13 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
 import { ScrambleText } from '@/components/ui/scramble-text';
 import { TypewriterText } from '@/components/ui/typewriter-text';
 import { H1, H2, P } from '@/components/ui/typography';
+import { useTranslate } from '@tolgee/react';
 
 export const HeroSection: React.FC = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslate();
 
   return (
     <section
@@ -31,11 +31,12 @@ export const HeroSection: React.FC = () => {
       {/* Main Header */}
       <div className='text-center max-w-6xl mx-auto space-y-12 md:space-y-8'>
         <H1 className='font-black tracking-tighter px-2 text-center text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight md:leading-none mb-2 '>
-          <div className='break-words hyphens-auto max-w-full overflow-hidden md:whitespace-nowrap'>
+          <div className='wrap-break-words hyphens-auto max-w-full overflow-hidden md:whitespace-nowrap'>
             <ScrambleText
-              text={`${t('hero.main_header.line1')} ${t(
-                'hero.main_header.partner'
-              )} ${t('hero.main_header.line1_end')}`}
+              text={`${t('hero.main_header.line1', { noWrap: true })} ${t(
+                'hero.main_header.partner',
+                { noWrap: true }
+              )} ${t('hero.main_header.line1_end', { noWrap: true })}`}
               delay={0}
               duration={1.5}
               chars='upperCase'
@@ -46,9 +47,9 @@ export const HeroSection: React.FC = () => {
             />
           </div>
 
-          <div className='break-words hyphens-auto max-w-full overflow-hidden md:whitespace-nowrap'>
+          <div className='wrap-break-words hyphens-auto max-w-full overflow-hidden md:whitespace-nowrap'>
             <ScrambleText
-              text={t('hero.main_header.line2')}
+              text={t('hero.main_header.line2', { noWrap: true })}
               delay={0}
               duration={1.2}
               chars='upperCase'
@@ -64,9 +65,9 @@ export const HeroSection: React.FC = () => {
         <div className='space-y-6 w-4/5 md:max-w-3/5 mx-auto mt-4'>
           <H2 className='font-bold leading-tight text-sm! sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl min-h-[3.4rem]'>
             <TypewriterText
-              texts={
-                t('hero.subheader.words', { returnObjects: true }) as string[]
-              }
+              texts={Array.from(Array(7).keys()).map((i) =>
+                t(`hero.subheader.words[${i}]`, { noWrap: true })
+              )}
               delay={0.3}
               typingSpeed={0.035}
               showCursor={false}
@@ -80,7 +81,7 @@ export const HeroSection: React.FC = () => {
             <div className='text-sm md:text-base lg:text-lg font-medium text-gray-700'>
               <P className='mb-2 text-sm font-bold'>
                 <ScrambleText
-                  text={t('hero.disclaimer.line1_start')}
+                  text={t('hero.disclaimer.line1_start', { noWrap: true })}
                   delay={2.4}
                   duration={0.6}
                   chars='upperCase'
@@ -90,7 +91,7 @@ export const HeroSection: React.FC = () => {
                   as='span'
                 />
                 <ScrambleText
-                  text={t('hero.disclaimer.line1_highlight')}
+                  text={t('hero.disclaimer.line1_highlight', { noWrap: true })}
                   delay={0.3}
                   duration={3.3}
                   chars='upperCase'
@@ -99,20 +100,10 @@ export const HeroSection: React.FC = () => {
                   className='inline text-[#7E5BB5]'
                   as='span'
                 />
-                <ScrambleText
-                  text={t('hero.disclaimer.line1_end')}
-                  delay={3.3}
-                  duration={0.3}
-                  chars='upperCase'
-                  speed={0.7}
-                  revealDelay={0.18}
-                  className='inline'
-                  as='span'
-                />
               </P>
               <P className='font-bold mt-2!'>
                 <ScrambleText
-                  text={t('hero.disclaimer.line2')}
+                  text={t('hero.disclaimer.line2', { noWrap: true })}
                   delay={3.6}
                   duration={0.9}
                   chars='upperCase'

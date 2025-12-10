@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from '@tolgee/react';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -13,10 +13,13 @@ import { H2, P } from '@/components/ui/typography';
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export const WhereWeWorkSection: React.FC = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslate();
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
+
+  // Capture translation to trigger effect when it loads/changes
+  const headerText = t('where_we_work.header', { noWrap: true });
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -25,104 +28,100 @@ export const WhereWeWorkSection: React.FC = () => {
 
     if (!section || !header || !imageContainer) return;
 
-    // Create GSAP timeline with ScrollTrigger
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 70%',
-        end: 'bottom 30%',
-        toggleActions: 'play none none reverse',
-      },
-    });
-
-    // Animate eyebrow and header
-    const eyebrow = header.querySelector('.eyebrow-text');
-    const headerTitle = header.querySelector('.header-title');
-    const description = header.querySelector('.description-text');
-
-    if (eyebrow) {
-      tl.from(eyebrow, {
-        duration: 0.6,
-        y: 30,
-        opacity: 0,
-        ease: 'power2.out',
-      });
-    }
-
-    if (headerTitle) {
-      const headerSplit = SplitText.create(headerTitle, {
-        type: 'words',
-        wordsClass: 'split-word',
-        tag: 'span',
-      });
-
-      cleanupSplitTextAria(headerTitle as HTMLElement, headerSplit);
-
-      tl.from(
-        headerSplit.words,
-        {
-          duration: 0.6,
-          y: 100,
-          opacity: 0,
-          stagger: 0.05,
-          ease: 'power2.out',
+    const ctx = gsap.context(() => {
+      // Create GSAP timeline with ScrollTrigger
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 70%',
+          end: 'bottom 30%',
+          toggleActions: 'play none none reverse',
         },
-        '-=0.3'
-      );
-    }
+      });
 
-    // Animate description
-    if (description) {
-      tl.from(
-        description,
-        {
+      // Animate eyebrow and header
+      const eyebrow = header.querySelector('.eyebrow-text');
+      const headerTitle = header.querySelector('.header-title');
+      const description = header.querySelector('.description-text');
+
+      if (eyebrow) {
+        tl.from(eyebrow, {
           duration: 0.6,
           y: 30,
           opacity: 0,
           ease: 'power2.out',
-        },
-        '-=0.2'
-      );
-    }
+        });
+      }
 
-    // Animate image container with scale and fade
-    tl.from(
-      imageContainer,
-      {
-        duration: 1.2,
-        scale: 0.8,
-        opacity: 0,
-        ease: 'power2.out',
-      },
-      '-=0.4'
-    );
+      if (headerTitle) {
+        const headerSplit = SplitText.create(headerTitle, {
+          type: 'words',
+          wordsClass: 'split-word',
+          tag: 'span',
+        });
+
+        cleanupSplitTextAria(headerTitle as HTMLElement, headerSplit);
+
+        tl.from(
+          headerSplit.words,
+          {
+            duration: 0.6,
+            y: 100,
+            opacity: 0,
+            stagger: 0.05,
+            ease: 'power2.out',
+          },
+          '-=0.3'
+        );
+      }
+
+      // Animate description
+      if (description) {
+        tl.from(
+          description,
+          {
+            duration: 0.6,
+            y: 30,
+            opacity: 0,
+            ease: 'power2.out',
+          },
+          '-=0.2'
+        );
+      }
+
+      // Animate image container with scale and fade
+      tl.from(
+        imageContainer,
+        {
+          duration: 1.2,
+          scale: 0.8,
+          opacity: 0,
+          ease: 'power2.out',
+        },
+        '-=0.4'
+      );
+    }, sectionRef);
 
     // Cleanup function
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger === section) {
-          trigger.kill();
-        }
-      });
-    };
-  }, []);
+    return () => ctx.revert();
+  }, [headerText]);
 
   return (
     <section
       ref={sectionRef}
-      className='py-20 px-4 bg-gradient-to-b from-gray-50 to-white'
+      className='py-20 px-4 bg-linear-to-b from-gray-50 to-white'
     >
       <div className='max-w-7xl mx-auto'>
         {/* Header */}
         <div ref={headerRef} className='text-center mb-16'>
           <P className='eyebrow-text text-sm font-semibold tracking-wider text-[#5A3D85] uppercase md:mb-4'>
-            {t('where_we_work.eyebrow')}
+            {t('where_we_work.eyebrow', { noWrap: true })}
           </P>
           <H2 className='header-title font-black text-4xl md:text-5xl lg:text-6xl md:mb-6'>
-            {t('where_we_work.header')}
+            {t('where_we_work.header', { noWrap: true })}
           </H2>
           <P className='description-text text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mt-4!'>
-            {t('where_we_work.description')}
+            {t('where_we_work.description', { noWrap: true })}
           </P>
         </div>
 
@@ -133,7 +132,7 @@ export const WhereWeWorkSection: React.FC = () => {
         >
           {/* World Map Image */}
           <Image
-            src='/images/world-map-2.jpg'
+            src='/images/test.png'
             alt='World Map'
             fill
             className='object-cover'
@@ -144,13 +143,13 @@ export const WhereWeWorkSection: React.FC = () => {
           {/* Blur Effect on Edges - Reduced horizontal blur on mobile */}
           <div className='absolute inset-0 pointer-events-none'>
             {/* Top blur */}
-            <div className='absolute top-0 left-0 right-0 h-12 md:h-32 bg-gradient-to-b from-gray-50 via-gray-50/60 to-transparent'></div>
+            <div className='absolute top-0 left-0 right-0 h-12 md:h-32 bg-linear-to-b from-gray-50 via-gray-50/60 to-transparent'></div>
             {/* Bottom blur */}
-            <div className='absolute bottom-0 left-0 right-0 h-12 md:h-32 bg-gradient-to-t from-gray-50 via-gray-50/60 to-transparent'></div>
+            <div className='absolute bottom-0 left-0 right-0 h-12 md:h-32 bg-linear-to-t from-gray-50 via-gray-50/60 to-transparent'></div>
             {/* Left blur - Reduced on mobile */}
-            <div className='absolute top-0 left-0 bottom-0 w-8 md:w-20 lg:w-40 bg-gradient-to-r from-gray-50 via-gray-50/60 to-transparent'></div>
+            <div className='absolute top-0 left-0 bottom-0 w-8 md:w-20 lg:w-40 bg-linear-to-r from-gray-50 via-gray-50/60 to-transparent'></div>
             {/* Right blur - Reduced on mobile */}
-            <div className='absolute top-0 right-0 bottom-0 w-8 md:w-20 lg:w-40 bg-gradient-to-l from-gray-50 via-gray-50/60 to-transparent'></div>
+            <div className='absolute top-0 right-0 bottom-0 w-8 md:w-20 lg:w-40 bg-linear-to-l from-gray-50 via-gray-50/60 to-transparent'></div>
           </div>
         </div>
       </div>

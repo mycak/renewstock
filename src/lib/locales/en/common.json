@@ -8,15 +8,16 @@
       "line2": "DIDN'T KNOW YOU NEEDED"
     },
     "subheader": {
-      "words": [
-        "TRANSFORMING",
-        "OVERSTOCK",
-        "AND",
-        "RETURNS",
-        "INTO",
-        "PERFORMANCE",
-        "ASSETS."
-      ]
+      "words": {
+        "0": "TRANSFORMING",
+        "1": "OVERSTOCK",
+        "2": "AND",
+        "3": "RETURNS",
+        "4": "INTO",
+        "5": "PERFORMANCE",
+        "6": "ASSETS."
+      },
+      "count": "7"
     },
     "disclaimer": {
       "line1_start": "*NOT A ",
@@ -44,11 +45,11 @@
     "opportunity": {
       "header": "RETURNS. EXCESS. DEADSTOCK. NOT A PROBLEM. AN OPPORTUNITY",
       "tagline": "WITH RENEWSTOCK, YOUR IDLE STOCK BECOMES:",
-      "benefits": [
-        "cash flow",
-        "data-backed ESG value",
-        "brand-safe resale in strategic markets"
-      ],
+      "benefits": {
+        "0": "cash flow",
+        "1": "data-backed ESG value",
+        "2": "brand-safe resale in strategic markets"
+      },
       "footer": "PRESENT WHERE IT MATTERS. SOLVING WHAT OTHERS DON'T. KNOW THE PRODUCT'S VALUE — AND HOW NOT TO WASTE IT"
     }
   },
@@ -63,18 +64,22 @@
       "full_visibility": {
         "title": "FULL VISIBILITY — AND REAL PARTNERSHIP",
         "description": "You'll always know:",
-        "points": ["Where your stock goes", "How it's sold", "Who is involved"],
+        "points": {
+          "0": "Where your stock goes",
+          "1": "How it's sold",
+          "2": "Who is involved"
+        },
         "partnership": "But we go further: We schedule monthly strategy check-ins to align on pricing, markets, and product flow. We're not a one-off solution — we're in this with you"
       },
       "payment_options": {
         "title": "FLAT BUYOUT OR SMART REV-SHARE",
         "description": "Prefer clarity? Take the full upfront offer. Want more upside? Choose revenue share — backed by live reporting",
         "considerations": "Our offer always considers:",
-        "points": [
-          "Your resale restrictions",
-          "Purchase & target pricing",
-          "Any necessary product handling"
-        ],
+        "points": {
+          "0": "Your resale restrictions",
+          "1": "Purchase & target pricing",
+          "2": "Any necessary product handling"
+        },
         "footer": "Either way: you stay in control, we handle the rest"
       }
     }
@@ -100,12 +105,12 @@
   "standards": {
     "header": "RESALE ALIGNED WITH YOUR STANDARDS",
     "intro": "You set the terms — we follow them",
-    "points": [
-      "Market restrictions respected",
-      "Brand rules documented",
-      "ESG data delivered with every batch",
-      "Ready to sign resale agreements — with full commitment"
-    ],
+    "points": {
+      "0": "Market restrictions respected",
+      "1": "Brand rules documented",
+      "2": "ESG data delivered with every batch",
+      "3": "Ready to sign resale agreements — with full commitment"
+    },
     "footer": "We're here for the long run. Not shortcuts"
   },
   "where_we_work": {
@@ -330,26 +335,26 @@
     "eyebrow": "AVAILABLE NOW",
     "header": "Featured Inventory",
     "description": "Discover premium inventory opportunities from trusted brands across multiple categories",
-    "items": [
-      {
+    "items": {
+      "0": {
         "title": "Premium Designer Collection",
         "description": "High-end fashion pieces from established brands. Perfect for boutique retailers looking to expand their luxury offerings with authenticated merchandise."
       },
-      {
+      "1": {
         "title": "Latest Tech Accessories",
         "description": "Cutting-edge electronics and accessories from top manufacturers. Ideal for tech retailers seeking quality products with verified authenticity."
       },
-      {
+      "2": {
         "title": "Modern Furniture Collection",
         "description": "Contemporary furniture sets combining style and functionality. Perfect for home goods retailers expanding their catalog with designer pieces."
       }
-    ]
+    }
   },
   "inventory_solutions": {
     "eyebrow": "SELLERS",
     "header": "New revenue streams for all types of inventory",
-    "solutions": [
-      {
+    "solutions": {
+      "0": {
         "title": "Quickly turn inventory into liquidity",
         "description": "Turn existing inventory into cash.",
         "content": {
@@ -357,7 +362,7 @@
           "text": "Transform your dormant stock into immediate working capital. Our streamlined process ensures rapid evaluation and payment, typically within 48 hours of agreement. We handle everything from logistics to documentation, allowing you to focus on your core business while unlocking trapped value in your inventory."
         }
       },
-      {
+      "1": {
         "title": "Maximize underutilized revenue",
         "description": "Set the price you want to get for your product; we'll take care of the rest.",
         "content": {
@@ -365,7 +370,7 @@
           "text": "Our data-driven approach identifies the optimal channels and markets for your products. We leverage our global network to ensure maximum value recovery, whether through direct buyout or revenue-sharing arrangements. You maintain pricing control while we execute the strategy that delivers the best returns."
         }
       },
-      {
+      "2": {
         "title": "Control where your inventory goes",
         "description": "Control which distribution channels, retailers, and geographies your inventory is sold in.",
         "content": {
@@ -373,6 +378,6 @@
           "text": "Protect your brand integrity with complete visibility into distribution channels. Set geographic restrictions, approve retail partners, and maintain oversight of your products' journey. Our transparent reporting system provides real-time updates on inventory location, sales channels, and end-market destinations."
         }
       }
-    ]
+    }
   }
 }

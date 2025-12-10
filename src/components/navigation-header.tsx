@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from '@tolgee/react';
 import { gsap } from 'gsap';
 import { Menu, X } from 'lucide-react';
 import {
@@ -22,7 +22,7 @@ type NavigationItem = {
 };
 
 export const NavigationHeader: React.FC = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslate();
   const [isOpen, setIsOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
@@ -98,15 +98,15 @@ export const NavigationHeader: React.FC = () => {
   return (
     <header
       ref={headerRef}
-      className='fixed top-0 left-0 right-0 z-50 transition-all duration-[270ms] bg-white/80 backdrop-blur-xl shadow-xl border-b border-white/20 backdrop-saturate-150 opacity-0 -translate-y-full'
+      className='fixed top-0 left-0 right-0 z-50 transition-all duration-270 bg-white/80 backdrop-blur-xl shadow-xl border-b border-white/20 backdrop-saturate-150 opacity-0 -translate-y-full'
     >
       <div className='max-w-6xl mx-auto px-4 md:px-8'>
         <div className='flex items-center justify-between h-16 md:h-20'>
           {/* Logo / Brand */}
-          <div className='flex-shrink-0'>
+          <div className='shrink-0'>
             <button
               onClick={() => handleNavClick('hero')}
-              className='text-2xl md:text-3xl lg:text-4xl font-black text-black hover:text-[#7E5BB5] transition-colors duration-[270ms]'
+              className='text-2xl md:text-3xl lg:text-4xl font-black text-black hover:text-[#7E5BB5] transition-colors duration-270'
             >
               RENEWSTOCK
             </button>
@@ -118,10 +118,10 @@ export const NavigationHeader: React.FC = () => {
               <button
                 key={item.key}
                 onClick={() => handleNavClick(item.sectionId || item.key)}
-                className='text-black hover:text-[#7E5BB5] font-semibold transition-colors duration-[270ms] relative group'
+                className='text-black hover:text-[#7E5BB5] font-semibold transition-colors duration-270 relative group'
               >
                 {item.label}
-                <span className='absolute -bottom-1 left-0 w-0 h-1 bg-[#7E5BB5]transition-all duration-[270ms] group-hover:w-full' />
+                <span className='absolute -bottom-1 left-0 w-0 h-1 bg-[#7E5BB5]transition-all duration-270 group-hover:w-full' />
               </button>
             ))}
             {/* <LanguageSwitcher isFixed={false} /> */}
@@ -134,7 +134,7 @@ export const NavigationHeader: React.FC = () => {
                 <Button
                   variant='ghost'
                   size='icon'
-                  className='text-black hover:text-[#7E5BB5] hover:bg-purple-50 transition-colors duration-[270ms] h-14 w-14'
+                  className='text-black hover:text-[#7E5BB5] hover:bg-purple-50 transition-colors duration-270 h-14 w-14'
                 >
                   <Menu className='h-6! w-6!' strokeWidth={3} />
                   <span className='sr-only'>Open menu</span>
@@ -166,7 +166,7 @@ export const NavigationHeader: React.FC = () => {
                     <button
                       key={item.key}
                       onClick={() => handleNavClick(item.sectionId || item.key)}
-                      className='text-left text-2xl md:text-3xl font-black text-black hover:text-[#7E5BB5] transition-all duration-[270ms] relative group w-max'
+                      className='text-left text-2xl md:text-3xl font-black text-black hover:text-[#7E5BB5] transition-all duration-270 relative group w-max'
                       style={{
                         animationDelay: `${index * 0.1}s`,
                         animation: isOpen
@@ -175,7 +175,7 @@ export const NavigationHeader: React.FC = () => {
                       }}
                     >
                       {item.label}
-                      <span className='absolute -bottom-1 left-0 w-0 h-1 bg-[#7E5BB5]transition-all duration-[270ms] group-hover:w-full' />
+                      <span className='absolute -bottom-1 left-0 w-0 h-1 bg-[#7E5BB5]transition-all duration-270 group-hover:w-full' />
                     </button>
                   ))}
 

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from '@tolgee/react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -41,9 +41,12 @@ interface ApiResponse {
 }
 
 export const ContactSection: React.FC = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslate();
   const [formStatus, setFormStatus] = useState<FormStatus>('idle');
   const [statusMessage, setStatusMessage] = useState<string>('');
+
+  // Capture translation to trigger effect when it loads/changes
+  const headerText = t('contact.header', { noWrap: true });
 
   // Contact form schema with translations
   const contactFormSchema = z.object({
@@ -108,96 +111,94 @@ export const ContactSection: React.FC = () => {
 
     if (!section || !description) return;
 
-    // Create GSAP timeline with ScrollTrigger
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 80%',
-        end: 'bottom 20%',
-        toggleActions: 'play none none reverse',
-      },
-    });
-
-    const splitInstances: ReturnType<typeof SplitText.create>[] = [];
-
-    // Animate contact header
-    if (contactHeader) {
-      const headerSplit = SplitText.create(contactHeader, {
-        type: 'words',
-        wordsClass: 'split-word',
-        tag: 'span',
-      });
-      splitInstances.push(headerSplit);
-
-      cleanupSplitTextAria(contactHeader as HTMLElement, headerSplit);
-
-      tl.from(headerSplit.words, {
-        duration: 0.36,
-        y: 100,
-        opacity: 0,
-        stagger: 0.072,
-        ease: 'power2.out',
-      });
-    }
-
-    // Animate description text
-    if (description) {
-      const descriptionSplit = SplitText.create(description, {
-        type: 'words',
-        wordsClass: 'split-word',
-        tag: 'span',
-      });
-      splitInstances.push(descriptionSplit);
-
-      cleanupSplitTextAria(description as HTMLElement, descriptionSplit);
-
-      // Shuffle the words array for random order animation
-      const shuffledWords = [...descriptionSplit.words].sort(
-        () => Math.random() - 0.5
-      );
-
-      // Animate all words in random order
-      tl.from(shuffledWords, {
-        duration: 0.72,
-        y: () => (Math.random() > 0.5 ? -120 : 120),
-        opacity: 0,
-        stagger: 0.054,
-        ease: 'power3.out',
-        rotation: () => (Math.random() - 0.5) * 20,
-      });
-    }
-
-    // Animate Form with separate ScrollTrigger
-    if (formElement) {
-      // Form animation - appears later with bigger delay
-      gsap.fromTo(
-        formElement,
-        {
-          opacity: 0,
-          y: 50,
+    const ctx = gsap.context(() => {
+      // Create GSAP timeline with ScrollTrigger
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 80%',
+          end: 'bottom 20%',
+          toggleActions: 'play none none reverse',
         },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
+      });
+
+      const splitInstances: ReturnType<typeof SplitText.create>[] = [];
+
+      // Animate contact header
+      if (contactHeader) {
+        const headerSplit = SplitText.create(contactHeader, {
+          type: 'words',
+          wordsClass: 'split-word',
+          tag: 'span',
+        });
+        splitInstances.push(headerSplit);
+
+        cleanupSplitTextAria(contactHeader as HTMLElement, headerSplit);
+
+        tl.from(headerSplit.words, {
+          duration: 0.36,
+          y: 100,
+          opacity: 0,
+          stagger: 0.072,
           ease: 'power2.out',
-          delay: 0.45, // Add delay for later appearance
-          scrollTrigger: {
-            trigger: formElement,
-            start: 'top 85%', // Trigger when form is closer to viewport
-            toggleActions: 'play none none reverse',
+        });
+      }
+
+      // Animate description text
+      if (description) {
+        const descriptionSplit = SplitText.create(description, {
+          type: 'words',
+          wordsClass: 'split-word',
+          tag: 'span',
+        });
+        splitInstances.push(descriptionSplit);
+
+        cleanupSplitTextAria(description as HTMLElement, descriptionSplit);
+
+        // Shuffle the words array for random order animation
+        const shuffledWords = [...descriptionSplit.words].sort(
+          () => Math.random() - 0.5
+        );
+
+        // Animate all words in random order
+        tl.from(shuffledWords, {
+          duration: 0.72,
+          y: () => (Math.random() > 0.5 ? -120 : 120),
+          opacity: 0,
+          stagger: 0.054,
+          ease: 'power3.out',
+          rotation: () => (Math.random() - 0.5) * 20,
+        });
+      }
+
+      // Animate Form with separate ScrollTrigger
+      if (formElement) {
+        // Form animation - appears later with bigger delay
+        gsap.fromTo(
+          formElement,
+          {
+            opacity: 0,
+            y: 50,
           },
-        }
-      );
-    }
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            ease: 'power2.out',
+            delay: 0.45, // Add delay for later appearance
+            scrollTrigger: {
+              trigger: formElement,
+              start: 'top 85%', // Trigger when form is closer to viewport
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+    }, sectionRef);
 
     // Cleanup function
-    return () => {
-      splitInstances.forEach((split) => {
-        split.revert();
-      });
-    };
-  }, []);
+    return () => ctx.revert();
+  }, [headerText]);
 
   return (
     <section
@@ -209,16 +210,16 @@ export const ContactSection: React.FC = () => {
         {/* Header */}
         <div ref={contactHeaderRef} className='mb-16'>
           <P className='text-sm font-semibold tracking-wider text-[#5A3D85] uppercase md:mb-4'>
-            {t('contact.description.partner_not_solver')}
+            {t('contact.description.partner_not_solver', { noWrap: true })}
           </P>
           <H2 className='font-black text-4xl md:text-5xl lg:text-6xl md:mb-6'>
-            {t('contact.header')}
+            {t('contact.header', { noWrap: true })}
           </H2>
           <P
             ref={descriptionRef}
             className='text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mt-4!'
           >
-            {t('contact.description.dont_need_fix')}
+            {t('contact.description.dont_need_fix', { noWrap: true })}
           </P>
         </div>
 

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from '@tolgee/react';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -12,12 +12,15 @@ import { H2, H3, P } from '@/components/ui/typography';
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export const InventorySolutionsSection: React.FC = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslate();
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const mobileCardRef = useRef<HTMLDivElement>(null);
+
+  // Capture translation to trigger effect when it loads/changes
+  const headerText = t('inventory_solutions.header', { noWrap: true });
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -28,100 +31,98 @@ export const InventorySolutionsSection: React.FC = () => {
 
     if (!section || !header) return;
 
-    if (content && image) {
-      gsap.set([content, image], { autoAlpha: 1 });
-    }
-    if (mobileCard) {
-      gsap.set(mobileCard, { autoAlpha: 1 });
-    }
+    const ctx = gsap.context(() => {
+      if (content && image) {
+        gsap.set([content, image], { autoAlpha: 1 });
+      }
+      if (mobileCard) {
+        gsap.set(mobileCard, { autoAlpha: 1 });
+      }
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 70%',
-        end: 'bottom 30%',
-        toggleActions: 'play none none reverse',
-      },
-    });
-
-    // Animate header elements
-    const eyebrow = header.querySelector('.eyebrow-text');
-    const headerTitle = header.querySelector('.header-title');
-
-    if (eyebrow) {
-      tl.from(eyebrow, {
-        duration: 0.6,
-        y: 30,
-        opacity: 0,
-        ease: 'power2.out',
-      });
-    }
-
-    if (headerTitle) {
-      const headerSplit = SplitText.create(headerTitle, {
-        type: 'words',
-        wordsClass: 'split-word',
-        tag: 'span',
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 70%',
+          end: 'bottom 30%',
+          toggleActions: 'play none none reverse',
+        },
       });
 
-      cleanupSplitTextAria(headerTitle as HTMLElement, headerSplit);
+      // Animate header elements
+      const eyebrow = header.querySelector('.eyebrow-text');
+      const headerTitle = header.querySelector('.header-title');
 
-      tl.from(
-        headerSplit.words,
-        {
+      if (eyebrow) {
+        tl.from(eyebrow, {
           duration: 0.6,
-          y: 100,
+          y: 30,
           opacity: 0,
-          stagger: 0.05,
           ease: 'power2.out',
-        },
-        '-=0.3'
-      );
-    }
+        });
+      }
 
-    // Animate desktop content and image
-    if (image && content) {
-      tl.from(
-        image,
-        {
-          x: -60,
-          opacity: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-        },
-        '-=0.2'
-      ).from(
-        content,
-        {
-          x: 60,
-          opacity: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-        },
-        '-=0.6'
-      );
-    }
+      if (headerTitle) {
+        const headerSplit = SplitText.create(headerTitle, {
+          type: 'words',
+          wordsClass: 'split-word',
+          tag: 'span',
+        });
 
-    // Animate mobile card
-    if (mobileCard) {
-      tl.from(
-        mobileCard,
-        {
-          y: 60,
-          opacity: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-        },
-        '-=0.2'
-      );
-    }
+        cleanupSplitTextAria(headerTitle as HTMLElement, headerSplit);
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger === section) trigger.kill();
-      });
-    };
-  }, []);
+        tl.from(
+          headerSplit.words,
+          {
+            duration: 0.6,
+            y: 100,
+            opacity: 0,
+            stagger: 0.05,
+            ease: 'power2.out',
+          },
+          '-=0.3'
+        );
+      }
+
+      // Animate desktop content and image
+      if (image && content) {
+        tl.from(
+          image,
+          {
+            x: -60,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+          },
+          '-=0.2'
+        ).from(
+          content,
+          {
+            x: 60,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+          },
+          '-=0.6'
+        );
+      }
+
+      // Animate mobile card
+      if (mobileCard) {
+        tl.from(
+          mobileCard,
+          {
+            y: 60,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+          },
+          '-=0.2'
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [headerText]);
 
   const displayedSolution = {
     image: '/images/stock-1.jpg',
@@ -132,16 +133,16 @@ export const InventorySolutionsSection: React.FC = () => {
     <section
       id='inventory-solutions'
       ref={sectionRef}
-      className='py-20 px-4 bg-gradient-to-br from-purple-50/50 via-purple-100/30 to-purple-50/50'
+      className='py-20 px-4 bg-linear-to-br from-purple-50/50 via-purple-100/30 to-purple-50/50'
     >
       <div className='max-w-7xl mx-auto'>
         {/* Section Header */}
         <div ref={headerRef} className='mb-12 text-center'>
           <P className='eyebrow-text text-sm font-semibold tracking-wider text-[#5A3D85] uppercase md:mb-4'>
-            {t('inventory_solutions.eyebrow')}
+            {t('inventory_solutions.eyebrow', { noWrap: true })}
           </P>
           <H2 className='header-title font-black text-4xl md:text-5xl lg:text-6xl mb-6'>
-            {t('inventory_solutions.header')}
+            {t('inventory_solutions.header', { noWrap: true })}
           </H2>
         </div>
 
@@ -154,7 +155,8 @@ export const InventorySolutionsSection: React.FC = () => {
                 <Image
                   src={displayedSolution.image}
                   alt={t(
-                    `inventory_solutions.solutions.${displayedSolution.index}.title`
+                    `inventory_solutions.solutions.${displayedSolution.index}.title`,
+                    { noWrap: true }
                   )}
                   fill
                   className='object-cover'
@@ -167,19 +169,25 @@ export const InventorySolutionsSection: React.FC = () => {
 
           {/* Right Content - Single Text Card */}
           <div ref={contentRef} className='flex min-w-0'>
-            <div className='bg-white p-8 rounded-xl shadow-md flex flex-col justify-center h-full w-full min-w-0 break-words'>
+            <div className='bg-white p-8 rounded-xl shadow-md flex flex-col justify-center h-full w-full min-w-0 wrap-break-words'>
               <H3 className='font-bold text-2xl text-gray-900 mb-4 border-none'>
-                {t('inventory_solutions.solutions.0.title')}
+                {t('inventory_solutions.solutions[0].title', { noWrap: true })}
               </H3>
               <P className='text-gray-700 leading-relaxed text-base mb-6 mt-0!'>
-                {t('inventory_solutions.solutions.0.description')}
+                {t('inventory_solutions.solutions[0].description', {
+                  noWrap: true,
+                })}
               </P>
               <div className='pt-6'>
                 <H3 className='font-semibold text-xl text-gray-900 mb-3 border-none'>
-                  {t('inventory_solutions.solutions.0.content.heading')}
+                  {t('inventory_solutions.solutions[0].content.heading', {
+                    noWrap: true,
+                  })}
                 </H3>
                 <P className='text-gray-600 leading-relaxed mb-6 mt-0!'>
-                  {t('inventory_solutions.solutions.0.content.text')}
+                  {t('inventory_solutions.solutions[0].content.text', {
+                    noWrap: true,
+                  })}
                 </P>
 
                 {/* Icons row at bottom */}
@@ -253,7 +261,8 @@ export const InventorySolutionsSection: React.FC = () => {
               <Image
                 src={displayedSolution.image}
                 alt={t(
-                  `inventory_solutions.solutions.${displayedSolution.index}.title`
+                  `inventory_solutions.solutions.${displayedSolution.index}.title`,
+                  { noWrap: true }
                 )}
                 fill
                 className='object-cover'
@@ -265,17 +274,23 @@ export const InventorySolutionsSection: React.FC = () => {
             {/* Content Card */}
             <div className='p-6'>
               <H3 className='font-bold text-xl text-gray-900 mb-3 border-none'>
-                {t('inventory_solutions.solutions.0.title')}
+                {t('inventory_solutions.solutions[0].title', { noWrap: true })}
               </H3>
               <P className='text-gray-600 leading-relaxed mb-4 mt-0!'>
-                {t('inventory_solutions.solutions.0.description')}
+                {t('inventory_solutions.solutions[0].description', {
+                  noWrap: true,
+                })}
               </P>
               <div className='border-t pt-4 mt-4'>
                 <H3 className='font-semibold text-lg text-gray-900 mb-3 border-none'>
-                  {t('inventory_solutions.solutions.0.content.heading')}
+                  {t('inventory_solutions.solutions[0].content.heading', {
+                    noWrap: true,
+                  })}
                 </H3>
                 <P className='text-gray-700 leading-relaxed mt-0!'>
-                  {t('inventory_solutions.solutions.0.content.text')}
+                  {t('inventory_solutions.solutions[0].content.text', {
+                    noWrap: true,
+                  })}
                 </P>
               </div>
             </div>

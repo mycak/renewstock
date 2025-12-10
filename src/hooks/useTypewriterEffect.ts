@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { gsap } from 'gsap';
 
 interface UseTypewriterEffectProps {
@@ -15,10 +15,29 @@ export const useTypewriterEffect = ({
   showCursor = true,
 }: UseTypewriterEffectProps) => {
   const containerRef = useRef<HTMLElement>(null);
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const cursorTimelineRef = useRef<gsap.core.Timeline | null>(null);
+
+  // Memoize texts array comparison
+  const textsKey = texts.join('|');
+
+  const cleanup = useCallback(() => {
+    if (timelineRef.current) {
+      timelineRef.current.kill();
+      timelineRef.current = null;
+    }
+    if (cursorTimelineRef.current) {
+      cursorTimelineRef.current.kill();
+      cursorTimelineRef.current = null;
+    }
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+
+    // Clean up previous animations
+    cleanup();
 
     // Clear container
     container.innerHTML = '';
@@ -50,10 +69,13 @@ export const useTypewriterEffect = ({
 
     // Create timeline
     const tl = gsap.timeline({ delay });
+    timelineRef.current = tl;
 
     // Cursor animation
     if (cursor) {
       const cursorTl = gsap.timeline({ repeat: -1 });
+      cursorTimelineRef.current = cursorTl;
+
       cursorTl
         .to(cursor, {
           opacity: 0,
@@ -89,13 +111,13 @@ export const useTypewriterEffect = ({
           },
         },
         index === 0 ? 0 : '+=0.2'
-      ); // Small delay between segments
+      );
     });
 
-    return () => {
-      tl.kill();
-    };
-  }, [texts, delay, typingSpeed, showCursor]);
+    return cleanup;
+    // textsKey is a stable string derived from texts array - using texts directly causes infinite loops
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [textsKey, delay, typingSpeed, showCursor, cleanup]);
 
   return containerRef;
 };
