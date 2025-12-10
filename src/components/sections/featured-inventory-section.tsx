@@ -137,7 +137,7 @@ export const FeaturedInventorySection: React.FC = () => {
               <div className='relative h-64 bg-gray-100 overflow-hidden image-container'>
                 <Image
                   src={item.image}
-                  alt={t(`featured_inventory.items[${index}].title`, {
+                  alt={t(`featured_inventory.items.${index}.title`, {
                     noWrap: true,
                   })}
                   fill
@@ -149,12 +149,12 @@ export const FeaturedInventorySection: React.FC = () => {
               {/* Content */}
               <div className='p-6'>
                 <H3 className='font-bold text-xl mb-3 text-gray-900 border-none'>
-                  {t(`featured_inventory.items[${index}].title`, {
+                  {t(`featured_inventory.items.${index}.title`, {
                     noWrap: true,
                   })}
                 </H3>
                 <P className='text-gray-600 leading-relaxed mb-6 mt-0!'>
-                  {t(`featured_inventory.items[${index}].description`, {
+                  {t(`featured_inventory.items.${index}.description`, {
                     noWrap: true,
                   })}
                 </P>

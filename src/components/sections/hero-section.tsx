@@ -66,7 +66,7 @@ export const HeroSection: React.FC = () => {
           <H2 className='font-bold leading-tight text-sm! sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl min-h-[3.4rem]'>
             <TypewriterText
               texts={Array.from(Array(7).keys()).map((i) =>
-                t(`hero.subheader.words[${i}]`, { noWrap: true })
+                t(`hero.subheader.words.${i}`, { noWrap: true })
               )}
               delay={0.3}
               typingSpeed={0.035}

@@ -171,21 +171,21 @@ export const InventorySolutionsSection: React.FC = () => {
           <div ref={contentRef} className='flex min-w-0'>
             <div className='bg-white p-8 rounded-xl shadow-md flex flex-col justify-center h-full w-full min-w-0 wrap-break-words'>
               <H3 className='font-bold text-2xl text-gray-900 mb-4 border-none'>
-                {t('inventory_solutions.solutions[0].title', { noWrap: true })}
+                {t('inventory_solutions.solutions.0.title', { noWrap: true })}
               </H3>
               <P className='text-gray-700 leading-relaxed text-base mb-6 mt-0!'>
-                {t('inventory_solutions.solutions[0].description', {
+                {t('inventory_solutions.solutions.0.description', {
                   noWrap: true,
                 })}
               </P>
               <div className='pt-6'>
                 <H3 className='font-semibold text-xl text-gray-900 mb-3 border-none'>
-                  {t('inventory_solutions.solutions[0].content.heading', {
+                  {t('inventory_solutions.solutions.0.content.heading', {
                     noWrap: true,
                   })}
                 </H3>
                 <P className='text-gray-600 leading-relaxed mb-6 mt-0!'>
-                  {t('inventory_solutions.solutions[0].content.text', {
+                  {t('inventory_solutions.solutions.0.content.text', {
                     noWrap: true,
                   })}
                 </P>
@@ -274,21 +274,21 @@ export const InventorySolutionsSection: React.FC = () => {
             {/* Content Card */}
             <div className='p-6'>
               <H3 className='font-bold text-xl text-gray-900 mb-3 border-none'>
-                {t('inventory_solutions.solutions[0].title', { noWrap: true })}
+                {t('inventory_solutions.solutions.0.title', { noWrap: true })}
               </H3>
               <P className='text-gray-600 leading-relaxed mb-4 mt-0!'>
-                {t('inventory_solutions.solutions[0].description', {
+                {t('inventory_solutions.solutions.0.description', {
                   noWrap: true,
                 })}
               </P>
               <div className='border-t pt-4 mt-4'>
                 <H3 className='font-semibold text-lg text-gray-900 mb-3 border-none'>
-                  {t('inventory_solutions.solutions[0].content.heading', {
+                  {t('inventory_solutions.solutions.0.content.heading', {
                     noWrap: true,
                   })}
                 </H3>
                 <P className='text-gray-700 leading-relaxed mt-0!'>
-                  {t('inventory_solutions.solutions[0].content.text', {
+                  {t('inventory_solutions.solutions.0.content.text', {
                     noWrap: true,
                   })}
                 </P>
