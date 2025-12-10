@@ -2,18 +2,21 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H2, P } from '@/components/ui/typography';
 import { Button } from '@/components/ui/button';
+import { useTranslate } from '@tolgee/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const HeroCardSection: React.FC = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslate();
   const sectionRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  // Capture translation to trigger effect when it loads/changes
+  const title = t('hero_card.title', { noWrap: true });
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -21,29 +24,27 @@ export const HeroCardSection: React.FC = () => {
 
     if (!section || !card) return;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 60%',
-        end: 'bottom 40%',
-        toggleActions: 'play none none reverse',
-      },
-    });
-
-    tl.from(card, {
-      y: 100,
-      autoAlpha: 0,
-      scale: 0.95,
-      duration: 1,
-      ease: 'power3.out',
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger === section) trigger.kill();
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 60%',
+          end: 'bottom 40%',
+          toggleActions: 'play none none reverse',
+        },
       });
-    };
-  }, []);
+
+      tl.from(card, {
+        y: 100,
+        autoAlpha: 0,
+        scale: 0.95,
+        duration: 1,
+        ease: 'power3.out',
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [title]);
 
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
@@ -56,7 +57,7 @@ export const HeroCardSection: React.FC = () => {
     <section
       id='hero-card'
       ref={sectionRef}
-      className='py-20 px-4 bg-gradient-to-b from-white to-purple-50/30'
+      className='py-20 px-4 bg-linear-to-b from-white to-purple-50/30'
     >
       <div className='max-w-6xl mx-auto'>
         <div
@@ -69,14 +70,14 @@ export const HeroCardSection: React.FC = () => {
               src='/images/stock-4.jpg'
               alt='Join our platform'
               fill
-              className='object-cover transition-transform duration-[2000ms] group-hover:scale-105'
+              className='object-cover transition-transform duration-2000 group-hover:scale-105'
               sizes='(max-width: 1280px) 100vw, 1280px'
               priority
             />
 
             {/* Multi-layer Gradient Overlay for better text visibility */}
-            <div className='absolute inset-0 bg-gradient-to-br from-purple-900/60 via-purple-800/70 to-indigo-900/80' />
-            <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent' />
+            <div className='absolute inset-0 bg-linear-to-br from-purple-900/60 via-purple-800/70 to-indigo-900/80' />
+            <div className='absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent' />
 
             {/* Decorative blur elements */}
             <div className='absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl' />
@@ -87,10 +88,10 @@ export const HeroCardSection: React.FC = () => {
           <div className='absolute inset-0 flex flex-col items-center justify-center text-center p-6 md:p-12'>
             <div className='max-w-4xl backdrop-blur-sm bg-white/5 rounded-2xl p-6 md:p-10 border border-white/10'>
               <H2 className='font-black text-3xl md:text-4xl lg:text-5xl text-white mb-4 leading-tight drop-shadow-lg'>
-                {t('hero_card.title')}
+                {t('hero_card.title', { noWrap: true })}
               </H2>
               <P className='text-base md:text-lg lg:text-xl text-white/95 leading-relaxed mb-6 drop-shadow-md'>
-                {t('hero_card.description')}
+                {t('hero_card.description', { noWrap: true })}
               </P>
 
               <div className='flex flex-col sm:flex-row gap-3 justify-center items-center mb-8'>
@@ -99,7 +100,7 @@ export const HeroCardSection: React.FC = () => {
                   size='lg'
                   className='bg-white text-[#7E5BB5] hover:bg-purple-50 font-bold px-8 py-3 text-base rounded-xl shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105'
                 >
-                  {t('hero_card.cta_primary')}
+                  {t('hero_card.cta_primary', { noWrap: true })}
                 </Button>
               </div>
 
@@ -107,26 +108,26 @@ export const HeroCardSection: React.FC = () => {
               <div className='grid grid-cols-3 gap-4 pt-6 border-t border-white/20'>
                 <div>
                   <P className='text-2xl md:text-3xl font-black text-white mb-1'>
-                    {t('hero_card.stats.listings.value')}
+                    {t('hero_card.stats.listings.value', { noWrap: true })}
                   </P>
                   <P className='text-xs md:text-sm text-white/80'>
-                    {t('hero_card.stats.listings.label')}
+                    {t('hero_card.stats.listings.label', { noWrap: true })}
                   </P>
                 </div>
                 <div>
                   <P className='text-2xl md:text-3xl font-black text-white mb-1'>
-                    {t('hero_card.stats.msrp.value')}
+                    {t('hero_card.stats.msrp.value', { noWrap: true })}
                   </P>
                   <P className='text-xs md:text-sm text-white/80'>
-                    {t('hero_card.stats.msrp.label')}
+                    {t('hero_card.stats.msrp.label', { noWrap: true })}
                   </P>
                 </div>
                 <div>
                   <P className='text-2xl md:text-3xl font-black text-white mb-1'>
-                    {t('hero_card.stats.brands.value')}
+                    {t('hero_card.stats.brands.value', { noWrap: true })}
                   </P>
                   <P className='text-xs md:text-sm text-white/80'>
-                    {t('hero_card.stats.brands.label')}
+                    {t('hero_card.stats.brands.label', { noWrap: true })}
                   </P>
                 </div>
               </div>

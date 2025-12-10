@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
+import { useTranslate } from '@tolgee/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { H3, P } from '@/components/ui/typography';
@@ -10,7 +10,7 @@ import { H3, P } from '@/components/ui/typography';
 gsap.registerPlugin(ScrollTrigger);
 
 export const ImageCardsSection: React.FC = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslate();
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
 
@@ -23,74 +23,72 @@ export const ImageCardsSection: React.FC = () => {
 
     if (!section || !cards) return;
 
-    // Set initial state to visible
-    gsap.set(cards.querySelectorAll('.image-card'), {
-      autoAlpha: 1,
-    });
+    const ctx = gsap.context(() => {
+      gsap.set(cards.querySelectorAll('.image-card'), {
+        autoAlpha: 1,
+      });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 70%',
-        end: 'bottom 30%',
-        toggleActions: 'play none none reverse',
-      },
-    });
-
-    const cardElements = cards.querySelectorAll('.image-card');
-
-    // Animate each card from different horizontal directions with smoother motion
-    cardElements.forEach((card, index) => {
-      const direction =
-        index === 0
-          ? isMobile
-            ? -320
-            : -80
-          : index === 1
-          ? 0
-          : isMobile
-          ? 320
-          : 80; // left, center, right - reduced distance
-      const yOffset = index === 1 ? 60 : 30; // center card moves slightly more vertical
-
-      tl.from(
-        card,
-        {
-          x: direction,
-          y: yOffset,
-          opacity: 0,
-          duration: 0.6,
-          ease: 'power3.out',
-          clearProps: 'all',
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 70%',
+          end: 'bottom 30%',
+          toggleActions: 'play none none reverse',
         },
-        index * 0.12 // slightly faster stagger for smoother feel
-      );
-    });
+      });
+
+      const cardElements = cards.querySelectorAll('.image-card');
+
+      cardElements.forEach((card, index) => {
+        const direction =
+          index === 0
+            ? isMobile
+              ? -320
+              : -80
+            : index === 1
+            ? 0
+            : isMobile
+            ? 320
+            : 80;
+        const yOffset = index === 1 ? 60 : 30;
+
+        tl.from(
+          card,
+          {
+            x: direction,
+            y: yOffset,
+            opacity: 0,
+            duration: 0.6,
+            ease: 'power3.out',
+            clearProps: 'all',
+          },
+          index * 0.12
+        );
+      });
+    }, section);
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger === section) trigger.kill();
-      });
+      ctx.revert();
     };
   }, [isMobile]);
 
   const cards = [
     {
       image: '/images/stock-9.jpg',
-      titleKey: 'image_cards.cards.sellers.title',
-      descriptionKey: 'image_cards.cards.sellers.description',
+      title: t('image_cards.cards.sellers.title'),
+      description: t('image_cards.cards.sellers.description'),
       imagePosition: 'center',
     },
     {
       image: '/images/stock-5.jpg',
-      titleKey: 'image_cards.cards.buyers.title',
-      descriptionKey: 'image_cards.cards.buyers.description',
+      title: t('image_cards.cards.buyers.title'),
+      description: t('image_cards.cards.buyers.description'),
       imagePosition: 'top',
     },
     {
       image: '/images/stock-10.jpg',
-      titleKey: 'image_cards.cards.distribution.title',
-      descriptionKey: 'image_cards.cards.distribution.description',
+      title: t('image_cards.cards.distribution.title'),
+      description: t('image_cards.cards.distribution.description'),
       imagePosition: 'center',
     },
   ];
@@ -112,7 +110,7 @@ export const ImageCardsSection: React.FC = () => {
               <div className='absolute inset-0'>
                 <Image
                   src={card.image}
-                  alt={t(card.titleKey)}
+                  alt={card.title}
                   fill
                   className={`transition-transform duration-700 group-hover:scale-105 ${
                     card.imagePosition === 'top'
@@ -135,10 +133,10 @@ export const ImageCardsSection: React.FC = () => {
               {/* Content */}
               <div className='absolute inset-0 flex flex-col justify-end p-6'>
                 <H3 className='font-bold text-2xl text-white mb-3 leading-tight border-none'>
-                  {t(card.titleKey)}
+                  {card.title}
                 </H3>
                 <P className='text-white/90 text-base leading-relaxed mb-4 mt-0!'>
-                  {t(card.descriptionKey)}
+                  {card.description}
                 </P>
               </div>
             </div>

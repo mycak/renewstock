@@ -1,10 +1,10 @@
 import '@/styles/globals.css';
-import '@/lib/i18n'; // Initialize i18n
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
 import { Geist, Geist_Mono, Anton } from 'next/font/google';
+import { TolgeeProvider } from '@tolgee/react';
+import { tolgee } from '@/lib/i18n';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -24,20 +24,29 @@ const anton = Anton({
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const { i18n } = useTranslation();
-  
-  // Sync i18n language with Next.js router locale
+  const [isReady, setIsReady] = useState(false);
+
   useEffect(() => {
-    if (router.locale && router.locale !== i18n.language) {
-      i18n.changeLanguage(router.locale);
-    }
-  }, [router.locale, i18n]);
+    const initTolgee = async () => {
+      await tolgee.run();
+      await tolgee.changeLanguage(router.locale || 'en');
+      setIsReady(true);
+    };
+
+    initTolgee();
+  }, [router.locale]);
+
+  if (!isReady) {
+    return null;
+  }
 
   return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} ${anton.variable}`}
-    >
-      <Component {...pageProps} />
-    </div>
+    <TolgeeProvider tolgee={tolgee} fallback='Loading...'>
+      <div
+        className={`${geistSans.variable} ${geistMono.variable} ${anton.variable}`}
+      >
+        <Component {...pageProps} />
+      </div>
+    </TolgeeProvider>
   );
 }

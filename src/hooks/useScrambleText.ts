@@ -5,12 +5,12 @@ interface UseScrambleTextProps {
   text: string;
   delay?: number;
   duration?: number;
-  chars?: string; // Characters to use for scrambling ("upperCase", "lowerCase", "upperAndLowerCase", or custom string)
-  speed?: number; // How frequently scrambled characters are refreshed (default: 1)
-  revealDelay?: number; // Delay before revealing starts
-  rightToLeft?: boolean; // Reveal from right to left
-  delimiter?: string; // Character delimiter for word-by-word reveal
-  tweenLength?: boolean; // Whether to gradually tween the length difference
+  chars?: string;
+  speed?: number;
+  revealDelay?: number;
+  rightToLeft?: boolean;
+  delimiter?: string;
+  tweenLength?: boolean;
 }
 
 export const useScrambleText = ({
@@ -25,12 +25,23 @@ export const useScrambleText = ({
   tweenLength = true,
 }: UseScrambleTextProps) => {
   const elementRef = useRef<HTMLElement>(null);
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
 
-    // Helper function to get scramble characters based on chars parameter
+    // Clean up previous animation
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    if (timelineRef.current) {
+      timelineRef.current.kill();
+      timelineRef.current = null;
+    }
+
     const getScrambleChars = (charsType: string): string => {
       switch (charsType) {
         case 'upperCase':
@@ -40,7 +51,7 @@ export const useScrambleText = ({
         case 'upperAndLowerCase':
           return 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
         default:
-          return charsType; // Custom characters
+          return charsType;
       }
     };
 
@@ -50,28 +61,23 @@ export const useScrambleText = ({
     const originalLength = originalText.length;
     const targetLength = targetText.length;
 
-    // Create timeline with proper defaults
     const timeline = gsap.timeline({
       delay,
       defaults: { ease: 'none' },
     });
+    timelineRef.current = timeline;
 
-    // Set initial state
     element.textContent = originalText;
 
-    // Calculate reveal start time based on revealDelay
     const revealStartTime = revealDelay;
     const scrambleEndTime = duration;
-
-    let scrambleInterval: NodeJS.Timeout;
 
     timeline.to(
       {},
       {
         duration: scrambleEndTime,
         onStart: () => {
-          // Start scrambling animation
-          scrambleInterval = setInterval(() => {
+          intervalRef.current = setInterval(() => {
             const currentTime = timeline.time();
             const totalProgress = Math.min(currentTime / scrambleEndTime, 1);
             const revealProgress = Math.max(
@@ -88,7 +94,6 @@ export const useScrambleText = ({
                 )
               : targetLength;
 
-            // Determine how many characters to reveal
             const revealedCount = Math.floor(revealProgress * targetLength);
 
             for (let i = 0; i < currentLength; i++) {
@@ -97,17 +102,13 @@ export const useScrambleText = ({
                 : i < revealedCount;
 
               if (isRevealed && i < targetLength) {
-                // Character is revealed
                 if (delimiter && delimiter !== '') {
-                  // Word-by-word reveal logic could be implemented here
                   currentText += targetText[i];
                 } else {
                   currentText += targetText[i];
                 }
               } else if (i < targetLength) {
-                // Character is still scrambled
                 if (Math.random() < speed / 10) {
-                  // Speed affects scramble frequency
                   currentText +=
                     scrambleChars[
                       Math.floor(Math.random() * scrambleChars.length)
@@ -125,11 +126,12 @@ export const useScrambleText = ({
             if (element) {
               element.textContent = currentText;
             }
-          }, 50 / speed); // Speed affects update frequency
+          }, 50 / speed);
         },
         onComplete: () => {
-          if (scrambleInterval) {
-            clearInterval(scrambleInterval);
+          if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
           }
           if (element) {
             element.textContent = targetText;
@@ -139,10 +141,14 @@ export const useScrambleText = ({
     );
 
     return () => {
-      if (scrambleInterval) {
-        clearInterval(scrambleInterval);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
       }
-      timeline.kill();
+      if (timelineRef.current) {
+        timelineRef.current.kill();
+        timelineRef.current = null;
+      }
     };
   }, [
     text,

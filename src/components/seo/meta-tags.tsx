@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useTranslation } from 'react-i18next';
+import { useTranslate, useTolgee } from '@tolgee/react';
 import { useEffect } from 'react';
 import { Locale } from '@/lib/types/locale';
 
@@ -20,7 +20,9 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
   url,
   type = 'website',
 }) => {
-  const { t, i18n } = useTranslation('common');
+  const { t } = useTranslate();
+  const tolgee = useTolgee(['language']);
+  const currentLanguage = tolgee.getLanguage() || Locale.EN;
 
   // Use provided values or fallback to translations
   const metaTitle = title || t('seo.title');
@@ -54,7 +56,7 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
       <meta name='viewport' content='width=device-width, initial-scale=1' />
 
       {/* Language and Locale */}
-      <meta httpEquiv='content-language' content={i18n.language} />
+      <meta httpEquiv='content-language' content={currentLanguage} />
       <link rel='canonical' href={canonicalUrl} />
 
       {/* Alternate language links for SEO */}
@@ -79,7 +81,7 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
       <meta property='og:site_name' content='RenewStock' />
       <meta
         property='og:locale'
-        content={i18n.language === Locale.EN ? 'en_US' : 'pl_PL'}
+        content={currentLanguage === Locale.EN ? 'en_US' : 'pl_PL'}
       />
       <meta property='og:image:width' content='1200' />
       <meta property='og:image:height' content='630' />

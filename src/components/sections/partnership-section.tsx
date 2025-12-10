@@ -1,19 +1,22 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslate, useTolgee } from '@tolgee/react';
 import Image from 'next/image';
 import { H2, H3, P } from '@/components/ui/typography';
-import {
-  createScrollTimeline,
-  cleanupScrollTriggers,
-} from '@/lib/gsap-animations';
+import { createScrollTimeline } from '@/lib/gsap-animations';
+import { gsap } from 'gsap';
 
 export const PartnershipSection: React.FC = () => {
-  const { t, i18n } = useTranslation('common');
+  const { t } = useTranslate();
+  const tolgee = useTolgee(['language']);
+  const currentLanguage = tolgee.getLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
+
+  // Capture translation to trigger effect when it loads/changes
+  const headerText = t('partnership.header', { noWrap: true });
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -22,42 +25,42 @@ export const PartnershipSection: React.FC = () => {
 
     if (!section || !content || !image) return;
 
-    const tl = createScrollTimeline({
-      trigger: section,
-      start: 'top 70%',
-      end: 'bottom 30%',
-    });
+    const ctx = gsap.context(() => {
+      const tl = createScrollTimeline({
+        trigger: section,
+        start: 'top 70%',
+        end: 'bottom 30%',
+      });
 
-    // Animate content sliding in from left
-    tl.from(content, {
-      x: -60,
-      autoAlpha: 0,
-      duration: 0.9,
-      ease: 'power2.out',
-    });
-
-    // Animate image fading in
-    tl.from(
-      image,
-      {
+      // Animate content sliding in from left
+      tl.from(content, {
+        x: -60,
         autoAlpha: 0,
-        scale: 0.95,
         duration: 0.9,
         ease: 'power2.out',
-      },
-      '-=0.6'
-    );
+      });
 
-    return () => {
-      cleanupScrollTriggers(section);
-    };
-  }, [i18n.language]);
+      // Animate image fading in
+      tl.from(
+        image,
+        {
+          autoAlpha: 0,
+          scale: 0.95,
+          duration: 0.9,
+          ease: 'power2.out',
+        },
+        '-=0.6'
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [currentLanguage, headerText]);
 
   return (
     <section
       id='partnership'
       ref={sectionRef}
-      className='py-20 px-4 bg-gradient-to-br from-purple-50 via-white to-purple-50 overflow-hidden'
+      className='py-20 px-4 bg-linear-to-br from-purple-50 via-white to-purple-50 overflow-hidden'
     >
       <div className='max-w-7xl mx-auto'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
@@ -65,17 +68,17 @@ export const PartnershipSection: React.FC = () => {
           <div ref={contentRef} className='space-y-6'>
             <div className='space-y-4'>
               <P className='text-sm font-semibold tracking-wider text-[#5A3D85] uppercase mb-0! md:mb-4'>
-                {t('partnership.subheader')}
+                {t('partnership.subheader', { noWrap: true })}
               </P>
               <H2 className='font-black text-4xl md:text-4xl lg:text-5xl mb-6'>
-                {t('partnership.header')}
+                {t('partnership.header', { noWrap: true })}
               </H2>
             </div>
 
             <div className='bg-white p-6 md:p-8 rounded-lg shadow-md'>
               <div className='space-y-4'>
                 <div className='flex items-start gap-4'>
-                  <div className='flex-shrink-0 w-12 h-12 bg-[#7E5BB5] rounded-full flex items-center justify-center'>
+                  <div className='shrink-0 w-12 h-12 bg-[#7E5BB5] rounded-full flex items-center justify-center'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -92,16 +95,23 @@ export const PartnershipSection: React.FC = () => {
                   </div>
                   <div>
                     <H3 className='font-bold text-lg md:text-xl text-gray-900 mb-0'>
-                      {t('partnership.benefits.active_partnership.title')}
+                      {t('partnership.benefits.active_partnership.title', {
+                        noWrap: true,
+                      })}
                     </H3>
                     <P className='text-gray-700 text-base md:text-lg mt-0!'>
-                      {t('partnership.benefits.active_partnership.description')}
+                      {t(
+                        'partnership.benefits.active_partnership.description',
+                        {
+                          noWrap: true,
+                        }
+                      )}
                     </P>
                   </div>
                 </div>
 
                 <div className='flex items-start gap-4'>
-                  <div className='flex-shrink-0 w-12 h-12 bg-[#7E5BB5] rounded-full flex items-center justify-center'>
+                  <div className='shrink-0 w-12 h-12 bg-[#7E5BB5] rounded-full flex items-center justify-center'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -118,18 +128,21 @@ export const PartnershipSection: React.FC = () => {
                   </div>
                   <div>
                     <H3 className='font-bold text-lg md:text-xl text-gray-900 mb-0'>
-                      {t('partnership.benefits.full_accountability.title')}
+                      {t('partnership.benefits.full_accountability.title', {
+                        noWrap: true,
+                      })}
                     </H3>
                     <P className='text-gray-700 text-base md:text-lg mt-0!'>
                       {t(
-                        'partnership.benefits.full_accountability.description'
+                        'partnership.benefits.full_accountability.description',
+                        { noWrap: true }
                       )}
                     </P>
                   </div>
                 </div>
 
                 <div className='flex items-start gap-4'>
-                  <div className='flex-shrink-0 w-12 h-12 bg-[#7E5BB5] rounded-full flex items-center justify-center'>
+                  <div className='shrink-0 w-12 h-12 bg-[#7E5BB5] rounded-full flex items-center justify-center'>
                     <svg
                       className='w-6 h-6 text-white'
                       fill='none'
@@ -146,10 +159,14 @@ export const PartnershipSection: React.FC = () => {
                   </div>
                   <div>
                     <H3 className='font-bold text-lg md:text-xl text-gray-900 mb-0'>
-                      {t('partnership.benefits.long_term_growth.title')}
+                      {t('partnership.benefits.long_term_growth.title', {
+                        noWrap: true,
+                      })}
                     </H3>
                     <P className='text-gray-700 text-base md:text-lg mt-0!'>
-                      {t('partnership.benefits.long_term_growth.description')}
+                      {t('partnership.benefits.long_term_growth.description', {
+                        noWrap: true,
+                      })}
                     </P>
                   </div>
                 </div>
