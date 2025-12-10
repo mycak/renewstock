@@ -96,7 +96,7 @@ export const FeaturedInventorySection: React.FC = () => {
       image: '/images/stock-2.jpg',
     },
     {
-      image: '/images/stock-3.jpg',
+      image: '/images/ren-2.png',
     },
     {
       image: '/images/stock-4.jpg',
