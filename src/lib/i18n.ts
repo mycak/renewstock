@@ -1,18 +1,11 @@
-import {
-  Tolgee,
-  DevTools,
-  FormatSimple,
-  BackendFetch,
-} from '@tolgee/react';
+import { Tolgee, DevTools, FormatSimple, BackendFetch } from '@tolgee/react';
 import { DEFAULT_LOCALE } from './types/locale';
 
 export const ALL_LANGUAGES = ['en', 'pl'];
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
-const tolgeeInstance = Tolgee()
-  .use(FormatSimple())
-  .use(BackendFetch());
+const tolgeeInstance = Tolgee().use(FormatSimple()).use(BackendFetch());
 
 // DevTools only in development for security (prevents unauthorized translation editing)
 if (isDevelopment) {
