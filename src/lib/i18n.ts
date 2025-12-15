@@ -1,33 +1,37 @@
-import { Tolgee, DevTools, FormatSimple, BackendFetch } from '@tolgee/react';
+import {
+  Tolgee,
+  DevTools,
+  FormatSimple,
+  DevBackend,
+} from '@tolgee/react';
 import { DEFAULT_LOCALE } from './types/locale';
 
 export const ALL_LANGUAGES = ['en', 'pl'];
 
 const isDevelopment = process.env.NODE_ENV === 'development';
-const apiKey = process.env.NEXT_PUBLIC_TOLGEE_API_KEY;
-const apiUrl = process.env.NEXT_PUBLIC_TOLGEE_API_URL;
+const hasApiCredentials =
+  process.env.NEXT_PUBLIC_TOLGEE_API_KEY &&
+  process.env.NEXT_PUBLIC_TOLGEE_API_URL;
 
-const tolgeeInstance = Tolgee().use(FormatSimple());
+// Create Tolgee instance with base plugins
+const tolgeeBuilder = Tolgee().use(FormatSimple());
 
-// BackendFetch only when API credentials are available
-console.log('Tolgee API Key:', apiKey);
-console.log('Tolgee API URL:', apiUrl);
-if (apiKey && apiUrl) {
-  tolgeeInstance.use(BackendFetch());
+// DevBackend fetches translations from Tolgee API when credentials are available
+if (hasApiCredentials) {
+  tolgeeBuilder.use(DevBackend());
 }
 
-// DevTools only in development for security (prevents unauthorized translation editing)
+// DevTools only in development for in-context editing
 if (isDevelopment) {
-  tolgeeInstance.use(DevTools());
+  tolgeeBuilder.use(DevTools());
 }
 
-export const tolgee = tolgeeInstance.init({
+export const tolgee = tolgeeBuilder.init({
   availableLanguages: ALL_LANGUAGES,
   defaultLanguage: DEFAULT_LOCALE,
-  // API credentials for fetching translations
-  apiKey,
-  apiUrl,
-  // Fallback static data when API is not available
+  apiKey: process.env.NEXT_PUBLIC_TOLGEE_API_KEY,
+  apiUrl: process.env.NEXT_PUBLIC_TOLGEE_API_URL,
+  // Static data fallback when API is not available
   staticData: {
     en: () => import('./locales/en/common.json'),
     pl: () => import('./locales/pl/common.json'),
