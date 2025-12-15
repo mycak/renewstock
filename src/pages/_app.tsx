@@ -31,6 +31,8 @@ export default function App({ Component, pageProps }: AppProps) {
       await tolgee.run();
       await tolgee.changeLanguage(router.locale || 'en');
       console.log('Tolgee ready');
+      console.log(process.env.NEXT_PUBLIC_TOLGEE_API_KEY);
+      console.log(process.env.NEXT_PUBLIC_TOLGEE_API_URL);
       setIsReady(true);
     };
 
