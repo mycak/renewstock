@@ -30,8 +30,6 @@ export default function App({ Component, pageProps }: AppProps) {
     const initTolgee = async () => {
       await tolgee.run();
       await tolgee.changeLanguage(router.locale || 'en');
-      console.log('Tolgee ready', { tolgee });
-      console.log(tolgee.getAllRecords());
       setIsReady(true);
     };
 
