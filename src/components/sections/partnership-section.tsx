@@ -60,7 +60,7 @@ export const PartnershipSection: React.FC = () => {
     <section
       id='partnership'
       ref={sectionRef}
-      className='py-20 px-4 bg-linear-to-br from-purple-50 via-white to-purple-50 overflow-hidden'
+      className='py-8 md:py-20 px-4 bg-linear-to-br from-purple-50 via-white to-purple-50 overflow-hidden'
     >
       <div className='max-w-7xl mx-auto'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>

@@ -124,7 +124,7 @@ export const TrustedPlatformSection: React.FC = () => {
     <section
       id='trusted-platform'
       ref={sectionRef}
-      className='py-24 px-4 bg-[#7E5BB5] relative overflow-hidden'
+      className='py-8 md:py-24 px-4 bg-[#7E5BB5] relative overflow-hidden'
     >
       {/* Background Pattern */}
       <div className='absolute inset-0 opacity-10'>

@@ -97,7 +97,7 @@ export const ImageCardsSection: React.FC = () => {
     <section
       id='image-cards'
       ref={sectionRef}
-      className='py-20 px-4 bg-gray-50 overflow-hidden'
+      className='py-8 md:py-20 px-4 bg-gray-50 overflow-hidden'
     >
       <div className='max-w-7xl mx-auto'>
         <div ref={cardsRef} className='grid grid-cols-1 md:grid-cols-3 gap-6'>

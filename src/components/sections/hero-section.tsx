@@ -13,7 +13,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id='hero'
-      className='min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-white text-black'
+      className='min-h-screen flex flex-col items-center justify-center px-4 py-8 md:py-16 bg-white text-black'
     >
       {/* Animated Logo */}
       <div className='mb-8 md:mb-16'>

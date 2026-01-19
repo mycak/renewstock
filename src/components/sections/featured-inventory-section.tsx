@@ -107,7 +107,7 @@ export const FeaturedInventorySection: React.FC = () => {
     <section
       id='featured-inventory'
       ref={sectionRef}
-      className='py-20 px-4 bg-linear-to-b from-gray-50 to-white'
+      className='py-8 md:py-20 px-4 bg-linear-to-b from-gray-50 to-white'
     >
       <div className='max-w-7xl mx-auto'>
         {/* Header */}

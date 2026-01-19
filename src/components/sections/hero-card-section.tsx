@@ -57,7 +57,7 @@ export const HeroCardSection: React.FC = () => {
     <section
       id='hero-card'
       ref={sectionRef}
-      className='py-20 px-4 bg-linear-to-b from-white to-purple-50/30'
+      className='py-8 md:py-20 px-4 bg-linear-to-b from-white to-purple-50/30'
     >
       <div className='max-w-6xl mx-auto'>
         <div

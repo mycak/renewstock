@@ -133,7 +133,7 @@ export const InventorySolutionsSection: React.FC = () => {
     <section
       id='inventory-solutions'
       ref={sectionRef}
-      className='py-20 px-4 bg-linear-to-br from-purple-50/50 via-purple-100/30 to-purple-50/50'
+      className='py-8 md:py-20 px-4 bg-linear-to-br from-purple-50/50 via-purple-100/30 to-purple-50/50'
     >
       <div className='max-w-7xl mx-auto'>
         {/* Section Header */}

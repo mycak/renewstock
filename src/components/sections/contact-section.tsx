@@ -204,7 +204,7 @@ export const ContactSection: React.FC = () => {
     <section
       id='contact'
       ref={sectionRef}
-      className='py-20 px-4 bg-white text-black'
+      className='py-8 md:py-20 px-4 bg-white text-black'
     >
       <div className='max-w-6xl mx-auto text-center'>
         {/* Header */}
