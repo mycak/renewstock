@@ -31,6 +31,8 @@ export const InventorySolutionsSection: React.FC = () => {
 
     if (!section || !header) return;
 
+    const isMobile = window.innerWidth < 768;
+
     const ctx = gsap.context(() => {
       if (content && image) {
         gsap.set([content, image], { autoAlpha: 1 });
@@ -42,7 +44,7 @@ export const InventorySolutionsSection: React.FC = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: 'top 70%',
+          start: isMobile ? 'top 80%' : 'top 70%',
           end: 'bottom 30%',
           toggleActions: 'play none none reverse',
         },
@@ -54,8 +56,8 @@ export const InventorySolutionsSection: React.FC = () => {
 
       if (eyebrow) {
         tl.from(eyebrow, {
-          duration: 0.6,
-          y: 30,
+          duration: isMobile ? 0.8 : 0.6,
+          y: isMobile ? window.innerHeight * 0.1 : 30,
           opacity: 0,
           ease: 'power2.out',
         });
@@ -73,10 +75,10 @@ export const InventorySolutionsSection: React.FC = () => {
         tl.from(
           headerSplit.words,
           {
-            duration: 0.6,
-            y: 100,
+            duration: isMobile ? 0.8 : 0.6,
+            y: isMobile ? window.innerHeight * 0.15 : 100,
             opacity: 0,
-            stagger: 0.05,
+            stagger: isMobile ? 0.04 : 0.05,
             ease: 'power2.out',
           },
           '-=0.3'

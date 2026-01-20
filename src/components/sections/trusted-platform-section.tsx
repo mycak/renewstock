@@ -23,11 +23,13 @@ export const TrustedPlatformSection: React.FC = () => {
 
     if (!section || !header || !stats) return;
 
+    const isMobile = window.innerWidth < 768;
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: 'top 70%',
+          start: isMobile ? 'top 80%' : 'top 70%',
           end: 'bottom 30%',
           toggleActions: 'play none none reverse',
         },
@@ -39,9 +41,9 @@ export const TrustedPlatformSection: React.FC = () => {
       }
 
       tl.from(header, {
-        y: 40,
+        y: isMobile ? window.innerHeight * 0.3 : 40,
         autoAlpha: 0,
-        duration: 0.8,
+        duration: isMobile ? 1 : 0.8,
         ease: 'power2.out',
       });
 
@@ -49,11 +51,11 @@ export const TrustedPlatformSection: React.FC = () => {
       tl.from(
         statCards,
         {
-          y: 60,
+          y: isMobile ? window.innerHeight * 0.4 : 60,
           autoAlpha: 0,
-          scale: 0.9,
-          stagger: 0.2,
-          duration: 0.8,
+          scale: isMobile ? 0.85 : 0.9,
+          stagger: isMobile ? 0.15 : 0.2,
+          duration: isMobile ? 1 : 0.8,
           ease: 'back.out(1.2)',
         },
         '-=0.4'

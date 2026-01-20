@@ -24,22 +24,25 @@ export const HeroCardSection: React.FC = () => {
 
     if (!section || !card) return;
 
+    const isMobile = window.innerWidth < 768;
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: 'top 60%',
+          start: isMobile ? 'top 80%' : 'top 60%',
           end: 'bottom 40%',
           toggleActions: 'play none none reverse',
         },
       });
 
       tl.from(card, {
-        y: 100,
+        x: isMobile ? -window.innerWidth * 1.2 : 0,
+        y: isMobile ? 0 : 100,
         autoAlpha: 0,
-        scale: 0.95,
-        duration: 1,
-        ease: 'power3.out',
+        scale: isMobile ? 0.9 : 0.95,
+        duration: isMobile ? 1.2 : 1,
+        ease: isMobile ? 'power2.out' : 'power3.out',
       });
     }, sectionRef);
 

@@ -26,6 +26,7 @@ export const DefinesUsSection: React.FC = () => {
 
     if (!section || !header || !features) return;
 
+    const isMobile = window.innerWidth < 768;
     let headerSplit: SplitText | null = null;
     const featureSplits: SplitText[] = [];
 
@@ -33,7 +34,7 @@ export const DefinesUsSection: React.FC = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: 'top 70%',
+          start: isMobile ? 'top 80%' : 'top 70%',
           end: 'bottom 30%',
           toggleActions: 'play none none reverse',
         },
@@ -48,10 +49,10 @@ export const DefinesUsSection: React.FC = () => {
       cleanupSplitTextAria(header as HTMLElement, headerSplit);
 
       tl.from(headerSplit.words, {
-        duration: 0.5,
-        y: 100,
+        duration: isMobile ? 0.7 : 0.5,
+        y: isMobile ? window.innerHeight * 0.15 : 100,
         autoAlpha: 0,
-        stagger: 0.07,
+        stagger: isMobile ? 0.05 : 0.07,
         ease: 'power2.out',
       });
 
@@ -103,10 +104,10 @@ export const DefinesUsSection: React.FC = () => {
         tl.from(
           split.words,
           {
-            duration: 0.6,
-            y: 80,
+            duration: isMobile ? 0.8 : 0.6,
+            y: isMobile ? window.innerHeight * 0.12 : 80,
             autoAlpha: 0,
-            stagger: 0.175,
+            stagger: isMobile ? 0.12 : 0.175,
             ease: 'power2.out',
           },
           `-=${0.36}`
