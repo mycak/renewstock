@@ -58,7 +58,7 @@ export const TrustedPlatformSection: React.FC = () => {
           duration: isMobile ? 1 : 0.8,
           ease: 'back.out(1.2)',
         },
-        '-=0.4'
+        '-=0.4',
       );
 
       statCards.forEach((card) => {
@@ -77,7 +77,7 @@ export const TrustedPlatformSection: React.FC = () => {
                 snap: { textContent: 1 },
                 onUpdate: function () {
                   const currentValue = Math.floor(
-                    parseFloat(this.targets()[0].textContent)
+                    parseFloat(this.targets()[0].textContent),
                   );
                   if (finalValue.includes('K')) {
                     this.targets()[0].textContent = currentValue + 'K+';

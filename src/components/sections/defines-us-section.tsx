@@ -66,7 +66,7 @@ export const DefinesUsSection: React.FC = () => {
             transformOrigin: 'center',
             ease: 'power2.out',
           },
-          '-=0.18'
+          '-=0.18',
         );
       }
 
@@ -110,7 +110,7 @@ export const DefinesUsSection: React.FC = () => {
             stagger: isMobile ? 0.12 : 0.175,
             ease: 'power2.out',
           },
-          `-=${0.36}`
+          `-=${0.36}`,
         );
       });
     }, section);
@@ -131,7 +131,11 @@ export const DefinesUsSection: React.FC = () => {
   ];
 
   return (
-    <section id='defines-us' ref={sectionRef} className='py-8 md:py-20 px-4 bg-gray-50'>
+    <section
+      id='defines-us'
+      ref={sectionRef}
+      className='py-8 md:py-20 px-4 bg-gray-50'
+    >
       <div className='max-w-6xl mx-auto text-center'>
         {/* Header */}
         <H2

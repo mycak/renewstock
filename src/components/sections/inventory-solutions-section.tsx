@@ -81,7 +81,7 @@ export const InventorySolutionsSection: React.FC = () => {
             stagger: isMobile ? 0.04 : 0.05,
             ease: 'power2.out',
           },
-          '-=0.3'
+          '-=0.3',
         );
       }
 
@@ -95,7 +95,7 @@ export const InventorySolutionsSection: React.FC = () => {
             duration: 0.8,
             ease: 'power2.out',
           },
-          '-=0.2'
+          '-=0.2',
         ).from(
           content,
           {
@@ -104,7 +104,7 @@ export const InventorySolutionsSection: React.FC = () => {
             duration: 0.8,
             ease: 'power2.out',
           },
-          '-=0.6'
+          '-=0.6',
         );
       }
 
@@ -118,7 +118,7 @@ export const InventorySolutionsSection: React.FC = () => {
             duration: 0.8,
             ease: 'power2.out',
           },
-          '-=0.2'
+          '-=0.2',
         );
       }
     }, sectionRef);
@@ -158,7 +158,7 @@ export const InventorySolutionsSection: React.FC = () => {
                   src={displayedSolution.image}
                   alt={t(
                     `inventory_solutions.solutions.${displayedSolution.index}.title`,
-                    { noWrap: true }
+                    { noWrap: true },
                   )}
                   fill
                   className='object-cover'
@@ -264,7 +264,7 @@ export const InventorySolutionsSection: React.FC = () => {
                 src={displayedSolution.image}
                 alt={t(
                   `inventory_solutions.solutions.${displayedSolution.index}.title`,
-                  { noWrap: true }
+                  { noWrap: true },
                 )}
                 fill
                 className='object-cover'
